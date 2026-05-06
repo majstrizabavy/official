@@ -9,6 +9,259 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=20260504-cursor-pro-2">
   <link rel="stylesheet" href="css/projekty.css?v=20260414-polish-1">
+  <style>
+    .tournament-hub {
+      max-width: 1200px;
+      margin: 18px auto 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .tournament-tabs,
+    .tournament-strip,
+    .tournament-dashboard,
+    .tournament-categories,
+    .tournament-schedule {
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.012);
+    }
+
+    .tournament-tabs {
+      display: flex;
+      gap: 4px;
+      padding: 6px;
+      overflow-x: auto;
+      border-radius: 12px;
+      position: relative;
+      z-index: 1;
+      background: #090a08;
+    }
+
+    .tournament-tabs a {
+      flex: 0 0 auto;
+      min-height: 32px;
+      padding: 0 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      color: rgba(245,245,239,0.72);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .tournament-tabs a:hover {
+      color: var(--white);
+      background: rgba(var(--accent-rgb),0.04);
+    }
+
+    .tournament-tabs a.is-active {
+      color: #080a05;
+      background: var(--brand-primary);
+    }
+
+    .tournament-strip {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) repeat(4, minmax(120px, 0.7fr));
+      gap: 1px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .tournament-strip__cell {
+      min-height: 66px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #090a08;
+    }
+
+    .tournament-strip__label,
+    .tournament-section-label,
+    .tournament-category-tabs span,
+    .tournament-schedule li span {
+      color: rgba(216,255,90,0.62);
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .tournament-strip__value {
+      margin-top: 4px;
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .tournament-dashboard {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: 1px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .tournament-dashboard__main,
+    .tournament-dashboard__side {
+      padding: 18px;
+      background: #090a08;
+    }
+
+    .tournament-dashboard__main h2 {
+      margin-top: 8px;
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .tournament-dashboard__main p {
+      max-width: 760px;
+      margin-top: 10px;
+      color: rgba(245,245,239,0.66);
+      font-size: 15px;
+      font-weight: 650;
+      line-height: 1.58;
+    }
+
+    .tournament-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tournament-facts div {
+      min-height: 54px;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,0.055);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.012);
+      color: rgba(245,245,239,0.78);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .tournament-dashboard__side {
+      display: grid;
+      align-content: start;
+      gap: 8px;
+    }
+
+    .tournament-action {
+      min-height: 40px;
+      padding: 0 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(var(--accent-rgb),0.16);
+      border-radius: 999px;
+      color: rgba(245,245,239,0.86);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .tournament-action--primary {
+      background: linear-gradient(135deg, #efff97, var(--brand-primary));
+      color: #080a05;
+    }
+
+    .tournament-categories {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+    }
+
+    .tournament-category-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tournament-category-tabs span {
+      min-height: 32px;
+      padding: 0 12px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(var(--accent-rgb),0.1);
+      border-radius: 999px;
+      color: rgba(245,245,239,0.78);
+      background: rgba(var(--accent-rgb),0.025);
+    }
+
+    .tournament-schedule {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+      padding: 14px;
+      border-radius: 14px;
+    }
+
+    .tournament-schedule ul {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tournament-schedule li {
+      min-height: 54px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,0.055);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.012);
+    }
+
+    .tournament-schedule strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    @media (max-width: 900px) {
+      .tournament-strip,
+      .tournament-dashboard,
+      .tournament-schedule {
+        grid-template-columns: 1fr;
+      }
+
+      .tournament-facts,
+      .tournament-schedule ul {
+        grid-template-columns: 1fr;
+      }
+
+      .tournament-categories {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body class="project-page project-page--championship">
   <div id="cursor"></div>
@@ -39,7 +292,7 @@
   </div>
 
   <main class="page-shell">
-    <a href="projekty.html" class="project-back-link">&larr; Spat na Projekty MZ</a>
+    <a href="projekty.html" class="project-back-link">&larr; Späť na Projekty MZ</a>
 
     <!-- HERO SEKCIA -->
     <section class="project-detail-hero">
@@ -64,113 +317,82 @@
       </div>
     </section>
 
-    <div class="project-sections">
-      <!-- O PROJEKTE -->
-      <section class="project-section">
-        <div class="project-section__eyebrow">O projekte</div>
-        <h2 class="project-section__title">Co je MZ CHAMPIONSHIP</h2>
-        <p class="project-section__copy">Projekt MZ CHAMPIONSHIP je vytvoreny pre formaty, kde je dolezita zapojenost, napatie a dobra organizacia. Je postaveny na tom, ze sutaz ma byt zazitok, nie len vysledkova listina.</p>
-      </section>
-
-      <!-- PRE KOHO JE PROJEKT -->
-      <section class="project-section">
-        <div class="project-section__eyebrow">Pre koho je projekt</div>
-        <h2 class="project-section__title">Komu je urceny</h2>
-        <div class="project-section__grid">
-          <article class="project-info-card">
-            <div class="project-info-card__label">Firmy</div>
-            <h3 class="project-info-card__title">Pre teambuilding a timove eventy</h3>
-            <p class="project-info-card__copy">Format pre firmy, ktore chcu pohyb, zapojenie a prirodzenu timovu dynamiku.</p>
-          </article>
-          <article class="project-info-card">
-            <div class="project-info-card__label">Komunity</div>
-            <h3 class="project-info-card__title">Pre skupiny a sutazive publikum</h3>
-            <p class="project-info-card__copy">Projekt sa da rozsirit na rozne typy komunitnych, sportovych aj zazitkovych formatov.</p>
-          </article>
-          <article class="project-info-card">
-            <div class="project-info-card__label">Partneri</div>
-            <h3 class="project-info-card__title">Pre znacky a spoluprace</h3>
-            <p class="project-info-card__copy">Priestor na branding, ligove partnerstva a dlhodobe eventove formaty.</p>
-          </article>
+    <section class="tournament-hub">
+      <div class="tournament-strip" aria-label="Prehlad turnaja">
+        <div class="tournament-strip__cell">
+          <span class="tournament-strip__label">Turnaj</span>
+          <strong class="tournament-strip__value">MZ 3v3 Floorball Cup</strong>
         </div>
-      </section>
-
-      <!-- CO PROJEKT PONUKA -->
-      <section class="project-section">
-        <div class="project-section__eyebrow">Co projekt ponuka</div>
-        <h2 class="project-section__title">Vyhody, obsah a format</h2>
-        <div class="project-feature-list">
-          <article class="project-feature">
-            <div class="project-feature__index">01</div>
-            <h3 class="project-feature__title">Silne zapojenie</h3>
-            <p class="project-feature__copy">Hostia sa nestavaju len divakmi, ale su aktivnou sucastou celeho diania.</p>
-          </article>
-          <article class="project-feature">
-            <div class="project-feature__index">02</div>
-            <h3 class="project-feature__title">Format s emociou</h3>
-            <p class="project-feature__copy">Napatie, timovost a zazitok vytvaraju prirodzenu atmosferu a silne momenty.</p>
-          </article>
-          <article class="project-feature">
-            <div class="project-feature__index">03</div>
-            <h3 class="project-feature__title">Moznost rastu</h3>
-            <p class="project-feature__copy">Projekt je pripraveny na ligove formaty, serie alebo temovane sutazne edicie.</p>
-          </article>
+        <div class="tournament-strip__cell">
+          <span class="tournament-strip__label">Lokalita</span>
+          <strong class="tournament-strip__value">Zvolen</strong>
         </div>
-      </section>
-
-      <!-- GALERIA / VIZUAL -->
-      <section class="project-section">
-        <div class="project-section__eyebrow">Galeria a vizual</div>
-        <h2 class="project-section__title">Priestor na promo a zaznam projektu</h2>
-        <div class="project-visual-grid">
-          <article class="project-visual-card project-visual-card--wide">
-            <div class="project-visual-card__label">Hlavny teaser</div>
-            <h3 class="project-visual-card__title">Video alebo foto z turnaja</h3>
-            <p class="project-visual-card__copy">Priestor na hlavny vizual, teaser alebo aftermovie z buducich realizacii.</p>
-          </article>
-          <article class="project-visual-card">
-            <div class="project-visual-card__label">Sutaz</div>
-            <h3 class="project-visual-card__title">Timy a emocie</h3>
-            <p class="project-visual-card__copy">Miesto pre vizualy, ktore ukazu nasadenie a zazitok ucastnikov.</p>
-          </article>
-          <article class="project-visual-card">
-            <div class="project-visual-card__label">Branding</div>
-            <h3 class="project-visual-card__title">Partneri a scena</h3>
-            <p class="project-visual-card__copy">Priestor na buduce ukazky partnerov, dresov, scenografie a identity.</p>
-          </article>
+        <div class="tournament-strip__cell">
+          <span class="tournament-strip__label">Format</span>
+          <strong class="tournament-strip__value">3v3</strong>
         </div>
-      </section>
-
-      <!-- STAV PROJEKTU / DOSTUPNOST -->
-      <section class="project-section">
-        <div class="project-section__eyebrow">Stav a dostupnost</div>
-        <h2 class="project-section__title">Priestor na terminy a buduce ligy</h2>
-        <div class="project-status-grid">
-          <article class="project-status-card">
-            <h3 class="project-status-card__title">Turnaje</h3>
-            <p class="project-status-card__copy">Miesto na vypisanie konkretnych turnajov, kol a urovni projektu.</p>
-          </article>
-          <article class="project-status-card">
-            <h3 class="project-status-card__title">Terminy</h3>
-            <p class="project-status-card__copy">Pripraveny priestor na terminy, miesta a registracie.</p>
-          </article>
-          <article class="project-status-card">
-            <h3 class="project-status-card__title">Dostupnost</h3>
-            <p class="project-status-card__copy">Buduce info o kapacitach, partneroch a dalsich moznostiach zapojenia.</p>
-          </article>
+        <div class="tournament-strip__cell">
+          <span class="tournament-strip__label">Kategorie</span>
+          <strong class="tournament-strip__value">Deti + Open</strong>
         </div>
-      </section>
-    </div>
-
-    <!-- CTA SEKCIA -->
-    <section class="project-cta-band">
-      <div class="project-cta-band__copy">
-        <h3>Chcete rozbehnut MZ CHAMPIONSHIP?</h3>
-        <p>Ozvite sa nam a pripravime vam format turnaja, sutaze alebo serie, ktora bude mat energiu aj system.</p>
+        <div class="tournament-strip__cell">
+          <span class="tournament-strip__label">Organizator</span>
+          <strong class="tournament-strip__value">Majstri Zabavy</strong>
+        </div>
       </div>
-      <div class="project-cta-band__actions">
-        <a href="kontakt.html" class="btn-primary">Kontaktovat nas</a>
-        <a href="navrhni-si-akciu.html" class="btn-ghost">Navrhnut akciu</a>
+
+      <nav class="tournament-tabs" aria-label="Turnajová navigácia">
+        <a href="mz-championship-info.html">Info</a>
+        <a href="mz-championship-registracia.html">Registrácia</a>
+        <a href="mz-championship-pravidla.html">Pravidlá</a>
+        <a href="mz-championship-harmonogram.html">Harmonogram</a>
+        <a href="mz-championship-timy.html">Tímy</a>
+        <a href="mz-championship-statistiky.html">Štatistiky</a>
+        <a href="mz-championship-faq.html">FAQ</a>
+      </nav>
+
+      <div class="tournament-dashboard">
+        <div class="tournament-dashboard__main">
+          <div class="tournament-section-label">Zakladne info</div>
+          <h2>Sportovy turnajovy hub pre Zvolen.</h2>
+          <p>MZ 3v3 Floorball Cup je kompaktny dvojdnovy event s prehladnym formatom, registraciou timov a priestorom pre harmonogram, tabulky, timy a statistiky v dalsich krokoch.</p>
+          <div class="tournament-facts">
+            <div>street/event/festival atmosfera</div>
+            <div>detske a open timy</div>
+            <div>prehľadný format 3v3</div>
+          </div>
+        </div>
+        <aside class="tournament-dashboard__side" aria-label="Rychle odkazy">
+          <div class="tournament-section-label">Rychle odkazy</div>
+          <a href="mz-championship-registracia.html" class="tournament-action tournament-action--primary">Registrovať tím</a>
+          <a href="mz-championship-registracia.html" class="tournament-action">Registrovať detský tím</a>
+          <a href="mz-championship-registracia.html" class="tournament-action">Registrovať open tím</a>
+          <a href="kontakt.html" class="tournament-action">Kontaktovať organizátora</a>
+        </aside>
+      </div>
+
+      <div class="tournament-categories" aria-label="Turnajove kategorie">
+        <div class="tournament-section-label">Kategorie</div>
+        <div class="tournament-category-tabs">
+          <span>MZ 3v3 Deti</span>
+          <span>MZ 3v3 Open</span>
+        </div>
+      </div>
+
+      <div class="tournament-schedule">
+        <div>
+          <div class="tournament-section-label">Harmonogram preview</div>
+        </div>
+        <ul>
+          <li>
+            <span>Sobota</span>
+            <strong>detsky turnaj</strong>
+          </li>
+          <li>
+            <span>Nedela</span>
+            <strong>open turnaj</strong>
+          </li>
+        </ul>
       </div>
     </section>
   </main>
