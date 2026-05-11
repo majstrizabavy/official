@@ -6,16 +6,16 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <meta name="theme-color" content="#080a08">
   <title>Majstri Zábavy | Admin</title>
-  <meta name="description" content="Spolocny admin panel pre nove zakazky, navrhy klientom a akcie do kalendara.">
+  <meta name="description" content="Spoločný admin panel pre nové zákazky, návrhy klientom a akcie do kalendára.">
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260504-cursor-pro-2">
+  <link rel="stylesheet" href="css/style.css?v=20260511-nav-logo-1">
 </head>
-<body>
+<body class="admin-zone-body">
   <div id="cursor"></div>
   <div id="cursor-ring"></div>
 
   <nav id="navbar">
-    <a href="index.html" class="nav-logo" data-nav="home"><span class="nav-logo__main">MAJSTRI</span> <span class="nav-logo__accent">ZABAVY</span></a>
+    <a href="index.html" class="nav-logo" data-nav="home"><span class="nav-logo__mark" aria-hidden="true">MZ</span><span class="nav-logo__wordmark"><span class="nav-logo__main">MAJSTRI</span> <span class="nav-logo__accent">ZÁBAVY</span></span></a>
     <ul class="nav-links">
       <li><a href="admin.html" data-nav="admin">Admin</a></li>
       <li><a href="https://supabase.com/dashboard/project/cuvcypjsphkcpherljrw" target="_blank" rel="noreferrer noopener">Supabase</a></li>
@@ -32,16 +32,16 @@
 
   <main class="page-shell">
     <section class="admin-events-page admin-hub-page">
-      <div class="section-header reveal">
+      <div class="section-header admin-login-header reveal">
         <h2 class="section-title">ADMIN</h2>
         <div class="section-line"></div>
       </div>
 
-      <div class="admin-auth reveal" id="adminLoginShell">
+      <div class="admin-auth admin-login-panel reveal" id="adminLoginShell">
         <div class="admin-auth__copy">
-          <div class="admin-auth__eyebrow">Len pre interny tim</div>
-          <h1 class="admin-auth__title">Jedno miesto pre zakazky, navrhy klientom a kalendar.</h1>
-          <p class="admin-auth__text">Po prihlaseni uvidis nove zakazky, navrhy klientom aj akcie cakajuce na schvalenie.</p>
+          <div class="admin-auth__eyebrow">Len pre interný tím</div>
+          <h1 class="admin-auth__title">Jedno miesto pre zákazky, návrhy klientom a kalendár.</h1>
+          <p class="admin-auth__text">Po prihlásení uvidíš nové zákazky, návrhy klientom aj akcie čakajúce na schválenie.</p>
         </div>
 
         <form class="admin-auth__form" id="adminLoginForm">
@@ -56,7 +56,7 @@
           </label>
 
           <p class="admin-auth__status" id="adminStatus" aria-live="polite"></p>
-          <button type="submit" class="btn-primary admin-auth__submit">Prihlasit sa do adminu</button>
+          <button type="submit" class="btn-primary admin-auth__submit">Prihlásiť sa do adminu</button>
         </form>
       </div>
 

@@ -2,7 +2,12 @@
 const clientDashboardShell = document.getElementById('clientDashboardShell');
 const clientAuthForm = document.getElementById('clientAuthForm');
 const clientAuthStatus = document.getElementById('clientAuthStatus');
+const clientLoginTab = document.getElementById('clientLoginTab');
 const clientRegisterButton = document.getElementById('clientRegisterButton');
+const clientAuthTitle = document.getElementById('clientAuthTitle');
+const clientAuthIntro = document.getElementById('clientAuthIntro');
+const clientAuthSubmit = document.getElementById('clientAuthSubmit');
+const clientRegisterFields = document.querySelectorAll('.client-register-field');
 const clientLogoutButton = document.getElementById('clientLogoutButton');
 const clientRefreshButton = document.getElementById('clientRefreshButton');
 const clientCurrentUser = document.getElementById('clientCurrentUser');
@@ -15,6 +20,7 @@ const clientOrdersEmpty = document.getElementById('clientOrdersEmpty');
 let clientSession = null;
 let clientOrders = [];
 let clientOrdersHaveProgramColumns = true;
+let clientAuthMode = 'login';
 
 const CLIENT_ORDER_BASE_SELECT = [
   'id',
@@ -59,6 +65,39 @@ function setClientStatus(type, message) {
   if (!clientAuthStatus) return;
   clientAuthStatus.className = `admin-auth__status${type ? ` is-${type}` : ''}`;
   clientAuthStatus.textContent = message;
+}
+
+function setClientAuthMode(mode) {
+  clientAuthMode = mode === 'register' ? 'register' : 'login';
+  const isRegister = clientAuthMode === 'register';
+
+  if (clientLoginTab) {
+    clientLoginTab.classList.toggle('is-active', !isRegister);
+    clientLoginTab.setAttribute('aria-selected', String(!isRegister));
+  }
+
+  if (clientRegisterButton) {
+    clientRegisterButton.classList.toggle('is-active', isRegister);
+    clientRegisterButton.setAttribute('aria-selected', String(isRegister));
+  }
+
+  if (clientAuthTitle) clientAuthTitle.textContent = isRegister ? 'Registrácia' : 'Prihlásenie';
+  if (clientAuthIntro) {
+    clientAuthIntro.textContent = isRegister
+      ? 'Vytvor si účet a sleduj svoje návrhy, ponuky a akcie na jednom mieste.'
+      : 'Pristúp k svojim akciám, návrhom a ponukám.';
+  }
+  if (clientAuthSubmit) {
+    clientAuthSubmit.textContent = isRegister ? 'Vytvoriť účet' : 'Prihlásiť sa';
+    clientAuthSubmit.dataset.clientAuth = clientAuthMode;
+  }
+  clientRegisterFields.forEach((field) => {
+    field.hidden = !isRegister;
+  });
+
+  setClientStatus('', isRegister
+    ? 'Vyplň kontaktné údaje a heslo aspoň so 6 znakmi.'
+    : 'Prihlás sa do svojej klientskej zóny.');
 }
 
 function getClientSupabase() {
@@ -199,6 +238,7 @@ function renderClientStat(label, value, tone = '') {
 }
 
 function showClientLogin() {
+  setClientAuthMode('login');
   if (clientAuthShell) clientAuthShell.hidden = false;
   if (clientDashboardShell) clientDashboardShell.hidden = true;
 }
@@ -206,6 +246,8 @@ function showClientLogin() {
 function showClientDashboard(userEmail) {
   if (clientAuthShell) clientAuthShell.hidden = true;
   if (clientDashboardShell) clientDashboardShell.hidden = false;
+  if (clientAuthTitle) clientAuthTitle.textContent = 'Môj účet';
+  if (clientAuthIntro) clientAuthIntro.textContent = 'Tvoje návrhy, ponuky a potvrdené akcie na jednom mieste.';
   if (clientCurrentUser) {
     const safeEmail = window.MZSupabase.escapeHtml(userEmail || 'Môj účet');
     clientCurrentUser.innerHTML = `
@@ -415,6 +457,12 @@ async function submitClientProgramResponse(orderId, responseStatus, note) {
 
 async function handleClientAuth(event) {
   event.preventDefault();
+
+  if (clientAuthMode === 'register') {
+    await handleClientRegister();
+    return;
+  }
+
   const supabaseClient = getClientSupabase();
   if (!clientAuthForm || !supabaseClient) return;
 
@@ -440,14 +488,25 @@ async function handleClientRegister() {
   const formData = new FormData(clientAuthForm);
   const email = String(formData.get('email') || '').trim();
   const password = String(formData.get('password') || '');
+  const fullName = String(formData.get('full_name') || '').trim();
+  const phone = String(formData.get('phone') || '').trim();
 
-  if (!email || password.length < 6) {
-    setClientStatus('error', 'Zadaj email a heslo aspoň so 6 znakmi.');
+  if (!fullName || !email || password.length < 6) {
+    setClientStatus('error', 'Zadaj meno, email a heslo aspoň so 6 znakmi.');
     return;
   }
 
   setClientStatus('', 'Registrujem účet...');
-  const { data, error } = await supabaseClient.auth.signUp({ email, password });
+  const { data, error } = await supabaseClient.auth.signUp({
+    email,
+    password,
+    options: {
+      data: {
+        full_name: fullName,
+        phone
+      }
+    }
+  });
 
   if (error) {
     setClientStatus('error', 'Registrácia sa nepodarila. Skús iný email alebo heslo.');
@@ -481,7 +540,8 @@ async function syncClientSession(session) {
 
 function bindClientZone() {
   if (clientAuthForm) clientAuthForm.addEventListener('submit', handleClientAuth);
-  if (clientRegisterButton) clientRegisterButton.addEventListener('click', handleClientRegister);
+  if (clientLoginTab) clientLoginTab.addEventListener('click', () => setClientAuthMode('login'));
+  if (clientRegisterButton) clientRegisterButton.addEventListener('click', () => setClientAuthMode('register'));
   if (clientLogoutButton) clientLogoutButton.addEventListener('click', handleClientLogout);
   if (clientRefreshButton) clientRefreshButton.addEventListener('click', refreshClientOrdersSafely);
 
@@ -524,7 +584,7 @@ async function initClientZone() {
   if (!supabaseClient) return;
 
   bindClientZone();
-  setClientStatus('', 'Prihlás sa alebo si vytvor účet.');
+  setClientAuthMode('login');
 
   const {
     data: { session }

@@ -197,11 +197,43 @@ nav {
   font-family: var(--font-display);
   display: inline-flex;
   align-items: center;
-  gap: 0.28em;
+  gap: 0.52em;
   font-weight: 850; font-size: 18px; letter-spacing: 0.02em;
   color: rgba(245,245,239,0.98);
   text-decoration: none;
 }
+
+.nav-logo__mark {
+  width: 38px;
+  height: 38px;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid rgba(var(--accent-rgb), 0.92);
+  border-radius: 13px;
+  background:
+    radial-gradient(circle at 38% 22%, rgba(255,255,255,0.18), transparent 34%),
+    linear-gradient(145deg, rgba(10,20,8,0.98), rgba(2,5,2,0.98));
+  color: #d8ff5a;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.08),
+    0 0 16px rgba(var(--accent-rgb), 0.22),
+    0 0 30px rgba(var(--accent-deep-rgb), 0.14);
+  text-shadow: 0 0 12px rgba(var(--accent-rgb), 0.42);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.nav-logo__wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.28em;
+}
+
 .nav-logo__main {
   color: rgba(245,245,239,0.98);
 }
@@ -1056,6 +1088,16 @@ section { position: relative; z-index: 10; }
 
 /* ===== 10. INSPIRACIA - VIDEO REELS ===== */
 #inspiracia { padding: 100px 40px; }
+.inspiration-hero-subtitle {
+  max-width: 680px;
+  margin: 14px auto 0;
+  color: rgba(245, 245, 239, 0.72);
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 650;
+  line-height: 1.5;
+  text-align: center;
+}
+
 .inspiration-intro {
   max-width: 560px;
   margin: 16px auto 0;
@@ -1557,6 +1599,7 @@ section { position: relative; z-index: 10; }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 18px;
   margin-top: 24px;
   padding-top: 18px;
@@ -6601,6 +6644,16 @@ nav {
   color: rgba(255,255,255,1);
 }
 
+.nav-logo:hover .nav-logo__mark,
+.nav-logo:focus-visible .nav-logo__mark {
+  transform: translateY(-1px);
+  border-color: rgba(var(--accent-rgb), 1);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.12),
+    0 0 18px rgba(var(--accent-rgb), 0.32),
+    0 0 36px rgba(var(--accent-deep-rgb), 0.2);
+}
+
 .nav-logo:hover .nav-logo__main,
 .nav-logo:focus-visible .nav-logo__main {
   color: rgba(255,255,255,1);
@@ -7594,6 +7647,13 @@ h1, h2, h3, h4, h5, h6 {
 .nav-logo {
   font-size: 17px;
   letter-spacing: 0.03em;
+}
+
+.nav-logo__mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  font-size: 15px;
 }
 
 .footer-logo {
@@ -9579,6 +9639,107 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(255, 255, 255, 0.03);
 }
 
+.admin-zone-body {
+  background: #000;
+}
+
+.admin-zone-body::before,
+.admin-zone-body::after {
+  opacity: 0;
+}
+
+.admin-hub-page {
+  width: min(1280px, calc(100vw - 48px));
+}
+
+.admin-login-header {
+  margin-bottom: 22px;
+}
+
+.admin-login-header .section-title {
+  font-size: clamp(32px, 5vw, 52px);
+}
+
+.admin-login-panel {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.56fr);
+  gap: clamp(34px, 6vw, 72px);
+  align-items: center;
+  min-height: 430px;
+  margin-top: 0;
+  padding: clamp(34px, 5vw, 50px);
+  border-color: rgba(var(--accent-rgb), 0.28);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(var(--accent-rgb), 0.12), transparent 30%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+    #080808;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 24px 70px rgba(0, 0, 0, 0.54);
+}
+
+.admin-login-panel .admin-auth__eyebrow {
+  color: var(--brand-primary);
+  letter-spacing: 0.18em;
+}
+
+.admin-login-panel .admin-auth__title {
+  max-width: 14ch;
+  color: #f5f5ef;
+  font-size: clamp(38px, 5.4vw, 62px);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+}
+
+.admin-login-panel .admin-auth__text {
+  max-width: 60ch;
+  color: rgba(245, 245, 239, 0.72);
+  font-size: 17px;
+}
+
+.admin-login-panel .admin-auth__form {
+  gap: 16px;
+  padding: 26px;
+  border-color: rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018)),
+    #101010;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.admin-login-panel .partner-form__field {
+  gap: 8px;
+}
+
+.admin-login-panel .partner-form__field span {
+  color: rgba(245, 245, 239, 0.86);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+}
+
+.admin-login-panel .admin-auth__form input {
+  min-height: 50px;
+  border-radius: 12px;
+  background: #0b0b0b;
+}
+
+.admin-login-panel .admin-auth__form input:focus {
+  border-color: rgba(var(--accent-rgb), 0.72);
+  box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.1);
+  transform: none;
+}
+
+.admin-login-panel .admin-auth__submit {
+  min-height: 54px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .admin-dashboard {
   margin-top: 42px;
   padding: clamp(22px, 2.6vw, 30px);
@@ -9860,10 +10021,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ===== Klientska zona: Moj ucet ===== */
+.client-zone-body {
+  background: #000;
+}
+
+.client-zone-body::before,
+.client-zone-body::after {
+  opacity: 0;
+}
+
 .client-zone-page {
-  width: min(1040px, calc(100vw - 40px));
+  width: min(920px, calc(100vw - 40px));
   margin: 0 auto;
-  padding: 96px 0 96px;
+  padding: 104px 0 86px;
   position: relative;
   z-index: 4;
 }
@@ -9974,6 +10144,177 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 6px;
   color: #f5f5ef;
   font-size: 15px;
+}
+
+.client-zone-hero--portal {
+  display: block;
+  min-height: 0;
+  margin: 0 auto 26px;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  text-align: center;
+  overflow: visible;
+}
+
+.client-zone-hero--portal::before {
+  display: none;
+}
+
+.client-zone-hero--portal .client-zone-hero__eyebrow {
+  color: var(--brand-primary);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.client-zone-hero--portal .client-zone-hero__title {
+  max-width: none;
+  margin: 12px 0 0;
+  color: #f5f5ef;
+  font-size: clamp(34px, 5.4vw, 52px);
+  line-height: 0.96;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.client-zone-hero--portal .client-zone-hero__text {
+  max-width: none;
+  margin: 10px 0 0;
+  color: rgba(245, 245, 239, 0.68);
+  font-size: clamp(15px, 1.8vw, 17px);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.client-auth-panel {
+  display: block;
+  width: min(440px, 100%);
+  margin: 0 auto;
+  padding: clamp(24px, 3.4vw, 28px);
+  border: 1px solid rgba(var(--accent-rgb), 0.72);
+  border-radius: 16px;
+  background: #050505;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.025),
+    0 0 24px rgba(var(--accent-rgb), 0.18),
+    0 16px 42px rgba(0, 0, 0, 0.58);
+}
+
+.client-auth-panel .admin-auth__form {
+  gap: 14px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+
+.client-auth-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.client-auth-tab {
+  min-width: 0;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 7px;
+  background: #080808;
+  color: rgba(245, 245, 239, 0.58);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.client-auth-tab.is-active,
+.client-auth-tab:hover,
+.client-auth-tab:focus-visible {
+  border-color: rgba(var(--accent-rgb), 0.72);
+  background: var(--brand-primary);
+  color: #040604;
+  box-shadow: 0 0 16px rgba(var(--accent-rgb), 0.16);
+}
+
+.client-auth-panel .partner-form__field {
+  gap: 0;
+}
+
+.client-auth-panel .partner-form__field span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.client-auth-panel .admin-auth__form input {
+  min-height: 50px;
+  padding: 13px 15px;
+  border-radius: 10px;
+  border-color: rgba(255, 255, 255, 0.18);
+  background: #121212;
+  color: #f5f5ef;
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.client-auth-panel .admin-auth__form input::placeholder {
+  color: rgba(180, 183, 192, 0.72);
+}
+
+.client-auth-panel .admin-auth__form input:focus {
+  border-color: rgba(var(--accent-rgb), 0.74);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.1);
+  transform: none;
+}
+
+.client-auth-actions {
+  margin-top: 0;
+}
+
+.client-auth-submit {
+  width: 100%;
+  min-height: 54px;
+  border-radius: 10px;
+  background: var(--brand-primary);
+  color: #040604;
+  font-size: 15px;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.16);
+}
+
+.client-auth-submit:hover,
+.client-auth-submit:focus-visible {
+  background: var(--brand-primary-bright);
+  box-shadow: 0 0 26px rgba(var(--accent-rgb), 0.24);
+}
+
+.client-auth-submit::before {
+  content: '↪';
+  margin-right: 10px;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.client-auth-panel .admin-auth__status {
+  min-height: 22px;
+  max-width: none;
+  text-align: center;
 }
 
 .client-dashboard {
@@ -10672,6 +11013,110 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 16px;
 }
 
+/* ===== Svet zabavy: cistejsi katalogovy vizual ===== */
+.world-clean-body {
+  background: #000;
+}
+
+.world-clean-body::before,
+.world-clean-body::after {
+  opacity: 0;
+}
+
+.world-clean-body .page-shell,
+.world-clean-body #svet-zabavy {
+  background: #000;
+}
+
+.world-clean-body .projects-hero--world-green {
+  min-height: 0;
+  margin-top: 18px;
+  margin-bottom: 34px;
+  padding: clamp(28px, 4.5vw, 48px) 0 12px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.world-clean-body .projects-hero--world-green::before,
+.world-clean-body .projects-hero--world-green::after {
+  display: none;
+}
+
+.world-clean-body .projects-hero__content {
+  max-width: 860px;
+}
+
+.world-clean-body .projects-hero__label {
+  color: var(--brand-primary);
+}
+
+.world-clean-body .projects-hero__title {
+  max-width: 760px;
+  color: #f5f5ef;
+  text-shadow: none;
+}
+
+.world-clean-body .projects-hero__subtitle {
+  max-width: 760px;
+  color: rgba(245, 245, 239, 0.68);
+}
+
+.world-clean-body .world-hero-tags {
+  margin-top: 24px;
+}
+
+.world-clean-body .world-hero-tags span {
+  border-color: rgba(var(--accent-rgb), 0.18);
+  background: rgba(var(--accent-rgb), 0.055);
+  color: rgba(245, 245, 239, 0.82);
+}
+
+.world-clean-body .projects-showcase {
+  margin-top: 0;
+}
+
+.world-clean-body .projects-showcase__card {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: #070707;
+  box-shadow: none;
+}
+
+.world-clean-body .projects-showcase__card::before,
+.world-clean-body .projects-showcase__card::after {
+  opacity: 0;
+}
+
+.world-clean-body .projects-showcase__card:hover {
+  border-color: rgba(var(--accent-rgb), 0.42);
+  background: #090909;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.36);
+}
+
+.world-clean-body .projects-showcase__media {
+  background: #111;
+}
+
+.world-clean-body .projects-showcase__media::before,
+.world-clean-body .projects-showcase__media::after {
+  opacity: 0;
+}
+
+.world-clean-body .projects-showcase__meta,
+.world-clean-body .projects-showcase__link {
+  color: var(--brand-primary);
+}
+
+.world-clean-body .project-cta-band {
+  border-color: rgba(var(--accent-rgb), 0.16);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.026), rgba(255, 255, 255, 0.012)),
+    #070707;
+  box-shadow: none;
+}
+
 @media (max-width: 1100px) {
   .partner-submit-layout,
   .admin-auth,
@@ -10787,6 +11232,22 @@ h1, h2, h3, h4, h5, h6 {
     padding: 24px 18px;
     border-radius: 24px;
     min-height: 0;
+  }
+
+  .client-zone-hero--portal {
+    padding: 0;
+  }
+
+  .client-zone-hero--portal .client-zone-hero__eyebrow {
+    letter-spacing: 0.16em;
+  }
+
+  .client-zone-hero--portal .client-zone-hero__title {
+    font-size: clamp(31px, 9vw, 40px);
+  }
+
+  .client-auth-panel {
+    padding: 22px 20px;
   }
 
   .client-zone-hero__tags {
