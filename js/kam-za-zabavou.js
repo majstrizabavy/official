@@ -85,6 +85,11 @@ function getFirstMonthWithEvents(cityKey = activePublicCity) {
   return firstEvent?.month || publicEventMonths[0].key;
 }
 
+function getFirstCityWithEvents() {
+  const firstEvent = getAllPublicEvents().find((eventItem) => Boolean(getPublicCity(eventItem.cityKey)));
+  return firstEvent?.cityKey || '';
+}
+
 function buildPublicEventUrl(eventItem) {
   const url = new URL(window.location.href);
   url.searchParams.set('mode', 'public');
@@ -542,6 +547,11 @@ async function loadApprovedPublicEvents() {
     publicEventsError = 'Akcie sa teraz nepodarilo načítať. Skús to prosím znova o chvíľu.';
   } finally {
     publicEventsLoaded = true;
+
+    if (!activePublicCity) {
+      activePublicCity = getFirstCityWithEvents();
+      activePublicMonth = activePublicCity ? getFirstMonthWithEvents(activePublicCity) : null;
+    }
 
     if (activePublicCity && !getPublicEventsForMonth(activePublicMonth, activePublicCity).length) {
       activePublicMonth = getFirstMonthWithEvents(activePublicCity);
