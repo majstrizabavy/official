@@ -180,19 +180,25 @@
       notes: guestCount ? `Počet hostí cca: ${guestCount}` : null
     };
 
-    const { error } = await supabaseClient
-      .from('client_requests')
-      .insert(payload);
+    try {
+      const { error } = await supabaseClient
+        .from('client_requests')
+        .insert(payload);
 
-    if (submitButton) {
-      submitButton.disabled = false;
-      submitButton.textContent = 'Odoslať dopyt';
-    }
-
-    if (error) {
+      if (error) {
+        console.error('[MZ quick advice] Insert into client_requests failed:', error);
+        setQuickAdviceStatus('error', 'Dopyt sa nepodarilo odoslať. Skúste to prosím znova.');
+        return;
+      }
+    } catch (error) {
       console.error('[MZ quick advice] Insert into client_requests failed:', error);
       setQuickAdviceStatus('error', 'Dopyt sa nepodarilo odoslať. Skúste to prosím znova.');
       return;
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Odoslať dopyt';
+      }
     }
 
     form.reset();

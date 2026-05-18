@@ -4189,7 +4189,6 @@ body.mz-overlay-open {
   }
 }
 
-/* Final wizard polish: quieter, darker, and more premium than the old neon panel. */
 .mz-section {
   background: linear-gradient(180deg, #090b10 0%, #0d1015 42%, #08090e 100%);
 }

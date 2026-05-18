@@ -331,14 +331,6 @@ function renderClientOrderCard(order) {
 
       <div class="client-order-card__body">
         ${offerIntro}
-        <div class="client-order-card__top">
-          <div>
-            <div class="client-order-card__eyebrow">${window.MZSupabase.escapeHtml(formatClientDate(order.event_date))}</div>
-            <h2 class="client-order-card__title">${safeTitle}</h2>
-          </div>
-          <span class="client-order-status is-${window.MZSupabase.escapeHtml(order.status || 'draft')}">${safeStatus}</span>
-        </div>
-
         <div class="client-order-card__meta">
           <div>
             <span>Miesto</span>

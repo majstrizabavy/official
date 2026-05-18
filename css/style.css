@@ -11181,17 +11181,11 @@ h1, h2, h3, h4, h5, h6 {
 .client-order-card[open] .client-order-card__open-text {
   border-color: rgba(245, 245, 239, 0.24);
   color: rgba(245, 245, 239, 0.78);
-}
-
-.client-order-card[open] .client-order-card__open-text::before {
-  content: 'Zavrieť';
-}
-
-.client-order-card[open] .client-order-card__open-text {
   font-size: 0;
 }
 
 .client-order-card[open] .client-order-card__open-text::before {
+  content: 'Zavrieť';
   font-size: 12px;
 }
 
