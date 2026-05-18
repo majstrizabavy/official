@@ -10433,13 +10433,6 @@ h1, h2, h3, h4, h5, h6 {
   pointer-events: none;
 }
 
-.client-zone-hero__content,
-.client-zone-hero__note,
-.client-zone-hero__tags {
-  position: relative;
-  z-index: 1;
-}
-
 .client-zone-hero__eyebrow,
 .client-order-card__eyebrow,
 .client-zone-section__eyebrow {
@@ -10468,47 +10461,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 18px;
   font-weight: 750;
   line-height: 1.65;
-}
-
-.client-zone-hero__tags {
-  display: grid;
-  gap: 12px;
-}
-
-.client-zone-hero__tags span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  padding: 0 16px;
-  border: 1px solid rgba(16, 21, 4, 0.15);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.2);
-  color: rgba(16, 21, 4, 0.82);
-  font-family: var(--font-ui);
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  line-height: 1.25;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.client-zone-hero__note {
-  max-width: 310px;
-  padding: 18px;
-  border-radius: 20px;
-  border: 1px solid rgba(199, 255, 46, 0.22);
-  background: rgba(8, 8, 8, 0.56);
-  color: rgba(245, 245, 239, 0.74);
-  font-size: 14px;
-}
-
-.client-zone-hero__note strong {
-  display: block;
-  margin-bottom: 6px;
-  color: #f5f5ef;
-  font-size: 15px;
 }
 
 .client-zone-hero--portal {
@@ -11613,14 +11565,6 @@ h1, h2, h3, h4, h5, h6 {
 
   .client-auth-panel {
     padding: 22px 20px;
-  }
-
-  .client-zone-hero__tags {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .client-zone-hero__note {
-    max-width: none;
   }
 
   .client-insight-panel {
