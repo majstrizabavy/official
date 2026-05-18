@@ -96,16 +96,31 @@
 
         <div class="client-insight-panel" id="clientInsightPanel" hidden></div>
         <div class="client-offer-summary" id="clientOfferSummary" hidden></div>
-        <div class="client-orders-heading" id="clientOrdersHeading" hidden>
+        <div class="client-portal-tabs" id="clientPortalTabs" role="tablist" aria-label="Prehľad klientskej zóny" hidden>
+          <button type="button" class="client-portal-tab is-active" data-client-panel="proposals" role="tab" aria-selected="true">
+            <span>Návrhy</span>
+            <strong data-client-tab-count="proposals">0</strong>
+          </button>
+          <button type="button" class="client-portal-tab" data-client-panel="approved" role="tab" aria-selected="false">
+            <span>Schválené ponuky</span>
+            <strong data-client-tab-count="approved">0</strong>
+          </button>
+          <button type="button" class="client-portal-tab" data-client-panel="benefits" role="tab" aria-selected="false">
+            <span>Benefity</span>
+            <strong data-client-tab-count="benefits">0</strong>
+          </button>
+        </div>
+
+        <div class="client-orders-heading" id="clientOrdersHeading" data-client-panel-section="orders" hidden>
           <div>
             <span>Tvoje akcie</span>
             <strong>Aktuálne návrhy a potvrdené programy</strong>
           </div>
         </div>
-        <div class="client-orders-list" id="clientOrdersList"></div>
-        <div class="admin-events-empty" id="clientOrdersEmpty" hidden>Zatiaľ tu nemáš priradenú žiadnu akciu.</div>
+        <div class="client-orders-list" id="clientOrdersList" data-client-panel-section="orders"></div>
+        <div class="admin-events-empty" id="clientOrdersEmpty" data-client-panel-section="orders" hidden>Zatiaľ tu nemáš priradenú žiadnu akciu.</div>
 
-        <section class="client-loyalty" aria-labelledby="clientLoyaltyTitle">
+        <section class="client-loyalty" id="clientBenefitsPanel" data-client-panel-section="benefits" aria-labelledby="clientLoyaltyTitle" hidden>
           <div class="client-loyalty__header">
             <div>
               <div class="client-zone-section__eyebrow">Klub klientov</div>
@@ -164,6 +179,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/main.js?v=20260504-cursor-pro-2"></script>
   <script src="js/supabase-config.js?v=20260424-supabase-events-1"></script>
-  <script src="js/moja-akcia.js?v=20260511-client-auth-tabs-1"></script>
+  <script src="js/moja-akcia.js?v=20260518-client-portal-tabs-1"></script>
 </body>
 </html>

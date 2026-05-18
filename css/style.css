@@ -10906,6 +10906,59 @@ h1, h2, h3, h4, h5, h6 {
   color: #d7ff4f;
 }
 
+.client-portal-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px 0 4px;
+  border-top: 1px solid rgba(245, 245, 239, 0.08);
+}
+
+.client-portal-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 17px;
+  border: 1px solid rgba(245, 245, 239, 0.12);
+  border-radius: 0;
+  background: rgba(245, 245, 239, 0.035);
+  color: rgba(245, 245, 239, 0.62);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.client-portal-tab:hover,
+.client-portal-tab:focus-visible {
+  border-color: rgba(215, 255, 79, 0.42);
+  color: #f5f5ef;
+}
+
+.client-portal-tab.is-active {
+  border-color: rgba(215, 255, 79, 0.92);
+  background: rgba(215, 255, 79, 0.11);
+  color: #d7ff4f;
+}
+
+.client-portal-tab strong {
+  min-width: 24px;
+  min-height: 24px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0 7px;
+  border: 1px solid currentColor;
+  color: inherit;
+  font-size: 11px;
+  line-height: 1;
+}
+
 .client-loyalty {
   display: grid;
   gap: 16px;
@@ -11541,6 +11594,16 @@ h1, h2, h3, h4, h5, h6 {
 
   .admin-dashboard__topbar-actions {
     width: 100%;
+  }
+
+  .client-portal-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .client-portal-tab {
+    width: 100%;
+    justify-content: space-between;
   }
 
   .client-zone-hero {

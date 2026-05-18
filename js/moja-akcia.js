@@ -13,14 +13,19 @@ const clientRefreshButton = document.getElementById('clientRefreshButton');
 const clientCurrentUser = document.getElementById('clientCurrentUser');
 const clientInsightPanel = document.getElementById('clientInsightPanel');
 const clientOfferSummary = document.getElementById('clientOfferSummary');
+const clientPortalTabs = document.getElementById('clientPortalTabs');
 const clientOrdersHeading = document.getElementById('clientOrdersHeading');
 const clientOrdersList = document.getElementById('clientOrdersList');
 const clientOrdersEmpty = document.getElementById('clientOrdersEmpty');
+const clientBenefitsPanel = document.getElementById('clientBenefitsPanel');
+const clientPanelSections = document.querySelectorAll('[data-client-panel-section]');
+const clientTabCounts = document.querySelectorAll('[data-client-tab-count]');
 
 let clientSession = null;
 let clientOrders = [];
 let clientOrdersHaveProgramColumns = true;
 let clientAuthMode = 'login';
+let clientActivePanel = 'proposals';
 
 const CLIENT_ORDER_BASE_SELECT = [
   'id',
@@ -150,6 +155,34 @@ function isOrderInCurrentMonth(order) {
 
 function isConfirmedClientOrder(order) {
   return (order.program_status || '') === 'confirmed' || (order.status || '') === 'confirmed';
+}
+
+function getClientProposalOrders() {
+  return clientOrders.filter((order) => !isConfirmedClientOrder(order));
+}
+
+function getClientApprovedOrders() {
+  return clientOrders.filter(isConfirmedClientOrder);
+}
+
+function getClientPanelOrders(panelName) {
+  return panelName === 'approved' ? getClientApprovedOrders() : getClientProposalOrders();
+}
+
+function getClientPanelTitle(panelName) {
+  return panelName === 'approved' ? 'Schválené ponuky' : 'Návrhy na rozhodnutie';
+}
+
+function getClientPanelSubtitle(panelName) {
+  return panelName === 'approved'
+    ? 'Akcie, ktoré už máš potvrdené alebo prijaté.'
+    : 'Ponuky a rozpracované návrhy, ktoré ti poslal náš tím.';
+}
+
+function getClientPanelEmptyText(panelName) {
+  return panelName === 'approved'
+    ? 'Zatiaľ tu nemáš žiadnu schválenú ponuku. Keď návrh prijmeš, presunie sa sem.'
+    : 'Zatiaľ tu nemáš žiadny nový návrh. Keď ti pripravíme ponuku, nájdeš ju tu.';
 }
 
 function getClientDisplayName() {
@@ -362,13 +395,15 @@ function renderClientOrders() {
   if (!clientOrdersList || !clientOrdersEmpty) return;
 
   renderClientInsight();
+  updateClientPortalTabs();
+  showClientPanel(clientActivePanel, { render: false });
 
   if (!clientOrders.length) {
     clientOrdersList.innerHTML = '';
-    clientOrdersEmpty.hidden = false;
+    clientOrdersEmpty.hidden = clientActivePanel === 'benefits';
     if (clientOfferSummary) clientOfferSummary.hidden = true;
     if (clientOrdersHeading) clientOrdersHeading.hidden = true;
-    clientOrdersEmpty.textContent = 'Zatiaľ tu nemáš žiadny návrh akcie. Keď ti pripravíme ponuku, nájdeš ju tu.';
+    clientOrdersEmpty.textContent = getClientPanelEmptyText(clientActivePanel);
     return;
   }
 
@@ -387,16 +422,62 @@ function renderClientOrders() {
     `;
   }
 
-  if (clientOrdersHeading) clientOrdersHeading.hidden = false;
+  if (clientOrdersHeading) {
+    const label = clientOrdersHeading.querySelector('span');
+    const title = clientOrdersHeading.querySelector('strong');
+    if (label) label.textContent = getClientPanelTitle(clientActivePanel);
+    if (title) title.textContent = getClientPanelSubtitle(clientActivePanel);
+    clientOrdersHeading.hidden = clientActivePanel === 'benefits';
+  }
 
-  const sortedOrders = clientOrders.slice().sort((first, second) => {
+  const visibleOrders = getClientPanelOrders(clientActivePanel);
+  const sortedOrders = visibleOrders.slice().sort((first, second) => {
     const priorityDiff = getClientOrderPriority(first) - getClientOrderPriority(second);
     if (priorityDiff) return priorityDiff;
     return String(second.created_at || '').localeCompare(String(first.created_at || ''));
   });
 
-  clientOrdersEmpty.hidden = true;
+  clientOrdersEmpty.hidden = sortedOrders.length > 0 || clientActivePanel === 'benefits';
+  clientOrdersEmpty.textContent = getClientPanelEmptyText(clientActivePanel);
   clientOrdersList.innerHTML = sortedOrders.map((order) => renderClientOrderCard(order)).join('');
+}
+
+function updateClientPortalTabs() {
+  if (clientPortalTabs) clientPortalTabs.hidden = false;
+
+  const counts = {
+    proposals: getClientProposalOrders().length,
+    approved: getClientApprovedOrders().length,
+    benefits: clientOrders.filter(isConfirmedClientOrder).length
+  };
+
+  clientTabCounts.forEach((item) => {
+    const key = item.dataset.clientTabCount;
+    item.textContent = String(counts[key] || 0);
+  });
+}
+
+function showClientPanel(panelName, { render = true } = {}) {
+  clientActivePanel = ['proposals', 'approved', 'benefits'].includes(panelName) ? panelName : 'proposals';
+
+  if (clientPortalTabs) {
+    clientPortalTabs.querySelectorAll('[data-client-panel]').forEach((tab) => {
+      const isActive = tab.dataset.clientPanel === clientActivePanel;
+      tab.classList.toggle('is-active', isActive);
+      tab.setAttribute('aria-selected', String(isActive));
+    });
+  }
+
+  clientPanelSections.forEach((section) => {
+    const sectionName = section.dataset.clientPanelSection;
+    const shouldShow = clientActivePanel === 'benefits'
+      ? sectionName === 'benefits'
+      : sectionName === 'orders';
+    section.hidden = !shouldShow;
+  });
+
+  if (clientBenefitsPanel) clientBenefitsPanel.hidden = clientActivePanel !== 'benefits';
+  if (render) renderClientOrders();
 }
 
 async function loadClientOrders() {
@@ -544,6 +625,13 @@ function bindClientZone() {
   if (clientRegisterButton) clientRegisterButton.addEventListener('click', () => setClientAuthMode('register'));
   if (clientLogoutButton) clientLogoutButton.addEventListener('click', handleClientLogout);
   if (clientRefreshButton) clientRefreshButton.addEventListener('click', refreshClientOrdersSafely);
+  if (clientPortalTabs) {
+    clientPortalTabs.addEventListener('click', (event) => {
+      const tab = event.target.closest('[data-client-panel]');
+      if (!tab) return;
+      showClientPanel(tab.dataset.clientPanel);
+    });
+  }
 
   document.querySelectorAll('.client-benefit-card').forEach((card) => {
     card.addEventListener('click', () => {
