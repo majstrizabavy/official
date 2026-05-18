@@ -306,6 +306,7 @@ function renderClientOrderCard(order) {
   const serviceMarkup = services.length
     ? services.map((item) => `<li>${window.MZSupabase.escapeHtml(item)}</li>`).join('')
     : '<li>Služby doplníme podľa návrhu.</li>';
+  const safePrice = window.MZSupabase.escapeHtml(formatClientPrice(order.price));
   const contactSubject = encodeURIComponent(`Úprava návrhu akcie / ${order.title || 'Môj účet'}`);
   const contactBody = encodeURIComponent(`Dobrý deň,\n\nchcem upraviť návrh akcie: ${order.title || 'Môj účet'}.\n\nĎakujem.`);
   const cardStateClass = canRespondToProgram ? ' is-new-offer' : '';
@@ -317,77 +318,89 @@ function renderClientOrderCard(order) {
     : '';
 
   return `
-    <article class="client-order-card${cardStateClass}">
-      ${offerIntro}
-      <div class="client-order-card__top">
-        <div>
-          <div class="client-order-card__eyebrow">${window.MZSupabase.escapeHtml(formatClientDate(order.event_date))}</div>
-          <h2 class="client-order-card__title">${safeTitle}</h2>
-        </div>
+    <details class="client-order-card${cardStateClass}">
+      <summary class="client-order-card__summary">
+        <span class="client-order-card__summary-main">
+          <span class="client-order-card__eyebrow">${window.MZSupabase.escapeHtml(formatClientDate(order.event_date))}</span>
+          <span class="client-order-card__title">${safeTitle}</span>
+        </span>
         <span class="client-order-status is-${window.MZSupabase.escapeHtml(order.status || 'draft')}">${safeStatus}</span>
-      </div>
+        <span class="client-order-card__summary-price">${safePrice}</span>
+        <span class="client-order-card__open-text" aria-hidden="true">Otvoriť</span>
+      </summary>
 
-      <div class="client-order-card__meta">
-        <div>
-          <span>Miesto</span>
-          <strong>${safeLocation}</strong>
-        </div>
-        <div>
-          <span>Cena</span>
-          <strong>${window.MZSupabase.escapeHtml(formatClientPrice(order.price))}</strong>
-        </div>
-      </div>
-
-      <div class="client-order-card__grid">
-        <div class="client-order-card__block">
-          <div class="client-order-card__label">Navrhované služby</div>
-          <ul>${serviceMarkup}</ul>
-        </div>
-        <div class="client-order-card__block">
-          <div class="client-order-card__label">Detaily a pokyny</div>
-          <p>${safeNotes}</p>
-        </div>
-      </div>
-
-      ${order.program_text ? `
-        <div class="client-program-panel">
-          <div class="client-order-card__top">
-            <div>
-              <div class="client-order-card__label">Návrh akcie</div>
-              <h3 class="client-program-panel__title">Ponuka od Majstrov zábavy</h3>
-            </div>
-            <span class="client-order-status is-${window.MZSupabase.escapeHtml(programStatus)}">${safeProgramStatus}</span>
+      <div class="client-order-card__body">
+        ${offerIntro}
+        <div class="client-order-card__top">
+          <div>
+            <div class="client-order-card__eyebrow">${window.MZSupabase.escapeHtml(formatClientDate(order.event_date))}</div>
+            <h2 class="client-order-card__title">${safeTitle}</h2>
           </div>
-          <p class="client-program-panel__text">${safeProgram}</p>
-          ${safeClientResponse ? `
-            <div class="client-program-panel__response">
-              <div class="client-order-card__label">Tvoja posledná reakcia</div>
-              <p>${safeClientResponse}</p>
-            </div>
-          ` : ''}
-          ${canRespondToProgram ? `
-            <form class="client-program-response" data-client-program-form="${order.id}">
-              <label class="partner-form__field">
-                <span>Poznámka pre náš tím</span>
-                <textarea name="note" rows="3" placeholder="Ak chceš úpravu, napíš nám jednoducho čo máme zmeniť."></textarea>
-              </label>
-              <div class="client-order-card__actions">
-                <button type="submit" class="btn-primary" data-client-program-response="confirmed">Prijímam návrh</button>
-                <button type="submit" class="btn-ghost" data-client-program-response="change_requested">Chcem úpravu</button>
-                <button type="submit" class="btn-ghost admin-action-btn--danger" data-client-program-response="rejected">Odmietam návrh</button>
-              </div>
-            </form>
-          ` : ''}
+          <span class="client-order-status is-${window.MZSupabase.escapeHtml(order.status || 'draft')}">${safeStatus}</span>
         </div>
-      ` : ''}
 
-      ${canRespondToProgram ? '' : `
-        <div class="client-order-card__actions">
-          <a class="btn-primary" href="mailto:info@majstrizabavy.sk?subject=${contactSubject}&body=${contactBody}">Chcem niečo upraviť</a>
-          <a class="btn-ghost" href="kontakt.html#kontakt">Kontakt</a>
+        <div class="client-order-card__meta">
+          <div>
+            <span>Miesto</span>
+            <strong>${safeLocation}</strong>
+          </div>
+          <div>
+            <span>Cena</span>
+            <strong>${safePrice}</strong>
+          </div>
         </div>
-      `}
-    </article>
+
+        <div class="client-order-card__grid">
+          <div class="client-order-card__block">
+            <div class="client-order-card__label">Navrhované služby</div>
+            <ul>${serviceMarkup}</ul>
+          </div>
+          <div class="client-order-card__block">
+            <div class="client-order-card__label">Detaily a pokyny</div>
+            <p>${safeNotes}</p>
+          </div>
+        </div>
+
+        ${order.program_text ? `
+          <div class="client-program-panel">
+            <div class="client-order-card__top">
+              <div>
+                <div class="client-order-card__label">Návrh akcie</div>
+                <h3 class="client-program-panel__title">Ponuka od Majstrov zábavy</h3>
+              </div>
+              <span class="client-order-status is-${window.MZSupabase.escapeHtml(programStatus)}">${safeProgramStatus}</span>
+            </div>
+            <p class="client-program-panel__text">${safeProgram}</p>
+            ${safeClientResponse ? `
+              <div class="client-program-panel__response">
+                <div class="client-order-card__label">Tvoja posledná reakcia</div>
+                <p>${safeClientResponse}</p>
+              </div>
+            ` : ''}
+            ${canRespondToProgram ? `
+              <form class="client-program-response" data-client-program-form="${order.id}">
+                <label class="partner-form__field">
+                  <span>Poznámka pre náš tím</span>
+                  <textarea name="note" rows="3" placeholder="Ak chceš úpravu, napíš nám jednoducho čo máme zmeniť."></textarea>
+                </label>
+                <div class="client-order-card__actions">
+                  <button type="submit" class="btn-primary" data-client-program-response="confirmed">Prijímam návrh</button>
+                  <button type="submit" class="btn-ghost" data-client-program-response="change_requested">Chcem úpravu</button>
+                  <button type="submit" class="btn-ghost admin-action-btn--danger" data-client-program-response="rejected">Odmietam návrh</button>
+                </div>
+              </form>
+            ` : ''}
+          </div>
+        ` : ''}
+
+        ${canRespondToProgram ? '' : `
+          <div class="client-order-card__actions">
+            <a class="btn-primary" href="mailto:info@majstrizabavy.sk?subject=${contactSubject}&body=${contactBody}">Chcem niečo upraviť</a>
+            <a class="btn-ghost" href="kontakt.html#kontakt">Kontakt</a>
+          </div>
+        `}
+      </div>
+    </details>
   `;
 }
 
@@ -552,7 +565,7 @@ async function handleClientAuth(event) {
   const password = String(formData.get('password') || '');
 
   setClientStatus('', 'Prihlasujem...');
-  const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+  const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
 
   if (error) {
     setClientStatus('error', 'Prihlásenie sa nepodarilo. Skontroluj email a heslo.');
@@ -560,6 +573,15 @@ async function handleClientAuth(event) {
   }
 
   setClientStatus('success', 'Prihlásenie prebehlo úspešne.');
+  if (data.session) {
+    await syncClientSession(data.session);
+    return;
+  }
+
+  const {
+    data: { session }
+  } = await supabaseClient.auth.getSession();
+  await syncClientSession(session);
 }
 
 async function handleClientRegister() {

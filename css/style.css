@@ -11094,13 +11094,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .client-order-card {
-  padding: clamp(22px, 4vw, 34px);
+  padding: 0;
   border-radius: 28px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background:
     radial-gradient(circle at top left, rgba(199, 255, 46, 0.11), transparent 34%),
     rgba(14, 14, 16, 0.92);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
 }
 
 .client-order-card .client-order-card__eyebrow {
@@ -11114,6 +11115,88 @@ h1, h2, h3, h4, h5, h6 {
     radial-gradient(circle at bottom right, rgba(152, 217, 27, 0.1), transparent 36%),
     rgba(14, 14, 16, 0.94);
   box-shadow: 0 26px 80px rgba(0, 0, 0, 0.34), 0 0 34px rgba(199, 255, 46, 0.08);
+}
+
+.client-order-card__summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) max-content minmax(120px, 0.45fr) max-content;
+  gap: clamp(12px, 2.4vw, 28px);
+  align-items: center;
+  min-height: 96px;
+  padding: 22px clamp(18px, 3.2vw, 30px);
+  cursor: pointer;
+  list-style: none;
+}
+
+.client-order-card__summary::-webkit-details-marker {
+  display: none;
+}
+
+.client-order-card__summary-main {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.client-order-card__summary .client-order-card__title {
+  display: block;
+  margin: 0;
+  overflow: hidden;
+  color: #f5f5ef;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 32px);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.client-order-card__summary-price {
+  color: #f5f5ef;
+  font-family: var(--font-display);
+  font-size: clamp(23px, 3.4vw, 38px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.client-order-card__open-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid rgba(215, 255, 79, 0.82);
+  color: #d7ff4f;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.client-order-card[open] .client-order-card__open-text {
+  border-color: rgba(245, 245, 239, 0.24);
+  color: rgba(245, 245, 239, 0.78);
+}
+
+.client-order-card[open] .client-order-card__open-text::before {
+  content: 'Zavrieť';
+}
+
+.client-order-card[open] .client-order-card__open-text {
+  font-size: 0;
+}
+
+.client-order-card[open] .client-order-card__open-text::before {
+  font-size: 12px;
+}
+
+.client-order-card__body {
+  padding: 0 clamp(18px, 3.2vw, 30px) clamp(22px, 4vw, 34px);
 }
 
 .client-new-offer-banner {
@@ -11604,6 +11687,25 @@ h1, h2, h3, h4, h5, h6 {
   .client-portal-tab {
     width: 100%;
     justify-content: space-between;
+  }
+
+  .client-order-card__summary {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .client-order-card__summary .client-order-card__title {
+    white-space: normal;
+  }
+
+  .client-order-card__summary-price {
+    text-align: left;
+  }
+
+  .client-order-card__open-text {
+    width: 100%;
   }
 
   .client-zone-hero {

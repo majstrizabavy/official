@@ -8,7 +8,7 @@
   <title>Majstri Zábavy | Navrhni si akciu</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=20260511-nav-logo-1">
-  <link rel="stylesheet" href="css/navrhni-si-akciu.css?v=20260505-orbit-glow-1">
+  <link rel="stylesheet" href="css/navrhni-si-akciu.css?v=20260518-quick-advice-local-1">
   <link rel="stylesheet" href="css/navrhni-si-akciu-followup.css?v=20260428-date-ios-inner-1">
 </head>
 <body>
@@ -256,6 +256,30 @@
           </div>
         </div>
       </div>
+
+      <form class="mz-quick-advice" id="mz-quick-advice-form">
+        <div class="mz-quick-advice__copy">
+          <div class="mz-quick-advice__eyebrow">Nechajte to na nás</div>
+          <h3>Nechcete riešiť čo, kde a ako?</h3>
+          <p>Nechajte to na Majstrov zábavy. Vyplňte pár údajov a my sa vám ozveme.</p>
+        </div>
+        <div class="mz-quick-advice__fields">
+          <label>
+            <span>Názov akcie</span>
+            <input type="text" name="title" placeholder="Napr. firemný deň" required>
+          </label>
+          <label>
+            <span>Počet hostí cca</span>
+            <input type="text" name="guest_count" placeholder="Napr. 120" inputmode="numeric">
+          </label>
+          <label>
+            <span>Kontakt na vás</span>
+            <input type="email" name="contact_email" placeholder="email@domena.sk" autocomplete="email" required>
+          </label>
+          <button type="submit" class="mz-quick-advice__submit">Odoslať dopyt</button>
+        </div>
+        <p class="mz-quick-advice__status" id="mz-quick-advice-status" aria-live="polite"></p>
+      </form>
     </section>
 
     <section class="mz-followup-section" id="planner-form" hidden>
@@ -520,7 +544,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/mz-cennik.js?v=20260405-komplet-discount-1"></script>
   <script src="js/supabase-config.js?v=20260427-client-requests-1"></script>
-  <script src="js/navrhni-si-akciu.js?v=20260505-orbit-glow-1"></script>
+  <script src="js/navrhni-si-akciu.js?v=20260518-quick-advice-local-1"></script>
   <script src="js/main.js?v=20260504-cursor-pro-2"></script>
 </body>
 </html>

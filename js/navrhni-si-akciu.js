@@ -118,6 +118,88 @@
     }[char]));
   }
 
+  function setQuickAdviceStatus(type, message) {
+    const status = document.getElementById('mz-quick-advice-status');
+    if (!status) return;
+    status.className = `mz-quick-advice__status${type ? ` is-${type}` : ''}`;
+    status.textContent = message;
+  }
+
+  function getQuickAdviceSupabaseClient() {
+    try {
+      return window.MZSupabase?.getClient?.() || null;
+    } catch (error) {
+      console.error('[MZ quick advice] Supabase client initialization failed:', error);
+      return null;
+    }
+  }
+
+  async function submitQuickAdvice(event) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const submitButton = form.querySelector('.mz-quick-advice__submit');
+    const formData = new FormData(form);
+    const title = String(formData.get('title') || '').trim();
+    const guestCount = String(formData.get('guest_count') || '').trim();
+    const contactEmail = String(formData.get('contact_email') || '').trim().toLowerCase();
+
+    if (!title || !contactEmail) {
+      setQuickAdviceStatus('error', 'Vyplňte názov akcie a kontakt na vás.');
+      return;
+    }
+
+    const supabaseClient = getQuickAdviceSupabaseClient();
+    if (!supabaseClient) {
+      setQuickAdviceStatus('error', 'Dopyt sa nepodarilo odoslať. Skúste nás prosím kontaktovať priamo.');
+      return;
+    }
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Odosielam...';
+    }
+    setQuickAdviceStatus('', 'Odosielame dopyt...');
+
+    const payload = {
+      status: 'pending',
+      contact_name: 'Rýchly dopyt',
+      contact_email: contactEmail,
+      contact_phone: null,
+      title,
+      event_date: null,
+      location: null,
+      audience: null,
+      guest_count: guestCount || null,
+      energy: null,
+      budget: null,
+      promo: null,
+      selected_variant: 'Odporúčanie od Majstrov zábavy',
+      selected_price: null,
+      services: 'Klient necháva odporúčanie programu na Majstrov zábavy.',
+      notes: guestCount ? `Počet hostí cca: ${guestCount}` : null
+    };
+
+    const { error } = await supabaseClient
+      .from('client_requests')
+      .insert(payload);
+
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Odoslať dopyt';
+    }
+
+    if (error) {
+      console.error('[MZ quick advice] Insert into client_requests failed:', error);
+      setQuickAdviceStatus('error', 'Dopyt sa nepodarilo odoslať. Skúste to prosím znova.');
+      return;
+    }
+
+    form.reset();
+    setQuickAdviceStatus('success', 'Ďakujeme, dopyt máme. Ozveme sa vám čo najskôr.');
+    showToast('Ďakujeme, ozveme sa vám čo najskôr.');
+  }
+
   function getEventName() {
     return wizardState.eventName.trim() || 'Akcia na mieru';
   }
@@ -494,6 +576,11 @@
       showWizardStep(wizardState.step + 1);
     });
   });
+
+  const quickAdviceForm = document.getElementById('mz-quick-advice-form');
+  if (quickAdviceForm) {
+    quickAdviceForm.addEventListener('submit', submitQuickAdvice);
+  }
 
   elements.eventNameInput.addEventListener('input', () => {
     wizardState.eventName = elements.eventNameInput.value.trim();
