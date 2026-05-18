@@ -471,7 +471,7 @@ async function handleClientAuth(event) {
   const password = String(formData.get('password') || '');
 
   setClientStatus('', 'Prihlasujem...');
-  const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+  const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
 
   if (error) {
     setClientStatus('error', 'Prihlásenie sa nepodarilo. Skontroluj email a heslo.');
@@ -479,6 +479,7 @@ async function handleClientAuth(event) {
   }
 
   setClientStatus('success', 'Prihlásenie prebehlo úspešne.');
+  await syncClientSession(data.session);
 }
 
 async function handleClientRegister() {
