@@ -41,6 +41,11 @@ create table if not exists public.client_orders (
   price numeric,
   services text,
   notes text,
+  program_text text,
+  program_status text not null default 'draft',
+  program_sent_at timestamptz,
+  client_response_note text,
+  client_response_at timestamptz,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   constraint client_orders_status_check check (
@@ -95,6 +100,10 @@ to authenticated
 using (public.is_admin())
 with check (public.is_admin());
 
+drop function if exists public.create_client_order_for_email(
+  text, text, date, text, text, numeric, text, text
+);
+
 create or replace function public.create_client_order_for_email(
   p_client_email text,
   p_title text,
@@ -103,7 +112,10 @@ create or replace function public.create_client_order_for_email(
   p_status text,
   p_price numeric,
   p_services text,
-  p_notes text
+  p_notes text,
+  p_program_text text default null,
+  p_program_status text default 'draft',
+  p_program_sent_at timestamptz default null
 )
 returns uuid
 language plpgsql
@@ -144,7 +156,10 @@ begin
     status,
     price,
     services,
-    notes
+    notes,
+    program_text,
+    program_status,
+    program_sent_at
   )
   values (
     v_user_id,
@@ -155,7 +170,14 @@ begin
     coalesce(nullif(p_status, ''), 'draft'),
     p_price,
     p_services,
-    p_notes
+    p_notes,
+    nullif(trim(coalesce(p_program_text, '')), ''),
+    coalesce(nullif(p_program_status, ''), 'draft'),
+    case
+      when coalesce(nullif(p_program_status, ''), 'draft') = 'sent'
+        then coalesce(p_program_sent_at, now())
+      else p_program_sent_at
+    end
   )
   returning id into v_order_id;
 
@@ -164,15 +186,15 @@ end;
 $$;
 
 revoke execute on function public.create_client_order_for_email(
-  text, text, date, text, text, numeric, text, text
+  text, text, date, text, text, numeric, text, text, text, text, timestamptz
 ) from public;
 
 revoke execute on function public.create_client_order_for_email(
-  text, text, date, text, text, numeric, text, text
+  text, text, date, text, text, numeric, text, text, text, text, timestamptz
 ) from anon;
 
 grant execute on function public.create_client_order_for_email(
-  text, text, date, text, text, numeric, text, text
+  text, text, date, text, text, numeric, text, text, text, text, timestamptz
 ) to authenticated;
 
 -- Priklad:

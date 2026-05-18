@@ -699,6 +699,16 @@ function getProgramPayloadFromForm() {
   };
 }
 
+function getOrderProgramFieldsForRpc(programPayload) {
+  if (!programPayload) return {};
+
+  return {
+    p_program_text: programPayload.program_text,
+    p_program_status: programPayload.program_status,
+    p_program_sent_at: programPayload.program_sent_at
+  };
+}
+
 function setOrderSavingState(isSaving) {
   if (!adminOrderSaveButton) return;
   adminOrderSaveButton.disabled = isSaving;
@@ -798,11 +808,16 @@ async function saveOrder(event) {
     const sourceRequestId = adminOrderForm?.dataset.sourceRequestId || '';
     const isApprovingRequest = Boolean(sourceRequestId && !orderId);
     const payload = getOrderPayload({ requireFinalPrice: isApprovingRequest });
+    const programPayload = getProgramPayloadFromForm();
     const saveMode = sourceRequestId && !orderId
       ? 'approve_client_request'
       : orderId
         ? 'update_client_order'
         : 'create_client_order_for_email';
+
+    if (!adminOrdersHaveProgramColumns && String(adminOrderProgram?.value || '').trim()) {
+      throw new Error('Program pre klienta sa neda ulozit, lebo v Supabase este chyba SQL migracia client-programs.sql.');
+    }
 
     setAdminOrderFormStatus('', 'Ukladam navrh...');
 
@@ -817,7 +832,8 @@ async function saveOrder(event) {
         p_price: payload.price,
         p_services: payload.services,
         p_notes: payload.notes,
-        p_admin_note: null
+        p_admin_note: null,
+        ...getOrderProgramFieldsForRpc(programPayload)
       });
     } else if (orderId) {
       request = supabaseClient.from('client_orders').update(payload).eq('id', orderId);
@@ -830,15 +846,42 @@ async function saveOrder(event) {
         p_status: payload.status,
         p_price: payload.price,
         p_services: payload.services,
-        p_notes: payload.notes
+        p_notes: payload.notes,
+        ...getOrderProgramFieldsForRpc(programPayload)
       });
     }
 
-    const { data, error } = await withSaveTimeout(request, saveMode);
+    let { data, error } = await withSaveTimeout(request, saveMode);
+    if (error && !orderId && /p_program_|schema cache|function .* not found|Could not find the function/i.test(String(error.message || ''))) {
+      const fallbackRequest = sourceRequestId
+        ? supabaseClient.rpc('approve_client_request', {
+            p_request_id: sourceRequestId,
+            p_title: payload.title,
+            p_event_date: payload.event_date,
+            p_location: payload.location,
+            p_status: payload.status,
+            p_price: payload.price,
+            p_services: payload.services,
+            p_notes: payload.notes,
+            p_admin_note: null
+          })
+        : supabaseClient.rpc('create_client_order_for_email', {
+            p_client_email: payload.client_email,
+            p_title: payload.title,
+            p_event_date: payload.event_date,
+            p_location: payload.location,
+            p_status: payload.status,
+            p_price: payload.price,
+            p_services: payload.services,
+            p_notes: payload.notes
+          });
+
+      ({ data, error } = await withSaveTimeout(fallbackRequest, `${saveMode}_legacy`));
+    }
+
     if (error) throw new Error(error.message || 'Navrh sa nepodarilo ulozit.');
 
     const createdOrderId = typeof data === 'string' ? data : '';
-    const programPayload = getProgramPayloadFromForm();
     if (!orderId && createdOrderId && programPayload && (programPayload.program_text || programPayload.program_status !== 'draft')) {
       const { error: programError } = await supabaseClient
         .from('client_orders')

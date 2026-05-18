@@ -90,6 +90,17 @@ using (
 );
 
 -- Aktualizovana verzia povoli vytvorit objednavku aj pred registraciou klienta.
+alter table public.client_orders
+add column if not exists program_text text,
+add column if not exists program_status text not null default 'draft',
+add column if not exists program_sent_at timestamptz,
+add column if not exists client_response_note text,
+add column if not exists client_response_at timestamptz;
+
+drop function if exists public.create_client_order_for_email(
+  text, text, date, text, text, numeric, text, text
+);
+
 create or replace function public.create_client_order_for_email(
   p_client_email text,
   p_title text,
@@ -98,7 +109,10 @@ create or replace function public.create_client_order_for_email(
   p_status text,
   p_price numeric,
   p_services text,
-  p_notes text
+  p_notes text,
+  p_program_text text default null,
+  p_program_status text default 'draft',
+  p_program_sent_at timestamptz default null
 )
 returns uuid
 language plpgsql
@@ -135,7 +149,10 @@ begin
     status,
     price,
     services,
-    notes
+    notes,
+    program_text,
+    program_status,
+    program_sent_at
   )
   values (
     v_user_id,
@@ -146,7 +163,14 @@ begin
     coalesce(nullif(p_status, ''), 'draft'),
     p_price,
     p_services,
-    p_notes
+    p_notes,
+    nullif(trim(coalesce(p_program_text, '')), ''),
+    coalesce(nullif(p_program_status, ''), 'draft'),
+    case
+      when coalesce(nullif(p_program_status, ''), 'draft') = 'sent'
+        then coalesce(p_program_sent_at, now())
+      else p_program_sent_at
+    end
   )
   returning id into v_order_id;
 
@@ -155,8 +179,12 @@ end;
 $$;
 
 grant execute on function public.create_client_order_for_email(
-  text, text, date, text, text, numeric, text, text
+  text, text, date, text, text, numeric, text, text, text, text, timestamptz
 ) to authenticated;
+
+drop function if exists public.approve_client_request(
+  uuid, text, date, text, text, numeric, text, text, text
+);
 
 create or replace function public.approve_client_request(
   p_request_id uuid,
@@ -167,7 +195,10 @@ create or replace function public.approve_client_request(
   p_price numeric,
   p_services text,
   p_notes text,
-  p_admin_note text
+  p_admin_note text,
+  p_program_text text default null,
+  p_program_status text default 'draft',
+  p_program_sent_at timestamptz default null
 )
 returns uuid
 language plpgsql
@@ -221,7 +252,10 @@ begin
     status,
     price,
     services,
-    notes
+    notes,
+    program_text,
+    program_status,
+    program_sent_at
   )
   values (
     null,
@@ -232,7 +266,14 @@ begin
     coalesce(nullif(p_status, ''), 'sent'),
     p_price,
     nullif(p_services, ''),
-    nullif(p_notes, '')
+    nullif(p_notes, ''),
+    nullif(trim(coalesce(p_program_text, '')), ''),
+    coalesce(nullif(p_program_status, ''), 'draft'),
+    case
+      when coalesce(nullif(p_program_status, ''), 'draft') = 'sent'
+        then coalesce(p_program_sent_at, now())
+      else p_program_sent_at
+    end
   )
   returning id into v_order_id;
 
@@ -259,5 +300,5 @@ end;
 $$;
 
 grant execute on function public.approve_client_request(
-  uuid, text, date, text, text, numeric, text, text, text
+  uuid, text, date, text, text, numeric, text, text, text, text, text, timestamptz
 ) to authenticated;
