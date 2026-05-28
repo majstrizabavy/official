@@ -1645,10 +1645,10 @@ section { position: relative; z-index: 10; }
 
 .activity-filter {
   flex: 0 0 auto;
-  border: 1px solid rgba(255,255,255,0.14);
+  border: 1px solid rgba(180,255,80,0.28);
   border-radius: 999px;
-  background: rgba(255,255,255,0.96);
-  color: #55584d;
+  background: rgba(180,255,80,0.12);
+  color: #efffd0;
   padding: 11px 16px;
   font-family: var(--font-ui);
   font-size: 10px;
@@ -1662,9 +1662,9 @@ section { position: relative; z-index: 10; }
 .activity-filter:hover,
 .activity-filter.is-active {
   color: #10120d;
-  border-color: rgba(126,169,20,0.45);
-  background: #ecff9d;
-  box-shadow: 0 10px 22px rgba(54,73,10,0.12);
+  border-color: rgba(180,255,80,0.88);
+  background: #b4ff50;
+  box-shadow: 0 10px 22px rgba(180,255,80,0.16);
 }
 
 .activity-filter:hover {
