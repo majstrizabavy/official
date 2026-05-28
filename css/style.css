@@ -1619,12 +1619,7 @@ section { position: relative; z-index: 10; }
 }
 
 .activity-tool {
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.08);
-  background:
-    radial-gradient(circle at 12% 0%, rgba(var(--accent-rgb), 0.08), transparent 26%),
-    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012));
-  overflow: hidden;
+  overflow: visible;
 }
 
 .activity-tool__status {
@@ -1653,15 +1648,12 @@ section { position: relative; z-index: 10; }
   position: relative;
   z-index: 1;
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 10px;
   overflow-x: auto;
-  padding: 16px;
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
+  padding: 0 0 18px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
-  background:
-    radial-gradient(circle at 8% 0%, rgba(var(--accent-rgb), 0.08), transparent 28%),
-    rgba(6,6,6,0.78);
+  background: transparent;
   scrollbar-width: none;
 }
 
@@ -1671,25 +1663,30 @@ section { position: relative; z-index: 10; }
 
 .activity-filter {
   flex: 0 0 auto;
-  border: 1px solid rgba(255,255,255,0.11);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 999px;
-  background: rgba(255,255,255,0.035);
-  color: rgba(245,245,239,0.72);
-  padding: 9px 13px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015)),
+    rgba(255,255,255,0.01);
+  color: var(--grey-light);
+  padding: 11px 16px;
   font-family: var(--font-ui);
   font-size: 10px;
   font-weight: 800;
-  letter-spacing: 1px;
+  letter-spacing: 1.4px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: color 0.18s, border-color 0.18s, background 0.18s, transform 0.18s;
+  transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .activity-filter:hover,
 .activity-filter.is-active {
   color: var(--white);
-  border-color: rgba(var(--accent-rgb), 0.34);
-  background: rgba(var(--accent-rgb), 0.12);
+  border-color: rgba(var(--accent-rgb), 0.26);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+    linear-gradient(160deg, rgba(11,11,11,0.995), rgba(6,6,6,0.99));
+  box-shadow: 0 12px 26px rgba(0,0,0,0.2);
 }
 
 .activity-filter:hover {
@@ -1698,9 +1695,8 @@ section { position: relative; z-index: 10; }
 
 .activity-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 10px;
-  padding: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
 }
 
 .activity-card {
@@ -1710,16 +1706,37 @@ section { position: relative; z-index: 10; }
   --activity-pill-text: var(--brand-highlight);
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  min-height: 184px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.09);
-  border-left: 5px solid var(--activity-accent);
+  gap: 0;
+  min-height: 236px;
+  border-radius: 24px;
+  border: 1px solid rgba(var(--accent-rgb), 0.12);
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018)),
-    linear-gradient(160deg, rgba(12,12,12,0.98), rgba(5,5,5,0.99));
-  padding: 15px;
-  box-shadow: 0 14px 34px rgba(0,0,0,0.22);
+    linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)),
+    linear-gradient(160deg, rgba(9,9,9,0.995), rgba(4,4,4,0.99));
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.16);
+  transition: transform 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.activity-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(var(--accent-rgb), 0.24);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.024), rgba(255,255,255,0.01)),
+    linear-gradient(160deg, rgba(11,11,11,0.995), rgba(5,5,5,0.99));
+  box-shadow: 0 18px 36px rgba(0,0,0,0.24);
+}
+
+.activity-card::before {
+  content: '';
+  width: 34px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--activity-accent);
+  box-shadow: 0 0 18px rgba(var(--accent-rgb), 0.18);
+  margin-bottom: 14px;
 }
 
 .activity-card.is-hidden {
@@ -1759,40 +1776,43 @@ section { position: relative; z-index: 10; }
 
 .activity-card__top {
   display: flex;
+  flex-direction: column-reverse;
   align-items: flex-start;
-  justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
 }
 
 .activity-card__top h4 {
   color: var(--white);
   font-family: var(--font-display);
-  font-size: 18px;
-  line-height: 1.12;
+  font-size: 21px;
+  line-height: 1.05;
   letter-spacing: 0;
 }
 
 .activity-card__top span {
   flex: 0 0 auto;
-  max-width: 46%;
+  max-width: 100%;
   border-radius: 999px;
   border: 1px solid var(--activity-pill-border);
   background: var(--activity-pill-bg);
   color: var(--activity-pill-text);
-  padding: 4px 9px;
+  padding: 5px 9px;
   font-family: var(--font-ui);
   font-size: 9px;
   font-weight: 800;
-  letter-spacing: 0.7px;
+  letter-spacing: 1.2px;
   line-height: 1.25;
   text-align: center;
   text-transform: uppercase;
 }
 
 .activity-card p {
-  color: rgba(245,245,239,0.72);
-  font-size: 14px;
-  line-height: 1.58;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: var(--grey-light);
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 .activity-card__meta {
@@ -1800,6 +1820,7 @@ section { position: relative; z-index: 10; }
   flex-wrap: wrap;
   gap: 6px;
   margin-top: auto;
+  padding-top: 14px;
 }
 
 .activity-card__meta span {
@@ -1807,9 +1828,11 @@ section { position: relative; z-index: 10; }
   border: 1px solid rgba(255,255,255,0.09);
   background: rgba(255,255,255,0.035);
   color: rgba(245,245,239,0.58);
-  padding: 4px 8px;
-  font-size: 12px;
+  padding: 5px 8px;
+  font-family: var(--font-ui);
+  font-size: 10px;
   font-weight: 700;
+  letter-spacing: 0.2px;
   line-height: 1.2;
 }
 
@@ -8085,14 +8108,19 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(var(--accent-rgb), 0.88);
 }
 
+@media (max-width: 1100px) {
+  .activity-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 720px) {
   .inspiration-section__head--activities {
     align-items: flex-start;
   }
 
   .activity-tool {
-    margin-inline: -10px;
-    border-radius: 16px;
+    margin-inline: 0;
   }
 
   .activity-tool__status {
@@ -8107,22 +8135,23 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .activity-filter-bar {
-    padding: 12px;
+    flex-wrap: nowrap;
+    padding: 0 0 14px;
   }
 
   .activity-grid {
     grid-template-columns: 1fr;
-    gap: 8px;
-    padding: 10px;
+    gap: 12px;
   }
 
   .activity-card {
     min-height: 0;
-    padding: 14px;
+    border-radius: 18px;
+    padding: 16px;
   }
 
   .activity-card__top h4 {
-    font-size: 16px;
+    font-size: 19px;
   }
 
   .activity-card p {
