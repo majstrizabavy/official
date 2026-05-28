@@ -322,9 +322,34 @@ document.querySelectorAll('[data-inspiration-filter-group]').forEach((group) => 
       button.classList.add('active');
 
       sections.forEach((section) => {
-        const matches = filter === 'all' || section.dataset.inspirationSection === filter;
+        const isActivityLibrary = section.dataset.inspirationSection === 'aktivity';
+        const matches = filter === 'all'
+          ? !isActivityLibrary
+          : section.dataset.inspirationSection === filter;
         section.classList.toggle('is-hidden', !matches);
       });
+    });
+  });
+});
+
+document.querySelectorAll('[data-activity-tool]').forEach((tool) => {
+  const filters = tool.querySelectorAll('[data-activity-filter]');
+  const cards = tool.querySelectorAll('[data-activity-cat]');
+
+  function setActivityFilter(filter) {
+    filters.forEach((item) => {
+      item.classList.toggle('is-active', item.dataset.activityFilter === filter);
+    });
+
+    cards.forEach((card) => {
+      const matches = filter === 'vsetko' || card.dataset.activityCat === filter;
+      card.classList.toggle('is-hidden', !matches);
+    });
+  }
+
+  filters.forEach((filterButton) => {
+    filterButton.addEventListener('click', () => {
+      setActivityFilter(filterButton.dataset.activityFilter || 'vsetko');
     });
   });
 });
