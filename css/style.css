@@ -7980,6 +7980,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #inspiracia .inspiration-filter-bar {
+  max-width: 1320px;
   border-bottom-color: rgba(255,255,255,0.08);
 }
 
@@ -8005,12 +8006,12 @@ h1, h2, h3, h4, h5, h6 {
 #inspiracia .inspiration-section {
   --section-glow-a: rgba(var(--accent-rgb), 0.045);
   --section-glow-b: rgba(255,255,255,0.015);
-  border-color: rgba(255,255,255,0.08);
-  background:
-    radial-gradient(circle at top right, var(--section-glow-a), transparent 24%),
-    linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008)),
-    linear-gradient(160deg, rgba(9,9,9,0.99), rgba(4,4,4,0.985));
-  box-shadow: 0 20px 56px rgba(0,0,0,0.24);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
 }
 
 #inspiracia .inspiration-section--video,
@@ -8020,6 +8021,17 @@ h1, h2, h3, h4, h5, h6 {
 #inspiracia .inspiration-section--entertainment {
   --section-glow-a: rgba(var(--accent-rgb), 0.045);
   --section-glow-b: rgba(255,255,255,0.015);
+}
+
+#inspiracia .inspiration-sections {
+  max-width: 1320px;
+  gap: clamp(34px, 5vw, 72px);
+}
+
+#inspiracia .reels-grid,
+#inspiracia .video-wall,
+#inspiracia .activity-grid {
+  max-width: none;
 }
 
 #inspiracia .inspiration-card {
@@ -8088,6 +8100,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 720px) {
+  #inspiracia {
+    padding: 82px 14px;
+  }
+
+  #inspiracia .inspiration-sections {
+    gap: 38px;
+  }
+
   .inspiration-section__head--activities {
     align-items: flex-start;
   }
