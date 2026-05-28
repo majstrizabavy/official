@@ -1622,28 +1622,6 @@ section { position: relative; z-index: 10; }
   overflow: visible;
 }
 
-.activity-tool__status {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 14px 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.activity-tool__status strong {
-  color: var(--white);
-  font-family: var(--font-display);
-  font-size: 18px;
-}
-
-.activity-tool__status span {
-  color: rgba(245,245,239,0.62);
-  font-size: 13px;
-  line-height: 1.45;
-  text-align: right;
-}
-
 .activity-filter-bar {
   position: relative;
   z-index: 1;
@@ -8121,17 +8099,6 @@ h1, h2, h3, h4, h5, h6 {
 
   .activity-tool {
     margin-inline: 0;
-  }
-
-  .activity-tool__status {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 4px;
-    padding: 13px 12px;
-  }
-
-  .activity-tool__status span {
-    text-align: left;
   }
 
   .activity-filter-bar {
