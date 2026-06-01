@@ -1617,6 +1617,198 @@ section { position: relative; z-index: 10; }
 .reels-cta__button {
   flex-shrink: 0;
 }
+
+.activity-tool {
+  margin-top: 18px;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.activity-filter-bar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 0 0 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: transparent;
+  scrollbar-width: none;
+}
+
+.activity-filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.activity-filter {
+  flex: 0 0 auto;
+  border: 1px solid rgba(180,255,80,0.28);
+  border-radius: 999px;
+  background: rgba(180,255,80,0.12);
+  color: #efffd0;
+  padding: 11px 16px;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.activity-filter:hover,
+.activity-filter.is-active {
+  color: #10120d;
+  border-color: rgba(180,255,80,0.88);
+  background: #b4ff50;
+  box-shadow: 0 10px 22px rgba(180,255,80,0.16);
+}
+
+.activity-filter:hover {
+  transform: translateY(-1px);
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.activity-card {
+  --activity-accent: #7ea914;
+  --activity-pill-bg: #edf7dc;
+  --activity-pill-border: #cfe7a1;
+  --activity-pill-text: #3c5a0b;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-height: 236px;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.76);
+  background: #ffffff;
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.22);
+  transition: transform 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.activity-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(126,169,20,0.28);
+  background: #ffffff;
+  box-shadow: 0 18px 38px rgba(0,0,0,0.28);
+}
+
+.activity-card::before {
+  content: '';
+  width: 34px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--activity-accent);
+  margin-bottom: 14px;
+}
+
+.activity-card.is-hidden {
+  display: none;
+}
+
+.activity-card--padak {
+  --activity-accent: #0f9e74;
+  --activity-pill-bg: #e1f5ee;
+  --activity-pill-border: #9ddbc8;
+  --activity-pill-text: #085041;
+}
+.activity-card--kuzele {
+  --activity-accent: #6c5ce7;
+  --activity-pill-bg: #eeedfe;
+  --activity-pill-border: #c4bffa;
+  --activity-pill-text: #3c3489;
+}
+.activity-card--bezpomucok {
+  --activity-accent: #4a9e1a;
+  --activity-pill-bg: #eaf3de;
+  --activity-pill-border: #bbd89a;
+  --activity-pill-text: #27500a;
+}
+.activity-card--rodicia {
+  --activity-accent: #d4537e;
+  --activity-pill-bg: #fbeaf0;
+  --activity-pill-border: #efb8ca;
+  --activity-pill-text: #72243e;
+}
+.activity-card--oddych {
+  --activity-accent: #c47a10;
+  --activity-pill-bg: #faeeda;
+  --activity-pill-border: #e7c28a;
+  --activity-pill-text: #633806;
+}
+
+.activity-card__top {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.activity-card__top h4 {
+  color: #171815;
+  font-family: var(--font-display);
+  font-size: 21px;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.activity-card__top span {
+  flex: 0 0 auto;
+  max-width: 100%;
+  border-radius: 999px;
+  border: 1px solid var(--activity-pill-border);
+  background: var(--activity-pill-bg);
+  color: var(--activity-pill-text);
+  padding: 5px 9px;
+  font-family: var(--font-ui);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  line-height: 1.25;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.activity-card p {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(22,22,18,0.1);
+  color: #55584d;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.activity-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.activity-card__meta span {
+  border-radius: 999px;
+  border: 1px solid rgba(22,22,18,0.1);
+  background: #f5f4f0;
+  color: #66695f;
+  padding: 5px 8px;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
+}
+
 .video-modal {
   position: fixed;
   inset: 0;
@@ -7788,6 +7980,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #inspiracia .inspiration-filter-bar {
+  max-width: 1320px;
   border-bottom-color: rgba(255,255,255,0.08);
 }
 
@@ -7813,12 +8006,12 @@ h1, h2, h3, h4, h5, h6 {
 #inspiracia .inspiration-section {
   --section-glow-a: rgba(var(--accent-rgb), 0.045);
   --section-glow-b: rgba(255,255,255,0.015);
-  border-color: rgba(255,255,255,0.08);
-  background:
-    radial-gradient(circle at top right, var(--section-glow-a), transparent 24%),
-    linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008)),
-    linear-gradient(160deg, rgba(9,9,9,0.99), rgba(4,4,4,0.985));
-  box-shadow: 0 20px 56px rgba(0,0,0,0.24);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
 }
 
 #inspiracia .inspiration-section--video,
@@ -7828,6 +8021,17 @@ h1, h2, h3, h4, h5, h6 {
 #inspiracia .inspiration-section--entertainment {
   --section-glow-a: rgba(var(--accent-rgb), 0.045);
   --section-glow-b: rgba(255,255,255,0.015);
+}
+
+#inspiracia .inspiration-sections {
+  max-width: 1320px;
+  gap: clamp(34px, 5vw, 72px);
+}
+
+#inspiracia .reels-grid,
+#inspiracia .video-wall,
+#inspiracia .activity-grid {
+  max-width: none;
 }
 
 #inspiracia .inspiration-card {
@@ -7887,6 +8091,54 @@ h1, h2, h3, h4, h5, h6 {
 
 #inspiracia .reel-play {
   background: rgba(var(--accent-rgb), 0.88);
+}
+
+@media (max-width: 1100px) {
+  .activity-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  #inspiracia {
+    padding: 82px 14px;
+  }
+
+  #inspiracia .inspiration-sections {
+    gap: 38px;
+  }
+
+  .inspiration-section__head--activities {
+    align-items: flex-start;
+  }
+
+  .activity-tool {
+    margin-inline: 0;
+  }
+
+  .activity-filter-bar {
+    flex-wrap: nowrap;
+    padding: 0 0 14px;
+  }
+
+  .activity-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .activity-card {
+    min-height: 0;
+    border-radius: 18px;
+    padding: 16px;
+  }
+
+  .activity-card__top h4 {
+    font-size: 19px;
+  }
+
+  .activity-card p {
+    font-size: 13px;
+  }
 }
 
 /* ===== HOME PROMISE BAND ===== */
