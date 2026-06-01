@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <meta name="theme-color" content="#080a08">
-  <title>Majstri Zábavy | MZ LETO</title>
+  <title>Letný klub Majstrov zábavy | MZ LETO</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=20260511-nav-logo-1">
   <link rel="stylesheet" href="css/projekty.css?v=20260414-polish-1">
+  <link rel="stylesheet" href="css/mz-leto.css?v=20260601-leto-klub-1">
 </head>
-<body class="project-page project-page--leto">
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
+<body class="project-page project-page--leto leto-club-page">
 
   <nav id="navbar">
     <a href="index.html" class="nav-logo" data-nav="home"><span class="nav-logo__mark" aria-hidden="true">MZ</span><span class="nav-logo__wordmark"><span class="nav-logo__main">MAJSTRI</span> <span class="nav-logo__accent">ZÁBAVY</span></span></a>
@@ -38,140 +37,179 @@
     <a href="navrhni-si-akciu.html" class="mobile-nav-cta" data-nav="navrhni-akciu" data-mobile-close>Navrhni si akciu</a>
   </div>
 
-  <main class="page-shell">
-    <a href="projekty.html" class="project-back-link">&larr; Spat na Projekty MZ</a>
+  <main class="leto-page" id="leto-klub">
+    <a href="projekty.html" class="leto-back-link">&larr; Späť na Projekty MZ</a>
 
-    <!-- HERO SEKCIA -->
-    <section class="project-detail-hero">
-      <div class="project-detail-hero__grid">
-        <div class="project-detail-hero__copy">
-          <div class="project-detail-kicker">Letny MZ projekt</div>
-          <h1 class="project-detail-title">MZ LETO</h1>
-          <p class="project-detail-headline">Letne tabory plne pohybu, zazitkov a zabavy.</p>
-          <p class="project-detail-copy">MZ LETO je format, v ktorom spajame aktivny program, komunitu a zazitky do dni, na ktore sa nezabuda. Je pripravovany tak, aby mal tah, atmosferu a silny timovy feeling.</p>
-          <div class="project-detail-actions">
-            <a href="kontakt.html" class="btn-primary">Zistit viac</a>
-            <a href="navrhni-si-akciu.html" class="btn-ghost">Navrhnut spolupracu</a>
-          </div>
+    <section class="leto-hero" aria-labelledby="leto-title">
+      <div class="leto-hero__photo" aria-hidden="true"></div>
+      <div class="leto-hero__copy">
+        <p class="leto-kicker">MZ LETO · Zvolen · 6. 7. – 31. 8.</p>
+        <h1 id="leto-title">Nie tábor. Letný klub na dni, ktoré potrebuješ.</h1>
+        <p class="leto-hero__lead">Dieťa nemusí zostať doma samo. Rodič neplatí celý týždeň.</p>
+        <div class="leto-hero__actions">
+          <a href="#prihlaska" class="leto-btn leto-btn--primary">Prihlásiť dieťa</a>
+          <a href="#cennik" class="leto-btn leto-btn--ghost">Cenník</a>
         </div>
-        <div class="project-detail-visual project-detail-visual--photo">
-          <img src="assets/images/projekty/mzleto.png" alt="MZ Leto hlavny vizual" class="project-detail-visual__image">
-          <div class="project-detail-visual__copy">
-            <div class="project-detail-visual__label">Pohyb. Zazitok. Partia.</div>
-            <p class="project-detail-visual__meta">Hlavny promo vizual projektu MZ LETO.</p>
-          </div>
+        <div class="leto-hero__hook">
+          <span>Novinka</span>
+          <strong>1 deň alebo letná kartička</strong>
+          <p>Vyberiete iba dni, ktoré reálne potrebujete.</p>
         </div>
+      </div>
+      <div class="leto-facts" aria-label="Základné informácie">
+        <article><span>Kedy</span><strong>Po – Pi</strong><small>7:30 – 15:30</small></article>
+        <article><span>Kde</span><strong>Zvolen</strong><small>Moja škola TROJKA</small></article>
+        <article><span>Vek</span><strong>9 – 15</strong><small>rokov</small></article>
+        <article><span>Cena</span><strong>od 12 €</strong><small>pri kartičke</small></article>
       </div>
     </section>
 
-    <div class="project-sections">
-      <!-- O PROJEKTE -->
-      <section class="project-section">
-        <div class="project-section__eyebrow">O projekte</div>
-        <h2 class="project-section__title">Co je MZ LETO</h2>
-        <p class="project-section__copy">Projekt MZ LETO je navrhnuty ako zazitkovy letny format, kde sa prepaja organizovana zabava, pohybove aktivity, timovy duch a bezpecne vedeny program. Je to priestor, kde sa energia a zazitky menia na spomienky.</p>
-      </section>
-
-      <!-- PRE KOHO JE PROJEKT -->
-      <section class="project-section">
-        <div class="project-section__eyebrow">Pre koho je projekt</div>
-        <h2 class="project-section__title">Komu je MZ LETO urceny</h2>
-        <div class="project-section__grid">
-          <article class="project-info-card">
-            <div class="project-info-card__label">Deti a mladez</div>
-            <h3 class="project-info-card__title">Pre tych, co chcu zazit leto naplno</h3>
-            <p class="project-info-card__copy">Program je pripraveny tak, aby drzal tempo, ale zaroven nechal priestor na radost, kamaratstva a prirodzene zazitky.</p>
-          </article>
-          <article class="project-info-card">
-            <div class="project-info-card__label">Rodicia</div>
-            <h3 class="project-info-card__title">Pre tych, co hladaju kvalitny program</h3>
-            <p class="project-info-card__copy">Jasna organizacia, vedeny tim a format, ktory ma obsah aj atmosferu.</p>
-          </article>
-          <article class="project-info-card">
-            <div class="project-info-card__label">Partneri</div>
-            <h3 class="project-info-card__title">Pre znacky a spoluprace</h3>
-            <p class="project-info-card__copy">Projekt je pripraveny aj na buduce partnerstva, zazitkove zapojenie a spolocne kampane.</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- CO PROJEKT PONUKA -->
-      <section class="project-section">
-        <div class="project-section__eyebrow">Co projekt ponuka</div>
-        <h2 class="project-section__title">Obsah, format a benefity</h2>
-        <div class="project-feature-list">
-          <article class="project-feature">
-            <div class="project-feature__index">01</div>
-            <h3 class="project-feature__title">Aktivny program</h3>
-            <p class="project-feature__copy">Pohyb, hry, sutaze a denny rytmus, ktory drzi energiu od rana do vecera.</p>
-          </article>
-          <article class="project-feature">
-            <div class="project-feature__index">02</div>
-            <h3 class="project-feature__title">Zazitkova atmosfera</h3>
-            <p class="project-feature__copy">Kazdy den ma mat svoj moment, vlastnu emociu a zazitok, na ktory sa bude spominat.</p>
-          </article>
-          <article class="project-feature">
-            <div class="project-feature__index">03</div>
-            <h3 class="project-feature__title">Silny tim</h3>
-            <p class="project-feature__copy">Vedenie, organizacia a ludia, ktori vedia tvorit zabavu aj prirodzenu dynamiku skupiny.</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- GALERIA / VIZUAL -->
-      <section class="project-section">
-        <div class="project-section__eyebrow">Galeria a vizual</div>
-        <h2 class="project-section__title">Priestor na buduce promo materialy</h2>
-        <div class="project-visual-grid">
-          <article class="project-visual-card project-visual-card--wide">
-            <div class="project-visual-card__label">Hlavny vizual</div>
-            <h3 class="project-visual-card__title">Hero foto alebo video</h3>
-            <p class="project-visual-card__copy">Sem vieme neskor vlozit hlavny promo vizual, video teaser alebo dynamicku galeriu z turnusov.</p>
-          </article>
-          <article class="project-visual-card">
-            <div class="project-visual-card__label">Program</div>
-            <h3 class="project-visual-card__title">Aktivity a zazitky</h3>
-            <p class="project-visual-card__copy">Miesto pre fotky z programu, sportu a dennodennej atmosfery.</p>
-          </article>
-          <article class="project-visual-card">
-            <div class="project-visual-card__label">Komunita</div>
-            <h3 class="project-visual-card__title">Ludia a momenty</h3>
-            <p class="project-visual-card__copy">Priestor na emocie, timovost a prirodzene momenty z MZ LETA.</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- STAV PROJEKTU / TERMINY -->
-      <section class="project-section">
-        <div class="project-section__eyebrow">Stav a dostupnost</div>
-        <h2 class="project-section__title">Turnusy, terminy a buduce doplnenie</h2>
-        <div class="project-status-grid">
-          <article class="project-status-card">
-            <h3 class="project-status-card__title">Turnusy</h3>
-            <p class="project-status-card__copy">Priestor pripraveny na vypisanie jednotlivych turnusov, vekovych kategorii a kapacit.</p>
-          </article>
-          <article class="project-status-card">
-            <h3 class="project-status-card__title">Terminy</h3>
-            <p class="project-status-card__copy">Sem sa budu doplnat konkretne datumy, miesta a organizacne detaily.</p>
-          </article>
-          <article class="project-status-card">
-            <h3 class="project-status-card__title">Dostupnost</h3>
-            <p class="project-status-card__copy">Priestor na info o prihlasovani, volnych miestach a dalsich aktualizaciach.</p>
-          </article>
-        </div>
-      </section>
-    </div>
-
-    <!-- CTA SEKCIA -->
-    <section class="project-cta-band">
-      <div class="project-cta-band__copy">
-        <h3>Chcete vediet viac o MZ LETO?</h3>
-        <p>Ozvite sa nam a pripravime vam viac informacii, aktualny stav projektu alebo moznosti spoluprace.</p>
+    <section class="leto-wow">
+      <div class="leto-wow__statement">
+        <span>WAW rozdiel</span>
+        <h2>Letná sloboda pre rodičov.</h2>
+        <p>Žiadne viazanie na týždeň. Žiadne zbytočné náklady za stravu. Len bezpečný denný program vtedy, keď ho doma naozaj potrebujete.</p>
       </div>
-      <div class="project-cta-band__actions">
-        <a href="kontakt.html" class="btn-primary">Kontaktovat nas</a>
-        <a href="projekty.html" class="btn-ghost">Spat na projekty</a>
+      <div class="leto-wow__cards">
+        <article><strong>1 deň</strong><span>keď treba vyriešiť konkrétny pracovný deň</span></article>
+        <article><strong>5 vstupov</strong><span>letná kartička na viac vybraných dní</span></article>
+        <article><strong>10 vstupov</strong><span>flexibilná rezerva na celé leto</span></article>
       </div>
+    </section>
+
+    <section class="leto-dashboard" id="terminy">
+      <div class="leto-window leto-window--green">
+        <span>Termín</span>
+        <strong>6. 7. – 31. 8.</strong>
+        <small>Pondelok - piatok</small>
+      </div>
+      <div class="leto-window leto-window--orange">
+        <span>Čas</span>
+        <strong>7:30 – 15:30</strong>
+      </div>
+      <div class="leto-window leto-window--blue">
+        <span>Kapacita</span>
+        <strong>30 detí denne</strong>
+      </div>
+      <div class="leto-window leto-window--wide">
+        <span>Miesto</span>
+        <strong>Moja škola TROJKA</strong>
+        <small>ZŠ P. Jilemnického 1035/2, Zvolen</small>
+      </div>
+    </section>
+
+    <section class="leto-section leto-section--program">
+      <div class="leto-section__head">
+        <span>Program bez nudy</span>
+        <h2>Šport, hry, turnaje, animátori.</h2>
+      </div>
+      <div class="leto-activity-grid">
+        <span>Florbal</span>
+        <span>Loptové hry</span>
+        <span>Turnaje</span>
+        <span>Telocvičňa</span>
+        <span>Ihriská</span>
+        <span>Spoločenské hry</span>
+        <span>Preliezky</span>
+        <span>Oddych v triedach</span>
+      </div>
+    </section>
+
+    <section class="leto-pricing" id="cennik">
+      <div class="leto-section__head">
+        <span>Cenník</span>
+        <h2>Kúpite len toľko leta, koľko potrebujete.</h2>
+      </div>
+      <div class="leto-price-grid">
+        <article>
+          <span>1 deň</span>
+          <strong>15 €</strong>
+          <p>Jednorazový vstup.</p>
+        </article>
+        <article class="is-featured">
+          <span>5 vstupov</span>
+          <strong>65 €</strong>
+          <p>13 € za deň.</p>
+        </article>
+        <article>
+          <span>10 vstupov</span>
+          <strong>120 €</strong>
+          <p>12 € za deň.</p>
+        </article>
+      </div>
+      <p class="leto-mini-note">Letná kartička platí počas celého leta v dostupných pracovných dňoch. Konkrétny deň odporúčame rezervovať vopred, kapacita je max. 30 detí.</p>
+    </section>
+
+    <section class="leto-section leto-section--how">
+      <div class="leto-section__head">
+        <span>Ako to funguje</span>
+        <h2>Tri jednoduché kroky.</h2>
+      </div>
+      <div class="leto-flow">
+        <article><strong>01</strong><span>Vyberiete deň alebo kartičku.</span></article>
+        <article><strong>02</strong><span>Prihlásite dieťa online alebo na mieste.</span></article>
+        <article><strong>03</strong><span>Dieťa príde, dostane pásku a ide sa do programu.</span></article>
+      </div>
+    </section>
+
+    <section class="leto-section leto-section--trust">
+      <div class="leto-section__head leto-section__head--compact">
+        <span>Pre rodičov</span>
+        <h2>Prečo si rodičia vyberú Letný klub?</h2>
+      </div>
+      <div class="leto-trust-grid">
+        <article>
+          <span>Bezpečne</span>
+          <strong>Priestory školy, animátori a program.</strong>
+          <p>Príchod aj odchod prebieha podľa pravidiel uvedených v prihláške.</p>
+        </article>
+        <article>
+          <span>Dostupne</span>
+          <strong>Platíte za program, nie za celý tábor.</strong>
+          <p>Bez stravy v cene - dieťa si prinesie desiatu alebo obed.</p>
+        </article>
+        <article>
+          <span>Prakticky</span>
+          <strong>Presne na prázdninové medzery.</strong>
+          <p>Keď dovolenky, starí rodičia a práca nevychádzajú na každý deň.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="leto-details">
+      <div class="leto-section__head">
+        <span>Detaily pre rodičov</span>
+        <h2>Všetko dôležité schované v okienkach.</h2>
+      </div>
+      <div class="leto-detail-list">
+        <details>
+          <summary>Priestory a vybavenie</summary>
+          <p>Vonkajší areál školy, multifunkčné ihrisko, florbalové ihrisko, preliezky, telocvičňa a triedy. K dispozícii budú florbalové hokejky, lopty, hry, športové aktivity, animačný program a pitná voda.</p>
+        </details>
+        <details>
+          <summary>Strava</summary>
+          <p>Strava nie je zahrnutá v cene. Deti si prinesú vlastnú desiatu, prípadne obed. Odchod na obed domov je možný len so súhlasom rodiča uvedeným v prihláške.</p>
+        </details>
+        <details>
+          <summary>Príchod a odchod</summary>
+          <p>Klub je otvorený 7:30 – 15:30. Dieťa môže prísť počas otvorenia, odporúčame však dopoludnie. Odchod prebieha podľa pravidiel uvedených v prihláške.</p>
+        </details>
+        <details>
+          <summary>Prihlásenie a platba</summary>
+          <p>Prihlásenie bude možné cez formulár alebo na mieste. Pri prihlásení na mieste je potrebný podpis rodiča. Platba bude možná v hotovosti na mieste alebo prevodom vopred.</p>
+        </details>
+        <details>
+          <summary>Najčastejšia otázka: je to týždenný tábor?</summary>
+          <p>Nie. Letný klub je denný flexibilný program. Môžete kúpiť jeden vstup alebo letnú kartičku a využiť ju počas leta podľa potreby.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="leto-final-cta" id="prihlaska">
+      <span>MZ LETO</span>
+      <h2>Vyriešte prázdninový deň jednoducho.</h2>
+      <p>Flexibilný letný klub pre deti vo Zvolene. Bez platenia celého týždňa.</p>
+      <a href="kontakt.html" class="leto-btn leto-btn--primary">Prihlásiť dieťa</a>
     </section>
   </main>
 

@@ -1413,27 +1413,6 @@ body.mz-overlay-open {
   min-height: 56px;
 }
 
-.mz-cursor {
-  display: inline-block;
-  width: 7px;
-  height: 13px;
-  background: #c7ff2e;
-  margin-left: 2px;
-  vertical-align: middle;
-  animation: mz-cur 0.8s step-end infinite;
-}
-
-@keyframes mz-cur {
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
-}
-
 .mz-modules {
   display: grid;
   gap: 10px;
@@ -2717,10 +2696,6 @@ body.mz-overlay-open {
   font-size: 14px;
   line-height: 1.7;
   color: rgba(245, 247, 255, 0.88);
-}
-
-.mz-cursor {
-  background: var(--mz-primary-soft);
 }
 
 .mz-module {
