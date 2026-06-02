@@ -206,7 +206,6 @@
 .leto-hero__hook span,
 .leto-wow__statement span,
 .leto-section__head span,
-.leto-window span,
 .leto-final-cta span,
 .leto-price-grid span,
 .leto-trust-grid span {
@@ -242,7 +241,6 @@
 }
 
 .leto-facts article,
-.leto-window,
 .leto-wow__cards article,
 .leto-flow article,
 .leto-trust-grid article,
@@ -283,7 +281,6 @@
 }
 
 .leto-wow,
-.leto-dashboard,
 .leto-section,
 .leto-pricing,
 .leto-details,
@@ -358,42 +355,6 @@
   font-weight: 850;
 }
 
-.leto-dashboard {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  padding: 24px 0 48px;
-}
-
-.leto-window {
-  min-height: 164px;
-  padding: 22px;
-  color: var(--leto-ink);
-}
-
-.leto-window--green { background: var(--leto-lime); }
-.leto-window--orange { background: var(--leto-orange); color: #1a1108; }
-.leto-window--blue { background: var(--leto-blue); }
-.leto-window--wide {
-  background: var(--leto-yellow);
-}
-
-.leto-window strong {
-  display: block;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 44px);
-  font-weight: 950;
-  line-height: 0.94;
-}
-
-.leto-window small {
-  display: block;
-  margin-top: 12px;
-  color: rgba(16, 23, 7, 0.7);
-  font-size: 15px;
-  font-weight: 850;
-}
-
 .leto-section,
 .leto-pricing,
 .leto-details {
@@ -422,32 +383,125 @@
   color: var(--leto-green, #16863a);
 }
 
+.leto-pricing .leto-section__head {
+  display: block;
+  max-width: 1120px;
+}
+
+.leto-pricing .leto-section__head h2 {
+  max-width: 1080px;
+}
+
+.leto-section__head p {
+  grid-column: 2;
+  margin: -8px 0 0;
+  max-width: 560px;
+  color: var(--leto-muted);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
 .leto-section--program {
   padding-top: 34px;
 }
 
 .leto-activity-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 
-.leto-activity-grid span {
-  min-height: 84px;
+.leto-activity-card {
+  padding: 18px 20px;
+  border-radius: 28px;
+  border: 1px solid rgba(16, 23, 7, 0.1);
+  background: #fff;
+  color: var(--leto-ink);
+  box-shadow: 0 18px 42px rgba(33, 43, 10, 0.1);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.leto-activity-card:hover,
+.leto-activity-card[open] {
+  border-color: rgba(16, 23, 7, 0.18);
+  box-shadow: 0 24px 52px rgba(33, 43, 10, 0.16);
+  transform: translateY(-3px);
+}
+
+.leto-activity-card:nth-child(1) { background: linear-gradient(135deg, var(--leto-orange), var(--leto-yellow)); }
+.leto-activity-card:nth-child(2) { background: linear-gradient(135deg, var(--leto-lime), var(--leto-yellow)); }
+.leto-activity-card:nth-child(3) { background: linear-gradient(135deg, var(--leto-blue), #e5f8ff); }
+.leto-activity-card:nth-child(4) { background: linear-gradient(135deg, #fff, var(--leto-yellow)); }
+
+.leto-activity-card summary {
+  min-height: 54px;
   display: flex;
   align-items: center;
-  padding: 16px;
-  border-radius: 20px;
-  background: var(--leto-black);
-  color: #f8ffe6;
-  font-size: 18px;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.2vw, 44px);
   font-weight: 950;
-  box-shadow: 0 16px 34px rgba(8, 9, 5, 0.15);
+  line-height: 0.9;
 }
 
-.leto-activity-grid span:nth-child(3n + 1) { background: var(--leto-orange); color: var(--leto-ink); }
-.leto-activity-grid span:nth-child(3n + 2) { background: var(--leto-lime); color: var(--leto-ink); }
-.leto-activity-grid span:nth-child(3n + 3) { background: var(--leto-blue); color: var(--leto-ink); }
+.leto-activity-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.leto-activity-card summary::after {
+  content: '+';
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(8, 9, 5, 0.9);
+  color: #f8ffe6;
+  font-family: var(--font-body);
+  font-size: 24px;
+  line-height: 1;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.leto-activity-card[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.leto-activity-card p {
+  margin: 18px 0 0;
+  max-width: 58ch;
+  color: rgba(16, 23, 7, 0.78);
+  font-size: 17px;
+  font-weight: 850;
+  line-height: 1.45;
+}
+
+.leto-activity-card[open] p {
+  animation: letoCardReveal 220ms ease both;
+}
+
+@keyframes letoCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .leto-pricing {
   padding-inline: clamp(18px, 4vw, 38px);
@@ -603,6 +657,20 @@
   background: #fff;
 }
 
+.leto-detail-list__item--highlight {
+  background: #fff;
+  border-color: rgba(22, 134, 58, 0.26);
+}
+
+.leto-detail-list__item--highlight summary {
+  background: linear-gradient(135deg, var(--leto-lime), var(--leto-soft));
+  color: var(--leto-ink);
+}
+
+.leto-detail-list__item--highlight p {
+  color: rgba(16, 23, 7, 0.86);
+}
+
 .leto-detail-list summary {
   position: relative;
   cursor: pointer;
@@ -646,6 +714,18 @@
   line-height: 1.65;
 }
 
+.leto-detail-list p + p {
+  padding-top: 0;
+}
+
+.leto-detail-list a {
+  color: var(--leto-ink);
+  font-weight: 950;
+  text-decoration-color: rgba(22, 134, 58, 0.45);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
 .leto-final-cta {
   margin-bottom: 72px;
   padding: clamp(28px, 6vw, 64px);
@@ -680,7 +760,6 @@
   }
 
   .leto-facts,
-  .leto-dashboard,
   .leto-activity-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -695,6 +774,10 @@
 
   .leto-price-grid article.is-featured {
     transform: none;
+  }
+
+  .leto-section__head p {
+    grid-column: auto;
   }
 }
 
@@ -756,19 +839,23 @@
     text-align: center;
   }
 
+  .leto-activity-card {
+    padding: 16px;
+    border-radius: 22px;
+  }
+
+  .leto-activity-card summary {
+    min-height: 48px;
+    font-size: 32px;
+  }
+
   .leto-facts,
-  .leto-dashboard,
   .leto-activity-grid,
   .leto-wow__cards {
     grid-template-columns: 1fr;
   }
 
-  .leto-window--wide {
-    grid-column: auto;
-  }
-
   .leto-wow,
-  .leto-dashboard,
   .leto-section,
   .leto-pricing,
   .leto-details,
