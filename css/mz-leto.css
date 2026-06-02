@@ -79,7 +79,7 @@
 
 .leto-hero__photo {
   position: absolute;
-  right: clamp(-70px, -2vw, 28px);
+  right: clamp(18px, 3vw, 58px);
   top: 156px;
   bottom: auto;
   width: min(43vw, 650px);
@@ -88,7 +88,7 @@
   overflow: hidden;
   border-radius: 34px;
   border: 1px solid rgba(16, 23, 7, 0.08);
-  background: url("../assets/images/projekty/kartickaMZ.png") center / cover no-repeat;
+  background: url("../assets/images/projekty/kartickaMZ.png?v=20260602-hero-2") center / cover no-repeat;
   box-shadow: 0 28px 58px rgba(41, 58, 19, 0.2);
 }
 
@@ -115,6 +115,32 @@
   line-height: 0.9;
   letter-spacing: 0;
   max-width: 720px;
+}
+
+.leto-hero h1 span {
+  display: block;
+}
+
+.leto-hero h1 em {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  font-style: normal;
+  z-index: 0;
+}
+
+.leto-hero h1 em::after {
+  content: '';
+  position: absolute;
+  left: -0.055em;
+  right: -0.055em;
+  bottom: -0.005em;
+  height: 0.42em;
+  z-index: -1;
+  border-radius: 0.14em;
+  background: linear-gradient(90deg, rgba(199, 255, 46, 0.82), rgba(199, 255, 46, 1));
+  transform: rotate(-1.2deg);
+  transform-origin: left center;
 }
 
 .leto-hero__lead {
