@@ -310,6 +310,10 @@
   backdrop-filter: blur(14px);
 }
 
+.championship-tabs::after {
+  content: none;
+}
+
 .championship-tabs a {
   min-height: 34px;
   display: inline-flex;
@@ -941,19 +945,47 @@
 
   .championship-tabs {
     position: static;
+    position: relative;
     width: calc(100% - 32px);
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: flex-start;
     border-radius: 24px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .championship-tabs::after {
+    content: '→';
+    position: sticky;
+    right: 0;
+    min-width: 50px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -14px;
+    flex: 0 0 auto;
+    align-self: center;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.96) 52%, rgba(255, 255, 255, 0.98));
+    color: rgba(16, 23, 7, 0.42);
+    font-size: 18px;
+    font-weight: 950;
+    pointer-events: none;
+  }
+
+  .championship-tabs::-webkit-scrollbar {
+    display: none;
   }
 
   .championship-tabs a {
-    min-width: 0;
-  }
-
-  .championship-tabs a:first-child,
-  .championship-tabs a:last-child {
-    grid-column: 1 / -1;
+    flex: 0 0 auto;
+    min-width: max-content;
+    scroll-snap-align: start;
   }
 
   .championship-wow,
