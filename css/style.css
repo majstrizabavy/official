@@ -8527,14 +8527,14 @@ h1, h2, h3, h4, h5, h6 {
   background:
     linear-gradient(180deg, rgba(8, 8, 8, 0.1), rgba(8, 8, 8, 0.5)),
     linear-gradient(0deg, rgba(8, 8, 8, 0.56), rgba(8, 8, 8, 0.3)),
-    url('../assets/images/projekty/mzafterparty.png') center/cover;
+    url('../assets/images/projekty/mzchampionship.png') center/cover;
 }
 
 .world-photo-placeholder--full {
   background:
     linear-gradient(180deg, rgba(8, 8, 8, 0.1), rgba(8, 8, 8, 0.52)),
     linear-gradient(0deg, rgba(8, 8, 8, 0.58), rgba(8, 8, 8, 0.32)),
-    url('../assets/images/projekty/mzlove.png') center/cover;
+    url('../assets/images/projekty/mzakademia.png') center/cover;
 }
 
 .world-package-card {

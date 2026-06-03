@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
@@ -9,263 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=20260601-native-cursor">
   <link rel="stylesheet" href="css/projekty.css?v=20260414-polish-1">
-  <style>
-    .tournament-hub {
-      max-width: 1200px;
-      margin: 18px auto 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .tournament-tabs,
-    .tournament-strip,
-    .tournament-dashboard,
-    .tournament-schedule {
-      border: 1px solid rgba(255,255,255,0.07);
-      background: rgba(255,255,255,0.012);
-    }
-
-    .tournament-tabs {
-      display: flex;
-      gap: 4px;
-      padding: 6px;
-      overflow-x: auto;
-      border-radius: 12px;
-      position: relative;
-      z-index: 1;
-      background: #090a08;
-    }
-
-    .tournament-tabs a {
-      flex: 0 0 auto;
-      min-height: 32px;
-      padding: 0 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      color: rgba(245,245,239,0.72);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-
-    .tournament-tabs a:hover {
-      color: var(--white);
-      background: rgba(var(--accent-rgb),0.04);
-    }
-
-    .tournament-tabs a.is-active {
-      color: #080a05;
-      background: var(--brand-primary);
-    }
-
-    .tournament-strip {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) repeat(4, minmax(120px, 0.7fr));
-      gap: 1px;
-      border-radius: 14px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.06);
-    }
-
-    .tournament-strip__cell {
-      min-height: 66px;
-      padding: 12px 14px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: #090a08;
-    }
-
-    .tournament-strip__label,
-    .tournament-section-label,
-    .tournament-schedule li span {
-      color: rgba(216,255,90,0.62);
-      font-family: var(--font-ui);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .tournament-strip__value {
-      margin-top: 4px;
-      color: var(--white);
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-    }
-
-    .tournament-dashboard {
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
-      gap: 1px;
-      border-radius: 14px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.06);
-    }
-
-    .tournament-dashboard__main,
-    .tournament-dashboard__side {
-      padding: 18px;
-      background: #090a08;
-    }
-
-    .tournament-dashboard__main h2 {
-      margin-top: 8px;
-      color: var(--white);
-      font-family: var(--font-display);
-      font-size: clamp(26px, 3vw, 38px);
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.045em;
-    }
-
-    .tournament-dashboard__main p {
-      max-width: 760px;
-      margin-top: 10px;
-      color: rgba(245,245,239,0.66);
-      font-size: 15px;
-      font-weight: 650;
-      line-height: 1.58;
-    }
-
-    .tournament-facts {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-      margin-top: 14px;
-    }
-
-    .tournament-facts div {
-      min-height: 54px;
-      padding: 10px;
-      border: 1px solid rgba(255,255,255,0.055);
-      border-radius: 10px;
-      background: rgba(255,255,255,0.012);
-      color: rgba(245,245,239,0.78);
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .tournament-mini-schedule {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 14px;
-    }
-
-    .tournament-mini-schedule__item {
-      width: fit-content;
-      min-width: 140px;
-      padding: 9px 14px 10px;
-      border: 1px solid rgba(var(--accent-rgb),0.12);
-      border-radius: 10px;
-      background: rgba(var(--accent-rgb),0.025);
-    }
-
-    .tournament-mini-schedule__item span {
-      color: rgba(216,255,90,0.68);
-      font-family: var(--font-ui);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .tournament-mini-schedule__item strong {
-      display: block;
-      margin-top: 4px;
-      color: var(--white);
-      font-family: var(--font-display);
-      font-size: 20px;
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
-
-    .tournament-dashboard__side {
-      display: grid;
-      align-content: start;
-      gap: 8px;
-    }
-
-    .tournament-action {
-      min-height: 40px;
-      padding: 0 14px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(var(--accent-rgb),0.16);
-      border-radius: 999px;
-      color: rgba(245,245,239,0.86);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-
-    .tournament-action--primary {
-      background: linear-gradient(135deg, #efff97, var(--brand-primary));
-      color: #080a05;
-    }
-
-    .tournament-schedule {
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
-      gap: 16px;
-      align-items: center;
-      padding: 14px;
-      border-radius: 14px;
-    }
-
-    .tournament-schedule ul {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .tournament-schedule li {
-      min-height: 54px;
-      padding: 10px 12px;
-      border: 1px solid rgba(255,255,255,0.055);
-      border-radius: 10px;
-      background: rgba(255,255,255,0.012);
-    }
-
-    .tournament-schedule strong {
-      display: block;
-      margin-top: 4px;
-      color: var(--white);
-      font-family: var(--font-display);
-      font-size: 20px;
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
-
-    @media (max-width: 900px) {
-      .tournament-strip,
-      .tournament-dashboard,
-      .tournament-schedule {
-        grid-template-columns: 1fr;
-      }
-
-      .tournament-facts,
-      .tournament-schedule ul {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/mz-championship.css?v=20260603-championship-1">
 </head>
-<body class="project-page project-page--championship">
+<body class="project-page project-page--championship championship-page-body">
 
   <nav id="navbar">
     <a href="index.html" class="nav-logo" data-nav="home"><span class="nav-logo__mark" aria-hidden="true">MZ</span><span class="nav-logo__wordmark"><span class="nav-logo__main">MAJSTRI</span> <span class="nav-logo__accent">ZÁBAVY</span></span></a>
@@ -291,89 +37,221 @@
     <a href="navrhni-si-akciu.html" class="mobile-nav-cta" data-nav="navrhni-akciu" data-mobile-close>Navrhni si akciu</a>
   </div>
 
-  <main class="page-shell">
-    <a href="projekty.html" class="project-back-link">&larr; Späť na Projekty MZ</a>
+  <main class="championship-page" id="championship">
+    <a href="projekty.html" class="championship-back-link">&larr; Späť na Projekty MZ</a>
 
-    <!-- HERO SEKCIA -->
-    <section class="project-detail-hero">
-      <div class="project-detail-hero__grid">
-        <div class="project-detail-hero__copy">
-          <div class="project-detail-kicker">Florbalovy turnaj / MZ Championship</div>
-          <h1 class="project-detail-title">MZ 3v3 FLOORBALL CUP</h1>
-          <p class="project-detail-headline">Jednoduchy florbalovy turnaj pre detske aj open timy.</p>
-          <p class="project-detail-copy">Hlavna stranka sluzi ako rychly vstup do turnaja. Klient alebo hrac si hned pozrie zakladne info, registraciu, pravidla, harmonogram, timy, statistiky a FAQ bez toho, aby sa stratil v dlhom obsahu.</p>
-          <div class="project-detail-actions">
-            <a href="mz-championship-registracia.html" class="btn-primary">Prihlasit tim</a>
-            <a href="mz-championship-info.html" class="btn-ghost">Info o turnaji</a>
-          </div>
+    <section class="championship-hero" aria-labelledby="championship-title">
+      <div class="championship-hero__copy">
+        <p class="championship-kicker">MZ CHAMPIONSHIP · Florbalový turnaj · Zvolen</p>
+        <h1 id="championship-title"><span>MZ 3v3</span><span><em>Floorball Cup</em></span></h1>
+        <p class="championship-hero__lead">Turnaj, kde tím príde, hrá a všetko dôležité nájde na jednej stránke.</p>
+        <div class="championship-hero__actions">
+          <a href="#registracia" class="championship-btn championship-btn--primary">Prihlásiť tím</a>
+          <a href="#harmonogram" class="championship-btn championship-btn--ghost">Harmonogram</a>
         </div>
-        <div class="project-detail-visual project-detail-visual--photo">
-          <img src="assets/images/projekty/mzchampionship.png" alt="MZ Championship hlavny vizual" class="project-detail-visual__image">
-          <div class="project-detail-visual__copy">
-            <div class="project-detail-visual__label">3v3 florbal. Timy. Energia.</div>
-            <p class="project-detail-visual__meta">Turnajovy rozcestnik pre MZ Championship.</p>
-          </div>
+        <div class="championship-hero__hook">
+          <span>Turnajový hub</span>
+          <strong>Info, pravidlá, tímy aj výsledky</strong>
+          <p>Prehľadný vstup do turnaja pre hráčov, rodičov aj fanúšikov.</p>
         </div>
+      </div>
+
+      <div class="championship-hero__photo" aria-label="MZ Championship hlavný vizuál">
+        <img src="assets/images/projekty/mzchampionship.png" alt="MZ Championship promo vizuál">
+      </div>
+
+      <div class="championship-facts" aria-label="Základné informácie o turnaji">
+        <article><span>Turnaj</span><strong>3v3</strong><small>rýchly florbalový formát</small></article>
+        <article><span>Kde</span><strong>Zvolen</strong><small>miesto doplníme pred turnajom</small></article>
+        <article><span>Kategórie</span><strong>Deti + Open</strong><small>detské aj hobby tímy</small></article>
+        <article><span>Stav</span><strong>Pripravujeme</strong><small>registrácia bude spustená</small></article>
       </div>
     </section>
 
-    <section class="tournament-hub">
-      <div class="tournament-strip" aria-label="Prehlad turnaja">
-        <div class="tournament-strip__cell">
-          <span class="tournament-strip__label">Turnaj</span>
-          <strong class="tournament-strip__value">MZ 3v3 Floorball Cup</strong>
-        </div>
-        <div class="tournament-strip__cell">
-          <span class="tournament-strip__label">Lokalita</span>
-          <strong class="tournament-strip__value">Zvolen</strong>
-        </div>
-        <div class="tournament-strip__cell">
-          <span class="tournament-strip__label">Format</span>
-          <strong class="tournament-strip__value">3v3</strong>
-        </div>
-        <div class="tournament-strip__cell">
-          <span class="tournament-strip__label">Kategorie</span>
-          <strong class="tournament-strip__value">Deti + Open</strong>
-        </div>
-        <div class="tournament-strip__cell">
-          <span class="tournament-strip__label">Organizator</span>
-          <strong class="tournament-strip__value">Majstri Zabavy</strong>
-        </div>
-      </div>
+    <nav class="championship-tabs" aria-label="Navigácia MZ Championship">
+      <a href="#info">Info</a>
+      <a href="mz-championship-registracia.html">Registrácia</a>
+      <a href="mz-championship-pravidla.html">Pravidlá</a>
+      <a href="mz-championship-harmonogram.html">Harmonogram</a>
+      <a href="mz-championship-timy.html">Tímy</a>
+      <a href="mz-championship-statistiky.html">Štatistiky</a>
+      <a href="mz-championship-faq.html">FAQ</a>
+    </nav>
 
-      <nav class="tournament-tabs" aria-label="Turnajová navigácia">
-        <a href="mz-championship-info.html">Info</a>
-        <a href="mz-championship-registracia.html">Registrácia</a>
-        <a href="mz-championship-pravidla.html">Pravidlá</a>
-        <a href="mz-championship-harmonogram.html">Harmonogram</a>
-        <a href="mz-championship-timy.html">Tímy</a>
-        <a href="mz-championship-statistiky.html">Štatistiky</a>
-        <a href="mz-championship-faq.html">FAQ</a>
-      </nav>
-
-      <div class="tournament-dashboard">
-        <div class="tournament-dashboard__main">
-          <div class="tournament-section-label">Zakladne info</div>
-          <h2>Sportovy turnajovy hub pre Zvolen.</h2>
-          <p>MZ 3v3 Floorball Cup je kompaktny dvojdnovy event s prehladnym formatom, registraciou timov a priestorom pre harmonogram, tabulky, timy a statistiky v dalsich krokoch.</p>
-          <div class="tournament-mini-schedule" aria-label="Rychly harmonogram">
-            <div class="tournament-mini-schedule__item">
-              <span>Sobota</span>
-              <strong>detsky turnaj</strong>
-            </div>
-            <div class="tournament-mini-schedule__item">
-              <span>Nedela</span>
-              <strong>open turnaj</strong>
-            </div>
-          </div>
-        </div>
-        <aside class="tournament-dashboard__side" aria-label="Rychle odkazy">
-          <div class="tournament-section-label">Rychle odkazy</div>
-          <a href="mz-championship-registracia.html" class="tournament-action tournament-action--primary">Registrovať detský tím</a>
-          <a href="mz-championship-registracia.html" class="tournament-action tournament-action--primary">Registrovať open tím</a>
-          <a href="kontakt.html" class="tournament-action">Kontaktovať organizátora</a>
-        </aside>
+    <section class="championship-quicklinks" aria-labelledby="championship-quicklinks-title">
+      <div class="championship-quicklinks__head">
+        <span>Rýchly rozcestník</span>
+        <h2 id="championship-quicklinks-title">Hľadáte konkrétnu časť turnaja?</h2>
+        <p>Najdôležitejšie turnajové stránky sú hneď po ruke. Keď pribudnú tímy, tabuľky a výsledky, toto bude hlavný vstup pre hráčov aj fanúšikov.</p>
       </div>
+      <div class="championship-quicklinks__grid">
+        <a href="mz-championship-registracia.html">
+          <span>01</span>
+          <strong>Registrácia</strong>
+          <p>Prihlásenie tímu do detskej alebo open kategórie.</p>
+        </a>
+        <a href="mz-championship-harmonogram.html">
+          <span>02</span>
+          <strong>Harmonogram</strong>
+          <p>Časy zápasov, rozpis dňa a turnajový program.</p>
+        </a>
+        <a href="mz-championship-timy.html">
+          <span>03</span>
+          <strong>Tímy</strong>
+          <p>Zoznam prihlásených tímov a kategórií.</p>
+        </a>
+        <a href="mz-championship-statistiky.html">
+          <span>04</span>
+          <strong>Štatistiky</strong>
+          <p>Tabuľky, výsledky, poradie a turnajové čísla.</p>
+        </a>
+        <a href="mz-championship-pravidla.html">
+          <span>05</span>
+          <strong>Pravidlá</strong>
+          <p>Formát 3v3, systém zápasov a organizačné pokyny.</p>
+        </a>
+        <a href="mz-championship-faq.html">
+          <span>06</span>
+          <strong>FAQ</strong>
+          <p>Najčastejšie otázky pre hráčov, rodičov a návštevníkov.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="championship-wow" id="info">
+      <div class="championship-wow__statement">
+        <span>O turnaji</span>
+        <h2>Športový turnajový hub pre Zvolen.</h2>
+        <p>MZ 3v3 Floorball Cup je dvojdňový florbalový event vo Zvolene. Spája rýchly športový formát, detskú aj open kategóriu a street/event/festival atmosféru Majstrov zábavy.</p>
+      </div>
+      <div class="championship-wow__cards">
+        <article><strong>3v3</strong><span>Kompaktný formát, krátke zápasy a veľa energie.</span></article>
+        <article><strong>2 dni</strong><span>Sobota pre detský turnaj, nedeľa pre open kategóriu.</span></article>
+        <article><strong>MZ vibe</strong><span>Moderovanie, atmosféra a prehľadný priebeh eventu.</span></article>
+      </div>
+    </section>
+
+    <section class="championship-section championship-section--register" id="registracia">
+      <div class="championship-section__head">
+        <span>Registrácia</span>
+        <h2>Vyberte kategóriu a pripravte tím.</h2>
+        <p>Registrácia bude pripravená pre detskú aj open kategóriu. Presné formuláre doplníme pri spustení turnaja.</p>
+      </div>
+      <div class="championship-category-grid">
+        <article>
+          <span>Detská kategória</span>
+          <strong>Registrovať detský tím</strong>
+          <p>Pre detské a mládežnícke tímy vo formáte 3v3.</p>
+          <a href="kontakt.html" class="championship-btn championship-btn--dark">Mám záujem</a>
+        </article>
+        <article>
+          <span>Open kategória</span>
+          <strong>Registrovať open tím</strong>
+          <p>Pre dospelé, hobby a open tímy vo formáte 3v3.</p>
+          <a href="kontakt.html" class="championship-btn championship-btn--dark">Mám záujem</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="championship-section championship-section--rules" id="pravidla">
+      <div class="championship-section__head">
+        <span>Pravidlá</span>
+        <h2>Jednoduchý systém, rýchle zápasy.</h2>
+      </div>
+      <div class="championship-rule-grid">
+        <article><strong>01</strong><span>Formát 3v3.</span></article>
+        <article><strong>02</strong><span>Krátke zápasy a jasný turnajový systém.</span></article>
+        <article><strong>03</strong><span>Detailné pravidlá doplníme pred spustením registrácie.</span></article>
+      </div>
+    </section>
+
+    <section class="championship-schedule" id="harmonogram">
+      <div class="championship-section__head">
+        <span>Harmonogram</span>
+        <h2>Dva turnajové dni, jeden prehľad.</h2>
+        <p>Presné časy doplníme pred turnajom, aby hráči aj rodičia mali jasný plán dňa.</p>
+      </div>
+      <div class="championship-schedule__grid">
+        <article>
+          <span>Sobota</span>
+          <strong>Detský turnaj</strong>
+          <p>Priestor pre detské a mládežnícke tímy.</p>
+        </article>
+        <article class="is-featured">
+          <span>Nedeľa</span>
+          <strong>Open turnaj</strong>
+          <p>Hobby, dospelé a open tímy vo formáte 3v3.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="championship-section championship-section--teams" id="timy">
+      <div class="championship-section__head championship-section__head--compact">
+        <span>Tímy</span>
+        <h2>Zoznam tímov bude jasne viditeľný.</h2>
+      </div>
+      <div class="championship-team-board">
+        <article>
+          <span>Detské tímy</span>
+          <strong>Čakáme na registrácie.</strong>
+          <p>Po spustení turnaja tu môže byť zoznam prihlásených tímov.</p>
+        </article>
+        <article>
+          <span>Open tímy</span>
+          <strong>Prihlášky pripravujeme.</strong>
+          <p>Prehľad pomôže hráčom aj fanúšikom sledovať obsadenie turnaja.</p>
+        </article>
+        <article>
+          <span>Organizátor</span>
+          <strong>Majstri zábavy.</strong>
+          <p>Turnajový priebeh, atmosféra a komunikácia pod jednou značkou.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="championship-section championship-section--stats" id="statistiky">
+      <div class="championship-section__head">
+        <span>Štatistiky</span>
+        <h2>Výsledky a tabuľky budú mať vlastný priestor.</h2>
+        <p>Počas turnaja môže stránka slúžiť ako rýchly prehľad výsledkov, tímov, poradia a ďalších štatistík.</p>
+      </div>
+      <div class="championship-stat-grid">
+        <article><strong>0</strong><span>prihlásených tímov zatiaľ</span></article>
+        <article><strong>3v3</strong><span>turnajový formát</span></article>
+        <article><strong>2</strong><span>plánované kategórie</span></article>
+      </div>
+    </section>
+
+    <section class="championship-details" id="faq">
+      <div class="championship-section__head">
+        <span>FAQ</span>
+        <h2>Najčastejšie otázky k turnaju.</h2>
+      </div>
+      <div class="championship-detail-list">
+        <details open>
+          <summary>Čo je MZ 3v3 Floorball Cup?</summary>
+          <p>Dvojdňový florbalový event vo Zvolene, ktorý spája športový turnaj, prehľadnú organizáciu a energiu Majstrov zábavy.</p>
+        </details>
+        <details>
+          <summary>Kedy bude spustená registrácia?</summary>
+          <p>Registrácia bude doplnená pred spustením turnaja. Zatiaľ je stránka pripravená ako hlavný turnajový prehľad.</p>
+        </details>
+        <details>
+          <summary>Aké kategórie plánujeme?</summary>
+          <p>Pripravujeme detskú kategóriu a open kategóriu. Presné vekové a organizačné detaily doplníme neskôr.</p>
+        </details>
+        <details>
+          <summary>Budú na stránke aj výsledky?</summary>
+          <p>Áno, počítame s priestorom pre tímy, harmonogram, výsledky, tabuľky, štatistiky a FAQ.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="championship-final-cta">
+      <span>MZ CHAMPIONSHIP</span>
+      <h2>Pripravte tím na turnaj.</h2>
+      <p>Florbalový 3v3 turnaj vo Zvolene. Pre deti, open tímy a všetkých, ktorí chcú zažiť súťažný MZ vibe.</p>
+      <a href="kontakt.html" class="championship-btn championship-btn--primary">Kontaktovať organizátora</a>
     </section>
   </main>
 
@@ -439,5 +317,3 @@
   <script src="js/main.js?v=20260601-native-cursor"></script>
 </body>
 </html>
-
-
