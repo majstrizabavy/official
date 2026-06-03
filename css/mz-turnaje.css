@@ -1,38 +1,38 @@
-/* MZ Championship: one-page tournament landing built as the second project-detail pilot. */
+﻿/* MZ TURNAJE: one-page tournament landing and shared tournament visual system. */
 
-.championship-page-body {
-  --champ-black: #080905;
-  --champ-ink: #101707;
-  --champ-lime: #c7ff2e;
-  --champ-yellow: #fff238;
-  --champ-orange: #ff9a2e;
-  --champ-blue: #54c8ff;
-  --champ-purple: #6c5cff;
-  --champ-paper: #fffceb;
-  --champ-soft: #f6ffd7;
-  --champ-muted: #56634b;
-  background: var(--champ-paper);
-  color: var(--champ-ink);
+.turnaje-page-body {
+  --turnaje-black: #080905;
+  --turnaje-ink: #101707;
+  --turnaje-lime: #c7ff2e;
+  --turnaje-yellow: #fff238;
+  --turnaje-orange: #ff9a2e;
+  --turnaje-blue: #54c8ff;
+  --turnaje-purple: #6c5cff;
+  --turnaje-paper: #fffceb;
+  --turnaje-soft: #f6ffd7;
+  --turnaje-muted: #56634b;
+  background: var(--turnaje-paper);
+  color: var(--turnaje-ink);
 }
 
-.championship-page {
+.turnaje-page {
   width: 100%;
   max-width: none;
   padding: 0;
   overflow: hidden;
   background:
     radial-gradient(circle at 72% 9rem, rgba(84, 200, 255, 0.2), transparent 18rem),
-    linear-gradient(180deg, #fffce8 0 43rem, var(--champ-paper) 43rem 100%);
+    linear-gradient(180deg, #fffce8 0 43rem, var(--turnaje-paper) 43rem 100%);
 }
 
-.championship-page h1,
-.championship-page h2,
-.championship-page h3,
-.championship-page p {
+.turnaje-page h1,
+.turnaje-page h2,
+.turnaje-page h3,
+.turnaje-page p {
   color: inherit;
 }
 
-.championship-back-link {
+.turnaje-back-link {
   position: fixed;
   top: 82px;
   left: clamp(14px, 3vw, 42px);
@@ -54,7 +54,7 @@
   backdrop-filter: blur(10px);
 }
 
-.championship-hero {
+.turnaje-hero {
   position: relative;
   min-height: 690px;
   display: grid;
@@ -69,21 +69,21 @@
     linear-gradient(135deg, #fffef0 0%, #f2ff9b 43%, #d7ffdc 100%);
 }
 
-.championship-hero::after {
+.turnaje-hero::after {
   content: '';
   position: absolute;
   inset: auto 0 0;
   height: 106px;
   z-index: -1;
-  background: linear-gradient(180deg, transparent, var(--champ-paper));
+  background: linear-gradient(180deg, transparent, var(--turnaje-paper));
 }
 
-.championship-hero__copy {
+.turnaje-hero__copy {
   align-self: center;
   max-width: 740px;
 }
 
-.championship-kicker {
+.turnaje-kicker {
   margin: 0 0 14px;
   color: #1f5e18;
   font-size: 12px;
@@ -92,7 +92,7 @@
   text-transform: uppercase;
 }
 
-.championship-hero h1 {
+.turnaje-hero h1 {
   margin: 0;
   color: #101707;
   font-family: var(--font-display);
@@ -103,11 +103,11 @@
   max-width: 760px;
 }
 
-.championship-hero h1 span {
+.turnaje-hero h1 span {
   display: block;
 }
 
-.championship-hero h1 em {
+.turnaje-hero h1 em {
   position: relative;
   display: inline-block;
   color: inherit;
@@ -115,7 +115,7 @@
   z-index: 0;
 }
 
-.championship-hero h1 em::after {
+.turnaje-hero h1 em::after {
   content: '';
   position: absolute;
   left: -0.055em;
@@ -129,7 +129,7 @@
   transform-origin: left center;
 }
 
-.championship-hero__lead {
+.turnaje-hero__lead {
   max-width: 660px;
   margin: 20px 0 0;
   color: #25351a;
@@ -138,14 +138,14 @@
   line-height: 1.1;
 }
 
-.championship-hero__actions {
+.turnaje-hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 28px;
 }
 
-.championship-btn {
+.turnaje-btn {
   min-height: 50px;
   display: inline-flex;
   align-items: center;
@@ -153,7 +153,7 @@
   padding: 0 24px;
   border-radius: 999px;
   border: 2px solid transparent;
-  color: var(--champ-ink);
+  color: var(--turnaje-ink);
   font-size: 13px;
   font-weight: 950;
   letter-spacing: 0.05em;
@@ -163,45 +163,45 @@
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-.championship-btn:hover {
+.turnaje-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.24);
 }
 
-.championship-btn--primary {
-  background: linear-gradient(135deg, var(--champ-lime), var(--champ-yellow));
+.turnaje-btn--primary {
+  background: linear-gradient(135deg, var(--turnaje-lime), var(--turnaje-yellow));
 }
 
-.championship-btn--ghost {
+.turnaje-btn--ghost {
   color: #101707;
   border-color: rgba(22, 134, 58, 0.22);
   background: rgba(255, 255, 255, 0.78);
 }
 
-.championship-btn--dark {
-  background: var(--champ-black);
+.turnaje-btn--dark {
+  background: var(--turnaje-black);
   color: #f8ffe6;
   box-shadow: none;
 }
 
-.championship-hero__hook {
+.turnaje-hero__hook {
   width: min(410px, 100%);
   margin-top: 22px;
   padding: 18px 20px;
   border-radius: 24px;
-  background: linear-gradient(135deg, var(--champ-orange), var(--champ-yellow));
-  color: var(--champ-ink);
+  background: linear-gradient(135deg, var(--turnaje-orange), var(--turnaje-yellow));
+  color: var(--turnaje-ink);
   transform: rotate(-1deg);
   box-shadow: 0 18px 38px rgba(41, 58, 19, 0.2);
 }
 
-.championship-hero__hook span,
-.championship-wow__statement span,
-.championship-section__head span,
-.championship-final-cta span,
-.championship-schedule__grid span,
-.championship-team-board span,
-.championship-category-grid span {
+.turnaje-hero__hook span,
+.turnaje-wow__statement span,
+.turnaje-section__head span,
+.turnaje-final-cta span,
+.turnaje-schedule__grid span,
+.turnaje-team-board span,
+.turnaje-category-grid span {
   display: block;
   margin-bottom: 8px;
   font-size: 11px;
@@ -210,7 +210,7 @@
   text-transform: uppercase;
 }
 
-.championship-hero__hook strong {
+.turnaje-hero__hook strong {
   display: block;
   font-family: var(--font-display);
   font-size: 28px;
@@ -218,14 +218,14 @@
   line-height: 0.92;
 }
 
-.championship-hero__hook p {
+.turnaje-hero__hook p {
   margin: 12px 0 0;
   font-size: 15px;
   font-weight: 850;
   line-height: 1.35;
 }
 
-.championship-hero__photo {
+.turnaje-hero__photo {
   align-self: center;
   overflow: hidden;
   border-radius: 34px;
@@ -235,14 +235,15 @@
   transform: rotate(1deg);
 }
 
-.championship-hero__photo img {
+.turnaje-hero__photo img {
   width: 100%;
   display: block;
   aspect-ratio: 1.333;
   object-fit: cover;
+  object-position: center 42%;
 }
 
-.championship-facts {
+.turnaje-facts {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -250,48 +251,48 @@
   margin-top: 14px;
 }
 
-.championship-facts article,
-.championship-wow__cards article,
-.championship-rule-grid article,
-.championship-team-board article,
-.championship-detail-list details,
-.championship-stat-grid article {
+.turnaje-facts article,
+.turnaje-wow__cards article,
+.turnaje-rule-grid article,
+.turnaje-team-board article,
+.turnaje-detail-list details,
+.turnaje-stat-grid article {
   border-radius: 22px;
   border: 1px solid rgba(16, 23, 7, 0.1);
   box-shadow: 0 18px 42px rgba(33, 43, 10, 0.1);
 }
 
-.championship-facts article {
+.turnaje-facts article {
   min-height: 122px;
   padding: 18px;
   background: rgba(248, 255, 230, 0.94);
 }
 
-.championship-facts span,
-.championship-facts small {
+.turnaje-facts span,
+.turnaje-facts small {
   display: block;
-  color: var(--champ-muted);
+  color: var(--turnaje-muted);
   font-size: 12px;
   font-weight: 900;
   text-transform: uppercase;
 }
 
-.championship-facts strong {
+.turnaje-facts strong {
   display: block;
   margin-top: 8px;
-  color: var(--champ-ink);
+  color: var(--turnaje-ink);
   font-family: var(--font-display);
   font-size: clamp(28px, 3vw, 42px);
   font-weight: 950;
   line-height: 0.95;
 }
 
-.championship-facts small {
+.turnaje-facts small {
   margin-top: 6px;
   text-transform: none;
 }
 
-.championship-tabs {
+.turnaje-tabs {
   position: sticky;
   top: 76px;
   z-index: 40;
@@ -310,11 +311,11 @@
   backdrop-filter: blur(14px);
 }
 
-.championship-tabs::after {
+.turnaje-tabs::after {
   content: none;
 }
 
-.championship-tabs a {
+.turnaje-tabs a {
   min-height: 34px;
   display: inline-flex;
   align-items: center;
@@ -329,156 +330,40 @@
   text-transform: uppercase;
 }
 
-.championship-tabs a:hover {
-  background: var(--champ-lime);
-  color: var(--champ-ink);
+.turnaje-tabs a:hover {
+  background: var(--turnaje-lime);
+  color: var(--turnaje-ink);
 }
 
-.championship-wow,
-.championship-quicklinks,
-.championship-section,
-.championship-schedule,
-.championship-details,
-.championship-final-cta {
+.turnaje-wow,
+.turnaje-section,
+.turnaje-schedule,
+.turnaje-details,
+.turnaje-final-cta {
   width: min(1160px, calc(100% - 36px));
   margin-inline: auto;
   scroll-margin-top: 150px;
 }
 
-.championship-quicklinks {
-  padding: 48px 0 28px;
-}
-
-.championship-quicklinks__head {
-  display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
-  gap: 24px;
-  align-items: end;
-  margin-bottom: 18px;
-}
-
-.championship-quicklinks__head span {
-  color: #16863a;
-  font-size: 11px;
-  font-weight: 950;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.championship-quicklinks__head h2 {
-  margin: 0;
-  color: var(--champ-ink);
-  font-family: var(--font-display);
-  font-size: clamp(34px, 4.6vw, 64px);
-  font-weight: 950;
-  line-height: 0.9;
-  letter-spacing: 0;
-}
-
-.championship-quicklinks__head p {
-  grid-column: 2;
-  margin: -6px 0 0;
-  max-width: 640px;
-  color: var(--champ-muted);
-  font-size: 16px;
-  font-weight: 850;
-  line-height: 1.5;
-}
-
-.championship-quicklinks__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.championship-quicklinks__grid a {
-  min-height: 168px;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  border-radius: 24px;
-  border: 1px solid rgba(16, 23, 7, 0.1);
-  background: #fff;
-  color: var(--champ-ink);
-  text-decoration: none;
-  box-shadow: 0 18px 42px rgba(33, 43, 10, 0.1);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-}
-
-.championship-quicklinks__grid a:nth-child(1),
-.championship-quicklinks__grid a:nth-child(4) {
-  background: linear-gradient(135deg, var(--champ-lime), var(--champ-yellow));
-}
-
-.championship-quicklinks__grid a:nth-child(2),
-.championship-quicklinks__grid a:nth-child(5) {
-  background: linear-gradient(135deg, var(--champ-blue), #e5f8ff);
-}
-
-.championship-quicklinks__grid a:nth-child(3),
-.championship-quicklinks__grid a:nth-child(6) {
-  background: linear-gradient(135deg, #fff, var(--champ-yellow));
-}
-
-.championship-quicklinks__grid a:hover {
-  transform: translateY(-3px);
-  border-color: rgba(16, 23, 7, 0.18);
-  box-shadow: 0 24px 52px rgba(33, 43, 10, 0.16);
-}
-
-.championship-quicklinks__grid span {
-  width: fit-content;
-  min-height: 28px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 10px;
-  border-radius: 999px;
-  background: rgba(8, 9, 5, 0.92);
-  color: #f8ffe6;
-  font-size: 11px;
-  font-weight: 950;
-  letter-spacing: 0.08em;
-}
-
-.championship-quicklinks__grid strong {
-  display: block;
-  margin-top: 18px;
-  color: var(--champ-ink);
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 42px);
-  font-weight: 950;
-  line-height: 0.92;
-}
-
-.championship-quicklinks__grid p {
-  margin: auto 0 0;
-  padding-top: 14px;
-  color: rgba(16, 23, 7, 0.78);
-  font-size: 15px;
-  font-weight: 850;
-  line-height: 1.38;
-}
-
-.championship-wow {
+.turnaje-wow {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   gap: 18px;
   padding: 58px 0 34px;
 }
 
-.championship-wow__statement {
+.turnaje-wow__statement {
   padding: clamp(26px, 5vw, 54px);
   border-radius: 34px;
-  background: var(--champ-lime);
-  color: var(--champ-ink);
+  background: var(--turnaje-lime);
+  color: var(--turnaje-ink);
 }
 
-.championship-wow__statement h2,
-.championship-section__head h2,
-.championship-schedule h2,
-.championship-details h2,
-.championship-final-cta h2 {
+.turnaje-wow__statement h2,
+.turnaje-section__head h2,
+.turnaje-schedule h2,
+.turnaje-details h2,
+.turnaje-final-cta h2 {
   margin: 0;
   color: inherit;
   font-family: var(--font-display);
@@ -488,8 +373,8 @@
   letter-spacing: 0;
 }
 
-.championship-wow__statement p,
-.championship-final-cta p {
+.turnaje-wow__statement p,
+.turnaje-final-cta p {
   margin: 18px 0 0;
   color: rgba(16, 23, 7, 0.76);
   font-size: 17px;
@@ -497,12 +382,12 @@
   line-height: 1.58;
 }
 
-.championship-wow__cards {
+.turnaje-wow__cards {
   display: grid;
   gap: 12px;
 }
 
-.championship-wow__cards article {
+.turnaje-wow__cards article {
   min-height: 122px;
   display: grid;
   align-content: center;
@@ -510,28 +395,28 @@
   background: #fff;
 }
 
-.championship-wow__cards strong {
-  color: var(--champ-orange);
+.turnaje-wow__cards strong {
+  color: var(--turnaje-orange);
   font-family: var(--font-display);
   font-size: 42px;
   font-weight: 950;
   line-height: 0.9;
 }
 
-.championship-wow__cards span {
+.turnaje-wow__cards span {
   margin-top: 8px;
-  color: var(--champ-muted);
+  color: var(--turnaje-muted);
   font-size: 16px;
   font-weight: 850;
 }
 
-.championship-section,
-.championship-schedule,
-.championship-details {
+.turnaje-section,
+.turnaje-schedule,
+.turnaje-details {
   padding: 64px 0;
 }
 
-.championship-section__head {
+.turnaje-section__head {
   display: grid;
   grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
   gap: 24px;
@@ -539,63 +424,63 @@
   margin-bottom: 24px;
 }
 
-.championship-section__head--compact {
+.turnaje-section__head--compact {
   display: block;
   max-width: 780px;
   margin-bottom: 18px;
 }
 
-.championship-section__head span {
+.turnaje-section__head span {
   color: #16863a;
 }
 
-.championship-section__head p {
+.turnaje-section__head p {
   grid-column: 2;
   margin: -8px 0 0;
   max-width: 600px;
-  color: var(--champ-muted);
+  color: var(--turnaje-muted);
   font-size: 17px;
   font-weight: 800;
   line-height: 1.5;
 }
 
-.championship-category-grid,
-.championship-rule-grid,
-.championship-team-board,
-.championship-stat-grid {
+.turnaje-category-grid,
+.turnaje-rule-grid,
+.turnaje-team-board,
+.turnaje-stat-grid {
   display: grid;
   gap: 12px;
 }
 
-.championship-category-grid {
+.turnaje-category-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.championship-category-grid article {
+.turnaje-category-grid article {
   min-height: 260px;
   display: flex;
   flex-direction: column;
   padding: 24px;
   border-radius: 28px;
-  background: linear-gradient(135deg, #fff, var(--champ-soft));
+  background: linear-gradient(135deg, #fff, var(--turnaje-soft));
   border: 1px solid rgba(16, 23, 7, 0.1);
   box-shadow: 0 18px 42px rgba(33, 43, 10, 0.1);
 }
 
-.championship-category-grid article:nth-child(2) {
-  background: linear-gradient(135deg, var(--champ-blue), #e5f8ff);
+.turnaje-category-grid article:nth-child(2) {
+  background: linear-gradient(135deg, var(--turnaje-blue), #e5f8ff);
 }
 
-.championship-category-grid strong {
+.turnaje-category-grid strong {
   max-width: 11ch;
-  color: var(--champ-ink);
+  color: var(--turnaje-ink);
   font-family: var(--font-display);
   font-size: clamp(38px, 4.5vw, 64px);
   font-weight: 950;
   line-height: 0.88;
 }
 
-.championship-category-grid p {
+.turnaje-category-grid p {
   max-width: 34ch;
   margin: 16px 0 22px;
   color: rgba(16, 23, 7, 0.76);
@@ -604,71 +489,71 @@
   line-height: 1.42;
 }
 
-.championship-category-grid .championship-btn {
+.turnaje-category-grid .turnaje-btn {
   width: fit-content;
   margin-top: auto;
 }
 
-.championship-rule-grid,
-.championship-team-board,
-.championship-stat-grid {
+.turnaje-rule-grid,
+.turnaje-team-board,
+.turnaje-stat-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.championship-rule-grid article,
-.championship-team-board article,
-.championship-stat-grid article {
+.turnaje-rule-grid article,
+.turnaje-team-board article,
+.turnaje-stat-grid article {
   padding: 22px;
   background: #fff;
 }
 
-.championship-rule-grid strong {
+.turnaje-rule-grid strong {
   display: block;
-  color: var(--champ-purple);
+  color: var(--turnaje-purple);
   font-family: var(--font-display);
   font-size: 52px;
   font-weight: 950;
   line-height: 0.9;
 }
 
-.championship-rule-grid span,
-.championship-team-board strong {
+.turnaje-rule-grid span,
+.turnaje-team-board strong {
   display: block;
   margin-top: 10px;
-  color: var(--champ-ink);
+  color: var(--turnaje-ink);
   font-size: 20px;
   font-weight: 950;
   line-height: 1.16;
 }
 
-.championship-schedule {
+.turnaje-schedule {
   padding-inline: clamp(18px, 4vw, 38px);
   border-radius: 38px;
-  background: linear-gradient(135deg, var(--champ-yellow), var(--champ-orange));
+  background: linear-gradient(135deg, var(--turnaje-yellow), var(--turnaje-orange));
 }
 
-.championship-schedule .championship-section__head {
+.turnaje-schedule .turnaje-section__head {
   display: block;
   max-width: 1080px;
 }
 
-.championship-schedule .championship-section__head h2 {
+.turnaje-schedule .turnaje-section__head h2 {
   max-width: 940px;
 }
 
-.championship-schedule .championship-section__head p {
+.turnaje-schedule .turnaje-section__head p {
   margin-top: 18px;
   max-width: 720px;
   color: rgba(16, 23, 7, 0.76);
 }
 
-.championship-schedule__grid {
+.turnaje-schedule__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
 }
 
-.championship-schedule__grid article {
+.turnaje-schedule__grid article {
   min-height: 250px;
   display: flex;
   flex-direction: column;
@@ -678,13 +563,13 @@
   border: 2px solid rgba(16, 23, 7, 0.08);
 }
 
-.championship-schedule__grid article.is-featured {
-  background: var(--champ-black);
+.turnaje-schedule__grid article.is-featured {
+  background: var(--turnaje-black);
   color: #f8ffe6;
   transform: translateY(-10px) rotate(-1deg);
 }
 
-.championship-schedule__grid strong {
+.turnaje-schedule__grid strong {
   margin-top: 10px;
   font-family: var(--font-display);
   font-size: clamp(52px, 6vw, 82px);
@@ -692,14 +577,14 @@
   line-height: 0.82;
 }
 
-.championship-schedule__grid p {
+.turnaje-schedule__grid p {
   margin: auto 0 0;
   color: inherit;
   font-size: 18px;
   font-weight: 900;
 }
 
-.championship-team-board article {
+.turnaje-team-board article {
   position: relative;
   overflow: hidden;
   min-height: 210px;
@@ -710,7 +595,7 @@
   box-shadow: 0 22px 42px rgba(33, 43, 10, 0.14);
 }
 
-.championship-team-board article::after {
+.turnaje-team-board article::after {
   content: '';
   position: absolute;
   top: -56px;
@@ -721,19 +606,19 @@
   background: rgba(255, 255, 255, 0.34);
 }
 
-.championship-team-board article:nth-child(1) {
-  background: linear-gradient(135deg, var(--champ-lime), var(--champ-yellow));
+.turnaje-team-board article:nth-child(1) {
+  background: linear-gradient(135deg, var(--turnaje-lime), var(--turnaje-yellow));
 }
 
-.championship-team-board article:nth-child(2) {
-  background: linear-gradient(135deg, var(--champ-blue), #dff7ff);
+.turnaje-team-board article:nth-child(2) {
+  background: linear-gradient(135deg, var(--turnaje-blue), #dff7ff);
 }
 
-.championship-team-board article:nth-child(3) {
-  background: linear-gradient(135deg, var(--champ-orange), var(--champ-yellow));
+.turnaje-team-board article:nth-child(3) {
+  background: linear-gradient(135deg, var(--turnaje-orange), var(--turnaje-yellow));
 }
 
-.championship-team-board span {
+.turnaje-team-board span {
   position: relative;
   z-index: 1;
   width: fit-content;
@@ -744,7 +629,7 @@
   letter-spacing: 0.1em;
 }
 
-.championship-team-board strong {
+.turnaje-team-board strong {
   position: relative;
   z-index: 1;
   max-width: 12ch;
@@ -753,7 +638,7 @@
   line-height: 0.94;
 }
 
-.championship-team-board p {
+.turnaje-team-board p {
   position: relative;
   z-index: 1;
   margin: 12px 0 0;
@@ -764,7 +649,7 @@
   line-height: 1.34;
 }
 
-.championship-stat-grid article {
+.turnaje-stat-grid article {
   min-height: 170px;
   display: grid;
   align-content: center;
@@ -772,50 +657,50 @@
   background: #fff;
 }
 
-.championship-stat-grid strong {
-  color: var(--champ-orange);
+.turnaje-stat-grid strong {
+  color: var(--turnaje-orange);
   font-family: var(--font-display);
   font-size: clamp(48px, 5vw, 76px);
   font-weight: 950;
   line-height: 0.84;
 }
 
-.championship-stat-grid span {
+.turnaje-stat-grid span {
   margin-top: 12px;
-  color: var(--champ-muted);
+  color: var(--turnaje-muted);
   font-size: 16px;
   font-weight: 900;
 }
 
-.championship-detail-list {
+.turnaje-detail-list {
   display: grid;
   gap: 10px;
 }
 
-.championship-detail-list details {
+.turnaje-detail-list details {
   overflow: hidden;
   background: #fff;
 }
 
-.championship-detail-list summary {
+.turnaje-detail-list summary {
   position: relative;
   cursor: pointer;
   padding: 20px 58px 20px 22px;
-  color: var(--champ-ink);
+  color: var(--turnaje-ink);
   font-size: 18px;
   font-weight: 950;
   list-style: none;
 }
 
-.championship-detail-list details[open] summary {
-  background: linear-gradient(135deg, var(--champ-lime), var(--champ-soft));
+.turnaje-detail-list details[open] summary {
+  background: linear-gradient(135deg, var(--turnaje-lime), var(--turnaje-soft));
 }
 
-.championship-detail-list summary::-webkit-details-marker {
+.turnaje-detail-list summary::-webkit-details-marker {
   display: none;
 }
 
-.championship-detail-list summary::after {
+.turnaje-detail-list summary::after {
   content: '+';
   position: absolute;
   top: 50%;
@@ -826,124 +711,118 @@
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: var(--champ-lime);
+  background: var(--turnaje-lime);
   transform: translateY(-50%);
   font-size: 24px;
 }
 
-.championship-detail-list details[open] summary::after {
+.turnaje-detail-list details[open] summary::after {
   content: '-';
 }
 
-.championship-detail-list p {
+.turnaje-detail-list p {
   margin: 0;
   padding: 0 22px 22px;
-  color: var(--champ-muted);
+  color: var(--turnaje-muted);
   font-size: 15px;
   font-weight: 750;
   line-height: 1.65;
 }
 
-.championship-detail-list details[open] p {
+.turnaje-detail-list details[open] p {
   padding-top: 18px;
 }
 
-.championship-final-cta {
+.turnaje-final-cta {
   margin-bottom: 72px;
   padding: clamp(28px, 6vw, 64px);
   border-radius: 38px;
   background:
     radial-gradient(circle at 92% 12%, rgba(255, 255, 255, 0.4), transparent 24%),
-    linear-gradient(135deg, var(--champ-lime), var(--champ-yellow));
+    linear-gradient(135deg, var(--turnaje-lime), var(--turnaje-yellow));
 }
 
-.championship-final-cta .championship-btn {
+.turnaje-final-cta .turnaje-btn {
   margin-top: 24px;
 }
 
 @media (max-width: 980px) {
-  .championship-hero {
+  .turnaje-hero {
     grid-template-columns: 1fr;
     min-height: auto;
   }
 
-  .championship-hero__photo {
+  .turnaje-hero__photo {
     transform: none;
   }
 
-  .championship-facts,
-  .championship-category-grid {
+  .turnaje-facts,
+  .turnaje-category-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .championship-wow,
-  .championship-quicklinks__head,
-  .championship-section__head,
-  .championship-quicklinks__grid,
-  .championship-rule-grid,
-  .championship-team-board,
-  .championship-stat-grid {
+  .turnaje-wow,
+  .turnaje-section__head,
+  .turnaje-rule-grid,
+  .turnaje-team-board,
+  .turnaje-stat-grid {
     grid-template-columns: 1fr;
   }
 
-  .championship-quicklinks__head p {
+  .turnaje-section__head p {
     grid-column: auto;
   }
 
-  .championship-section__head p {
-    grid-column: auto;
-  }
-
-  .championship-schedule__grid article.is-featured {
+  .turnaje-schedule__grid article.is-featured {
     transform: none;
   }
 }
 
 @media (max-width: 640px) {
-  .championship-back-link {
+  .turnaje-back-link {
     position: static;
     margin: 82px 16px 0;
   }
 
-  .championship-page {
-    background: linear-gradient(180deg, #fffce8 0 45rem, var(--champ-paper) 45rem 100%);
+  .turnaje-page {
+    background: linear-gradient(180deg, #fffce8 0 45rem, var(--turnaje-paper) 45rem 100%);
   }
 
-  .championship-hero {
+  .turnaje-hero {
     padding: 34px 16px 26px;
     row-gap: 22px;
   }
 
-  .championship-hero h1 {
+  .turnaje-hero h1 {
     font-size: clamp(42px, 13vw, 62px);
     line-height: 0.94;
   }
 
-  .championship-hero__lead {
+  .turnaje-hero__lead {
     font-size: 21px;
   }
 
-  .championship-hero__actions {
+  .turnaje-hero__actions {
     display: grid;
   }
 
-  .championship-btn {
+  .turnaje-btn {
     width: 100%;
     text-align: center;
   }
 
-  .championship-hero__photo {
+  .turnaje-hero__photo {
     border-radius: 24px;
   }
 
-  .championship-facts,
-  .championship-category-grid,
-  .championship-schedule__grid,
-  .championship-wow__cards {
+  .turnaje-facts,
+  .turnaje-category-grid,
+  .turnaje-schedule__grid,
+  .turnaje-wow__cards {
     grid-template-columns: 1fr;
   }
 
-  .championship-tabs {
+  .turnaje-tabs {
     position: static;
     position: relative;
     width: calc(100% - 32px);
@@ -958,7 +837,7 @@
     scrollbar-width: none;
   }
 
-  .championship-tabs::after {
+  .turnaje-tabs::after {
     content: '→';
     position: sticky;
     right: 0;
@@ -978,40 +857,37 @@
     pointer-events: none;
   }
 
-  .championship-tabs::-webkit-scrollbar {
+  .turnaje-tabs::-webkit-scrollbar {
     display: none;
   }
 
-  .championship-tabs a {
+  .turnaje-tabs a {
     flex: 0 0 auto;
     min-width: max-content;
     scroll-snap-align: start;
   }
 
-  .championship-wow,
-  .championship-quicklinks,
-  .championship-section,
-  .championship-schedule,
-  .championship-details,
-  .championship-final-cta {
+  .turnaje-wow,
+  .turnaje-section,
+  .turnaje-schedule,
+  .turnaje-details,
+  .turnaje-final-cta {
     width: calc(100% - 32px);
   }
 
-  .championship-schedule,
-  .championship-final-cta {
+  .turnaje-schedule,
+  .turnaje-final-cta {
     border-radius: 26px;
   }
 
-  .championship-section,
-  .championship-quicklinks,
-  .championship-schedule,
-  .championship-details {
+  .turnaje-section,
+  .turnaje-schedule,
+  .turnaje-details {
     padding-block: 46px;
   }
 
-  .championship-category-grid article,
-  .championship-quicklinks__grid a,
-  .championship-schedule__grid article {
+  .turnaje-category-grid article,
+  .turnaje-schedule__grid article {
     min-height: auto;
   }
 }

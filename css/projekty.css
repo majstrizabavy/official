@@ -1,4 +1,4 @@
-﻿/* ===== PROJEKTY MZ: overview + detail pages ===== */
+/* ===== PROJEKTY MZ: overview + detail pages ===== */
 
 .projects-hero {
   position: relative;
@@ -294,7 +294,7 @@
   --project-accent-soft: rgba(var(--accent-rgb),  0.14);
 }
 
-.project-page--championship {
+.project-page--turnaje {
   --project-accent: #d8ff5a;
   --project-accent-soft: rgba(216, 255, 90, 0.14);
 }
@@ -893,7 +893,7 @@
   flex-wrap: wrap;
 }
 
-/* ===== MZ CHAMPIONSHIP: 3v3 Floorball Cup landing ===== */
+/* ===== MZ TURNAJE: 3v3 Floorball Cup landing ===== */
 .floorball-cup {
   display: grid;
   gap: 12px;
