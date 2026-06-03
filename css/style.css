@@ -8527,7 +8527,7 @@ h1, h2, h3, h4, h5, h6 {
   background:
     linear-gradient(180deg, rgba(8, 8, 8, 0.1), rgba(8, 8, 8, 0.5)),
     linear-gradient(0deg, rgba(8, 8, 8, 0.56), rgba(8, 8, 8, 0.3)),
-    url('../assets/images/projekty/mzturnaje.svg') center/cover;
+    url('../assets/images/projekty/mzturnaje.png') center/cover;
 }
 
 .world-photo-placeholder--full {
