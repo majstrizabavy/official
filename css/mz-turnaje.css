@@ -971,6 +971,7 @@
     position: static;
     position: relative;
     width: calc(100% - 32px);
+    margin: 4px auto 28px;
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -1018,6 +1019,10 @@
   .turnaje-details,
   .turnaje-final-cta {
     width: calc(100% - 32px);
+  }
+
+  .turnaje-wow {
+    padding-top: 0;
   }
 
   .turnaje-schedule,
