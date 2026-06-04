@@ -136,6 +136,8 @@
   font-size: clamp(19px, 2.15vw, 29px);
   font-weight: 900;
   line-height: 1.16;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0;
 }
 
 .turnaje-hero__actions {
