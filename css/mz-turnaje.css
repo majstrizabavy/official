@@ -133,16 +133,16 @@
   max-width: 660px;
   margin: 20px 0 0;
   color: #25351a;
-  font-size: clamp(20px, 2.55vw, 34px);
+  font-size: clamp(19px, 2.15vw, 29px);
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.16;
 }
 
 .turnaje-hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 28px;
+  margin-top: 24px;
 }
 
 .turnaje-btn {
@@ -201,7 +201,9 @@
 .turnaje-final-cta span,
 .turnaje-schedule__grid span,
 .turnaje-team-board span,
-.turnaje-category-grid span {
+.turnaje-category-grid span,
+.turnaje-venue-grid span,
+.turnaje-fee-card span {
   display: block;
   margin-bottom: 8px;
   font-size: 11px;
@@ -430,6 +432,12 @@
   margin-bottom: 18px;
 }
 
+.turnaje-section__head--compact h2 {
+  max-width: 680px;
+  font-size: clamp(34px, 4.6vw, 58px);
+  line-height: 0.94;
+}
+
 .turnaje-section__head span {
   color: #16863a;
 }
@@ -492,6 +500,134 @@
 .turnaje-category-grid .turnaje-btn {
   width: fit-content;
   margin-top: auto;
+}
+
+.turnaje-venue-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.turnaje-venue-grid article {
+  min-height: 230px;
+  padding: 22px;
+  border-radius: 28px;
+  border: 1px solid rgba(16, 23, 7, 0.1);
+  background: #fff;
+  box-shadow: 0 18px 38px rgba(33, 43, 10, 0.09);
+}
+
+.turnaje-venue-grid article:nth-child(1) {
+  background: linear-gradient(135deg, #fff, var(--turnaje-soft));
+}
+
+.turnaje-venue-grid article:nth-child(2) {
+  background: linear-gradient(135deg, var(--turnaje-blue), #e5f8ff);
+}
+
+.turnaje-venue-grid article:nth-child(3) {
+  background: linear-gradient(135deg, #fff, #fff4bd);
+}
+
+.turnaje-venue-grid span {
+  color: #16863a;
+}
+
+.turnaje-venue-grid strong {
+  display: block;
+  max-width: 13ch;
+  color: var(--turnaje-ink);
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3vw, 44px);
+  font-weight: 950;
+  line-height: 0.94;
+}
+
+.turnaje-venue-grid p {
+  margin: 16px 0 0;
+  max-width: 30ch;
+  color: rgba(16, 23, 7, 0.75);
+  font-size: 16px;
+  font-weight: 850;
+  line-height: 1.42;
+}
+
+.turnaje-fee-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.56fr) minmax(0, 1.44fr);
+  align-items: start;
+  gap: 12px;
+}
+
+.turnaje-section--fee {
+  padding: 22px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, var(--turnaje-yellow), var(--turnaje-orange));
+}
+
+.turnaje-fee-card__price,
+.turnaje-fee-card__includes {
+  min-width: 0;
+  padding: 18px;
+  border-radius: 20px;
+  border: 2px solid rgba(16, 23, 7, 0.08);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.turnaje-fee-card__price span,
+.turnaje-fee-card__includes span {
+  color: #16863a;
+}
+
+.turnaje-fee-card__price strong {
+  display: block;
+  margin-top: 10px;
+  color: var(--turnaje-ink);
+  font-family: var(--font-display);
+  font-size: clamp(34px, 3.8vw, 52px);
+  font-weight: 950;
+  line-height: 0.95;
+  white-space: nowrap;
+}
+
+.turnaje-fee-card__price p {
+  max-width: 34ch;
+  margin: 14px 0 0;
+  color: rgba(16, 23, 7, 0.76);
+  font-size: 15px;
+  font-weight: 850;
+  line-height: 1.42;
+}
+
+.turnaje-fee-card__includes {
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.turnaje-fee-card__includes ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.turnaje-fee-card__includes li {
+  position: relative;
+  padding-left: 20px;
+  color: rgba(16, 23, 7, 0.82);
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1.36;
+}
+
+.turnaje-fee-card__includes li::before {
+  content: '+';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #16863a;
+  font-weight: 950;
 }
 
 .turnaje-rule-grid,
@@ -765,8 +901,13 @@
   .turnaje-section__head,
   .turnaje-rule-grid,
   .turnaje-team-board,
-  .turnaje-stat-grid {
+  .turnaje-stat-grid,
+  .turnaje-fee-card {
     grid-template-columns: 1fr;
+  }
+
+  .turnaje-venue-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .turnaje-section__head p {
@@ -799,7 +940,7 @@
   }
 
   .turnaje-hero__lead {
-    font-size: 21px;
+    font-size: 19px;
   }
 
   .turnaje-hero__actions {
@@ -818,7 +959,9 @@
   .turnaje-facts,
   .turnaje-category-grid,
   .turnaje-schedule__grid,
-  .turnaje-wow__cards {
+  .turnaje-wow__cards,
+  .turnaje-venue-grid,
+  .turnaje-fee-card__includes ul {
     grid-template-columns: 1fr;
   }
 
@@ -876,6 +1019,7 @@
   }
 
   .turnaje-schedule,
+  .turnaje-section--fee,
   .turnaje-final-cta {
     border-radius: 26px;
   }
@@ -886,8 +1030,23 @@
     padding-block: 46px;
   }
 
+  .turnaje-section--fee {
+    padding: 16px;
+  }
+
   .turnaje-category-grid article,
-  .turnaje-schedule__grid article {
+  .turnaje-schedule__grid article,
+  .turnaje-venue-grid article {
     min-height: auto;
+  }
+
+  .turnaje-fee-card {
+    gap: 10px;
+  }
+
+  .turnaje-fee-card__price,
+  .turnaje-fee-card__includes {
+    padding: 16px;
+    border-radius: 18px;
   }
 }
