@@ -455,6 +455,7 @@
 }
 
 .turnaje-category-grid,
+.turnaje-tournament-grid,
 .turnaje-rule-grid,
 .turnaje-team-board,
 .turnaje-stat-grid {
@@ -462,7 +463,8 @@
   gap: 12px;
 }
 
-.turnaje-category-grid {
+.turnaje-category-grid,
+.turnaje-tournament-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -501,6 +503,53 @@
 
 .turnaje-category-grid .turnaje-btn {
   width: fit-content;
+  margin-top: auto;
+}
+
+.turnaje-tournament-card {
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(22px, 4vw, 38px);
+  border: 2px solid rgba(16, 23, 7, 0.1);
+  border-radius: 30px;
+  background: linear-gradient(135deg, #fff, var(--turnaje-soft));
+  box-shadow: 0 18px 38px rgba(41, 58, 19, 0.1);
+}
+
+.turnaje-tournament-card:nth-child(2) {
+  background: linear-gradient(135deg, var(--turnaje-blue), #e5f8ff);
+}
+
+.turnaje-tournament-card__meta {
+  margin-bottom: 14px;
+  color: #1f5e18;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.turnaje-tournament-card h3 {
+  margin: 0;
+  color: var(--turnaje-ink);
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 950;
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.turnaje-tournament-card p {
+  margin: 18px 0 24px;
+  color: #25351a;
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1.55;
+}
+
+.turnaje-tournament-card .turnaje-btn {
   margin-top: auto;
 }
 
@@ -895,7 +944,8 @@
   }
 
   .turnaje-facts,
-  .turnaje-category-grid {
+  .turnaje-category-grid,
+  .turnaje-tournament-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -960,6 +1010,7 @@
 
   .turnaje-facts,
   .turnaje-category-grid,
+  .turnaje-tournament-grid,
   .turnaje-schedule__grid,
   .turnaje-wow__cards,
   .turnaje-venue-grid,
@@ -1042,6 +1093,7 @@
   }
 
   .turnaje-category-grid article,
+  .turnaje-tournament-card,
   .turnaje-schedule__grid article,
   .turnaje-venue-grid article {
     min-height: auto;
