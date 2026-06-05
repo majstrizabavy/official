@@ -247,6 +247,16 @@
   object-position: center 42%;
 }
 
+.turnaje-page-body--zvolenska-liga .turnaje-hero__photo {
+  background: #f8fbdf;
+}
+
+.turnaje-page-body--zvolenska-liga .turnaje-hero__photo img {
+  aspect-ratio: 1672 / 941;
+  object-fit: contain;
+  object-position: center;
+}
+
 .turnaje-facts {
   grid-column: 1 / -1;
   display: grid;
@@ -440,6 +450,10 @@
   line-height: 0.94;
 }
 
+.turnaje-section--steps .turnaje-rule-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .turnaje-section__head span {
   color: #16863a;
 }
@@ -454,6 +468,30 @@
   line-height: 1.5;
 }
 
+.turnaje-section--hub {
+  padding-top: 48px;
+  padding-bottom: 52px;
+}
+
+.turnaje-section--hub .turnaje-section__head {
+  display: block;
+  max-width: 720px;
+  margin-bottom: 18px;
+}
+
+.turnaje-section--hub .turnaje-section__head h2 {
+  max-width: 620px;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 0.94;
+}
+
+.turnaje-section--hub .turnaje-section__head p {
+  margin: 14px 0 0;
+  max-width: 540px;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
 .turnaje-category-grid,
 .turnaje-tournament-grid,
 .turnaje-rule-grid,
@@ -466,6 +504,8 @@
 .turnaje-category-grid,
 .turnaje-tournament-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(14px, 2vw, 22px);
 }
 
 .turnaje-category-grid article {
@@ -507,19 +547,21 @@
 }
 
 .turnaje-tournament-card {
-  min-height: 340px;
+  min-height: 230px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: clamp(22px, 4vw, 38px);
+  padding: clamp(18px, 3vw, 28px);
   border: 2px solid rgba(16, 23, 7, 0.1);
-  border-radius: 30px;
-  background: linear-gradient(135deg, #fff, var(--turnaje-soft));
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--turnaje-orange), var(--turnaje-yellow));
   box-shadow: 0 18px 38px rgba(41, 58, 19, 0.1);
+  transform: rotate(-0.8deg);
 }
 
 .turnaje-tournament-card:nth-child(2) {
   background: linear-gradient(135deg, var(--turnaje-blue), #e5f8ff);
+  transform: rotate(0.8deg);
 }
 
 .turnaje-tournament-card__meta {
@@ -535,22 +577,26 @@
   margin: 0;
   color: var(--turnaje-ink);
   font-family: var(--font-display);
-  font-size: clamp(30px, 4vw, 52px);
+  font-size: clamp(28px, 3.2vw, 42px);
   font-weight: 950;
-  line-height: 0.96;
+  line-height: 0.94;
   letter-spacing: 0;
 }
 
 .turnaje-tournament-card p {
-  margin: 18px 0 24px;
+  margin: 12px 0 18px;
   color: #25351a;
-  font-size: 16px;
-  font-weight: 750;
-  line-height: 1.55;
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1.42;
 }
 
 .turnaje-tournament-card .turnaje-btn {
   margin-top: auto;
+  min-height: 42px;
+  padding-inline: 18px;
+  font-size: 11px;
+  box-shadow: none;
 }
 
 .turnaje-venue-grid {
@@ -805,6 +851,23 @@
   background: linear-gradient(135deg, var(--turnaje-orange), var(--turnaje-yellow));
 }
 
+.turnaje-team-board--schools {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.turnaje-team-board--schools article {
+  justify-content: flex-start;
+}
+
+.turnaje-team-board--schools article:nth-child(4) {
+  background: linear-gradient(135deg, #fff, var(--turnaje-soft));
+}
+
+.turnaje-team-board--schools strong {
+  max-width: 13ch;
+  font-size: clamp(24px, 2.5vw, 34px);
+}
+
 .turnaje-team-board span {
   position: relative;
   z-index: 1;
@@ -958,6 +1021,10 @@
     grid-template-columns: 1fr;
   }
 
+  .turnaje-team-board--schools {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .turnaje-venue-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1097,6 +1164,11 @@
   .turnaje-schedule__grid article,
   .turnaje-venue-grid article {
     min-height: auto;
+  }
+
+  .turnaje-tournament-card,
+  .turnaje-tournament-card:nth-child(2) {
+    transform: none;
   }
 
   .turnaje-fee-card {
