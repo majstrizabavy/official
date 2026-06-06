@@ -152,6 +152,22 @@
   line-height: 1.1;
 }
 
+.leto-hero__lead strong,
+.leto-hero__lead span {
+  display: block;
+}
+
+.leto-hero__lead strong {
+  font: inherit;
+}
+
+.leto-hero__lead span {
+  margin-top: 8px;
+  font-size: 0.68em;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
 .leto-hero__actions {
   display: flex;
   flex-wrap: wrap;
@@ -281,6 +297,7 @@
 }
 
 .leto-wow,
+.leto-fridays,
 .leto-section,
 .leto-pricing,
 .leto-details,
@@ -353,6 +370,118 @@
   color: var(--leto-muted);
   font-size: 16px;
   font-weight: 850;
+}
+
+.leto-fridays {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 18px;
+  padding: 34px 0;
+  color: var(--leto-ink);
+}
+
+.leto-fridays__copy {
+  grid-row: span 2;
+  padding: clamp(28px, 5vw, 54px);
+  border: 1px solid rgba(16, 23, 7, 0.1);
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.38), transparent 25%),
+    linear-gradient(135deg, var(--leto-orange), var(--leto-yellow));
+  box-shadow: 0 22px 48px rgba(33, 43, 10, 0.13);
+}
+
+.leto-fridays__copy > span,
+.leto-fridays__note > span {
+  display: block;
+  margin-bottom: 10px;
+  color: rgba(16, 23, 7, 0.68);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.leto-fridays h2 {
+  margin: 0;
+  color: var(--leto-ink);
+  font-family: var(--font-display);
+  font-size: clamp(42px, 6vw, 76px);
+  font-weight: 950;
+  line-height: 0.9;
+}
+
+.leto-fridays__copy p,
+.leto-fridays__note p {
+  margin: 18px 0 0;
+  color: rgba(16, 23, 7, 0.74);
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1.6;
+}
+
+.leto-fridays__sports {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.leto-fridays__sports strong {
+  min-height: 84px;
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+  border: 1px solid rgba(16, 23, 7, 0.1);
+  border-radius: 22px;
+  background: #fff;
+  color: var(--leto-ink);
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 950;
+  line-height: 0.95;
+  box-shadow: 0 18px 42px rgba(33, 43, 10, 0.1);
+}
+
+.leto-fridays__sports strong:nth-child(1) {
+  background: linear-gradient(135deg, var(--leto-lime), var(--leto-yellow));
+}
+
+.leto-fridays__sports strong:nth-child(2) {
+  background: linear-gradient(135deg, var(--leto-blue), #dff7ff);
+}
+
+.leto-fridays__sports strong:nth-child(3) {
+  background: #fff;
+}
+
+.leto-fridays__sports strong:nth-child(4) {
+  background: linear-gradient(135deg, #ffd5e2, var(--leto-pink));
+}
+
+.leto-fridays__sports strong:nth-child(5) {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #fff, var(--leto-yellow));
+}
+
+.leto-fridays__note {
+  padding: 22px;
+  border: 1px solid rgba(16, 23, 7, 0.1);
+  border-radius: 24px;
+  background: var(--leto-lime);
+  box-shadow: 0 18px 42px rgba(33, 43, 10, 0.1);
+}
+
+.leto-fridays__note strong {
+  display: block;
+  color: var(--leto-ink);
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 950;
+  line-height: 0.95;
+}
+
+.leto-fridays__note p {
+  margin-top: 10px;
 }
 
 .leto-section,
@@ -765,6 +894,7 @@
   }
 
   .leto-wow,
+  .leto-fridays,
   .leto-section__head,
   .leto-price-grid,
   .leto-flow,
@@ -856,6 +986,7 @@
   }
 
   .leto-wow,
+  .leto-fridays,
   .leto-section,
   .leto-pricing,
   .leto-details,
@@ -872,5 +1003,21 @@
   .leto-pricing,
   .leto-details {
     padding-block: 46px;
+  }
+
+  .leto-fridays {
+    grid-template-columns: 1fr;
+    padding: 28px 0;
+  }
+
+  .leto-fridays__copy {
+    grid-row: auto;
+    padding: 28px 22px;
+    border-radius: 26px;
+  }
+
+  .leto-fridays__sports strong {
+    min-height: 72px;
+    font-size: 23px;
   }
 }

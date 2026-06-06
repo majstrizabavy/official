@@ -452,6 +452,146 @@
   color: rgba(16, 23, 7, 0.28);
 }
 
+.schedule-display-trigger {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 70;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border: 2px solid var(--turnaje-ink);
+  border-radius: 999px;
+  background: var(--turnaje-lime);
+  color: var(--turnaje-ink);
+  box-shadow: 0 12px 30px rgba(16, 23, 7, 0.22);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 950;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.schedule-display-trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(16, 23, 7, 0.28);
+}
+
+.schedule-display-trigger span {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.schedule-display {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: clamp(16px, 2vw, 28px);
+  padding: clamp(18px, 2.4vw, 40px);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(200, 255, 56, 0.46), transparent 32%),
+    linear-gradient(135deg, #f9ffe6 0%, #fff8bc 55%, #eefbd4 100%);
+  color: var(--turnaje-ink);
+}
+
+.schedule-display.is-open {
+  display: grid;
+}
+
+.schedule-display__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.schedule-display__topbar div {
+  display: grid;
+  gap: 4px;
+}
+
+.schedule-display__topbar span {
+  color: #16863a;
+  font-size: clamp(11px, 1vw, 15px);
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.schedule-display__topbar strong {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.3vw, 58px);
+  font-weight: 950;
+  line-height: 0.95;
+}
+
+.schedule-display__close {
+  flex: 0 0 auto;
+  padding: 12px 17px;
+  border: 2px solid var(--turnaje-ink);
+  border-radius: 999px;
+  background: var(--turnaje-ink);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.schedule-display__content {
+  min-height: 0;
+  overflow: auto;
+  border: 2px solid var(--turnaje-ink);
+  border-radius: clamp(18px, 2vw, 30px);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 24px 70px rgba(16, 23, 7, 0.18);
+}
+
+.schedule-display__content .tournament-schedule-table {
+  width: 100%;
+  height: 100%;
+  min-width: 900px;
+  table-layout: fixed;
+}
+
+.schedule-display__content .tournament-schedule-table th,
+.schedule-display__content .tournament-schedule-table td {
+  padding: clamp(12px, 1.45vh, 24px) clamp(12px, 1.4vw, 24px);
+  font-size: clamp(16px, 1.55vw, 28px);
+  line-height: 1.15;
+  text-align: center;
+}
+
+.schedule-display__content .tournament-schedule-table th {
+  background: var(--turnaje-lime);
+  color: var(--turnaje-ink);
+  font-size: clamp(12px, 1vw, 18px);
+}
+
+.schedule-display__content .tournament-schedule-table th:first-child {
+  width: 18%;
+}
+
+.schedule-display__content .tournament-schedule-table th:nth-child(2) {
+  width: 10%;
+}
+
+.schedule-display__content .tournament-schedule-table th:nth-child(4) {
+  width: 14%;
+}
+
+.schedule-display__content .score-cell {
+  color: var(--turnaje-ink);
+  font-size: clamp(24px, 2.3vw, 42px);
+}
+
+body.schedule-display-open {
+  overflow: hidden;
+}
+
 @media (max-width: 900px) {
   .tournament-page-header,
   .tournament-grid,
@@ -473,6 +613,39 @@
 }
 
 @media (max-width: 640px) {
+  .schedule-display-trigger {
+    right: 14px;
+    bottom: 14px;
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+
+  .schedule-display {
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .schedule-display__topbar {
+    align-items: flex-start;
+  }
+
+  .schedule-display__topbar strong {
+    font-size: 26px;
+  }
+
+  .schedule-display__topbar span {
+    font-size: 9px;
+  }
+
+  .schedule-display__close {
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+
+  .schedule-display__content .tournament-schedule-table {
+    min-width: 760px;
+  }
+
   .turnaje-subpage {
     padding-top: 98px;
     padding-bottom: 52px;

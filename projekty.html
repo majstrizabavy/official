@@ -8,9 +8,9 @@
   <title>Majstri Zábavy | Projekty MZ</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=20260601-native-cursor">
-  <link rel="stylesheet" href="css/projekty.css?v=20260511-clean-pages-1">
+  <link rel="stylesheet" href="css/projekty.css?v=20260606-projects-v2">
 </head>
-<body class="projects-clean-body">
+<body class="projects-v2">
 
   <nav id="navbar">
     <a href="index.html" class="nav-logo" data-nav="home"><span class="nav-logo__mark" aria-hidden="true">MZ</span><span class="nav-logo__wordmark"><span class="nav-logo__main">MAJSTRI</span> <span class="nav-logo__accent">ZÁBAVY</span></span></a>
@@ -38,68 +38,116 @@
     <a href="navrhni-si-akciu.html" class="mobile-nav-cta" data-nav="navrhni-akciu" data-mobile-close>Navrhni si akciu</a>
   </div>
 
-  <main class="page-shell">
-    <section id="projekty">
-      <div class="projects-hero projects-hero--world-green reveal">
-        <div class="projects-hero__content">
-          <div class="projects-hero__label">PROJEKTY MZ</div>
-          <h1 class="projects-hero__title">OBJAV NAŠE PROJEKTY</h1>
-          <p class="projects-hero__subtitle">👉 Projekty Majstrov zábavy, ktoré majú vlastný vibe a spájajú ľudí.</p>
-        </div>
-        <div class="world-hero-tags projects-hero-tags" role="group" aria-label="Projekty Majstrov zábavy">
-          <span>MZ TURNAJE</span>
+  <main class="projects-v2-page" id="projekty">
+    <section class="projects-v2-hero" aria-labelledby="projects-v2-title">
+      <div class="projects-v2-hero__copy">
+        <p class="projects-v2-kicker">PROJEKTY MAJSTROV ZÁBAVY</p>
+        <h1 id="projects-v2-title"><span>Viac než akcie.</span><span>Budujeme <em>zážitky.</em></span></h1>
+        <p class="projects-v2-hero__lead">Objav projekty, ktoré dávajú deťom, mladým ľuďom aj celým komunitám priestor hýbať sa, tvoriť a zažiť niečo spoločné.</p>
+        <a href="#projekty-prehlad" class="projects-v2-btn projects-v2-btn--primary">Objaviť projekty</a>
+      </div>
+
+      <div class="projects-v2-hero__visual" aria-label="Výber projektov Majstrov zábavy">
+        <a href="mz-leto.html" class="projects-v2-hero-tile projects-v2-hero-tile--leto">
+          <img src="assets/images/projekty/mzleto.png" alt="">
           <span>MZ LETO</span>
+        </a>
+        <a href="mz-turnaje.html" class="projects-v2-hero-tile projects-v2-hero-tile--turnaje">
+          <img src="assets/images/projekty/mzturnaje.png" alt="">
+          <span>MZ TURNAJE</span>
+        </a>
+        <a href="mz-akademia.html" class="projects-v2-hero-tile projects-v2-hero-tile--akademia">
+          <img src="assets/images/projekty/mzakademia.png" alt="">
           <span>MZ AKADÉMIA</span>
-          <span>STARCREW KIDS</span>
-        </div>
+        </a>
       </div>
 
-      <div class="projects-showcase reveal">
-
-        <!-- GRID PROJEKTOV -->
-        <div class="projects-showcase__grid">
-          <a href="mz-leto.html" class="projects-showcase__card projects-showcase__card--featured">
-            <div class="projects-showcase__media">
-              <img src="assets/images/projekty/mzleto.png" alt="MZ Leto promo vizual" loading="lazy">
-            </div>
-            <div class="projects-showcase__meta">Letny projekt</div>
-            <h2 class="projects-showcase__title">MZ LETO</h2>
-            <p class="projects-showcase__text">Letne tabory plne pohybu, zazitkov a zabavy.</p>
-            <span class="projects-showcase__link">Otvorit detail projektu</span>
-          </a>
-
-          <a href="mz-turnaje.html" class="projects-showcase__card">
-            <div class="projects-showcase__media">
-              <img src="assets/images/projekty/mzturnaje.png" alt="MZ TURNAJE promo vizual" loading="lazy">
-            </div>
-            <div class="projects-showcase__meta">Sutazny format</div>
-            <h2 class="projects-showcase__title">MZ TURNAJE</h2>
-            <p class="projects-showcase__text">Turnaje plne sutaze, emocii a energie.</p>
-            <span class="projects-showcase__link">Otvorit detail projektu</span>
-          </a>
-
-          <a href="mz-akademia.html" class="projects-showcase__card">
-            <div class="projects-showcase__media">
-              <img src="assets/images/projekty/mzakademia.png" alt="MZ Akademia promo vizual" loading="lazy">
-            </div>
-            <div class="projects-showcase__meta">Vzdelavanie</div>
-            <h2 class="projects-showcase__title">MZ AKADEMIA</h2>
-            <p class="projects-showcase__text">Skolenia animatorov a ludi, ktori chcu tvorit zabavu.</p>
-            <span class="projects-showcase__link">Otvorit detail projektu</span>
-          </a>
-
-          <a href="starcrew-kids.html" class="projects-showcase__card">
-            <div class="projects-showcase__media">
-              <img src="assets/images/projekty/starcrewkids.svg" alt="STARCREW Kids promo vizual" loading="lazy">
-            </div>
-            <div class="projects-showcase__meta">Detsky talentovy projekt</div>
-            <h2 class="projects-showcase__title">STARCREW Kids</h2>
-            <p class="projects-showcase__text">Spev, tanec, vystupovanie a realne eventy v jednom silnom detskom time pod Majstrami Zabavy.</p>
-            <span class="projects-showcase__link">Otvorit detail projektu</span>
-          </a>
-
-        </div>
+      <div class="projects-v2-facts" aria-label="Čo spája projekty MZ">
+        <article><span>Pohyb</span><strong>Šport</strong><small>turnaje, hry a výzvy</small></article>
+        <article><span>Zážitok</span><strong>Program</strong><small>energia počas celého roka</small></article>
+        <article><span>Rozvoj</span><strong>Talent</strong><small>vzdelávanie a vystupovanie</small></article>
+        <article><span>Spolu</span><strong>Komunita</strong><small>deti, školy a rodiny</small></article>
       </div>
+    </section>
+
+    <section class="projects-v2-intro">
+      <div class="projects-v2-intro__statement">
+        <span>JEDNA ZNAČKA, VIAC SVETOV</span>
+        <h2>Každý projekt má vlastnú energiu.</h2>
+        <p>Od letných dní cez športové turnaje až po rozvoj talentu. Vyber si svet, ktorý je ti najbližší.</p>
+      </div>
+      <div class="projects-v2-intro__notes">
+        <article><strong>Pre deti</strong><span>Pohyb, priatelia, tvorivosť a nové skúsenosti.</span></article>
+        <article><strong>Pre školy</strong><span>Programy, ktoré spájajú kolektív a prinášajú energiu.</span></article>
+        <article><strong>Pre komunitu</strong><span>Podujatia a projekty, pri ktorých ľudia zažívajú veci spolu.</span></article>
+      </div>
+    </section>
+
+    <section class="projects-v2-section" id="projekty-prehlad">
+      <div class="projects-v2-section__head">
+        <div>
+          <span>PREHĽAD PROJEKTOV</span>
+          <h2>Vyber si svoj MZ svet.</h2>
+        </div>
+        <p>Každý projekt má vlastný program a cieľ, no všetky spája pohyb, ľudia a zážitok, ktorý nekončí poslednou pesničkou.</p>
+      </div>
+
+      <div class="projects-v2-grid">
+        <a href="mz-leto.html" class="projects-v2-card projects-v2-card--leto">
+          <div class="projects-v2-card__media">
+            <img src="assets/images/projekty/mzleto.png" alt="MZ Leto" loading="lazy">
+          </div>
+          <div class="projects-v2-card__body">
+            <span>LETNÝ PROJEKT</span>
+            <h3>MZ LETO</h3>
+            <p>Letné dni plné pohybu, hier, kamarátov a programu, ktorý sa prispôsobí rodinám.</p>
+            <strong>Objaviť MZ Leto <b aria-hidden="true">→</b></strong>
+          </div>
+        </a>
+
+        <a href="mz-turnaje.html" class="projects-v2-card projects-v2-card--turnaje">
+          <div class="projects-v2-card__media">
+            <img src="assets/images/projekty/mzturnaje.png" alt="MZ Turnaje" loading="lazy">
+          </div>
+          <div class="projects-v2-card__body">
+            <span>ŠPORTOVÝ PROJEKT</span>
+            <h3>MZ TURNAJE</h3>
+            <p>Florbalové a futbalové výzvy, emócie, tímy a atmosféra, ktorá patrí k súťaži.</p>
+            <strong>Objaviť MZ Turnaje <b aria-hidden="true">→</b></strong>
+          </div>
+        </a>
+
+        <a href="mz-akademia.html" class="projects-v2-card projects-v2-card--akademia">
+          <div class="projects-v2-card__media">
+            <img src="assets/images/projekty/mzakademia.png" alt="MZ Akadémia" loading="lazy">
+          </div>
+          <div class="projects-v2-card__body">
+            <span>VZDELÁVACÍ PROJEKT</span>
+            <h3>MZ AKADÉMIA</h3>
+            <p>Školenia a praktické skúsenosti pre animátorov a ľudí, ktorí chcú tvoriť kvalitnú zábavu.</p>
+            <strong>Objaviť MZ Akadémiu <b aria-hidden="true">→</b></strong>
+          </div>
+        </a>
+
+        <a href="starcrew-kids.html" class="projects-v2-card projects-v2-card--starcrew">
+          <div class="projects-v2-card__media">
+            <img src="assets/images/projekty/starcrewkids.svg" alt="Starcrew Kids" loading="lazy">
+          </div>
+          <div class="projects-v2-card__body">
+            <span>TALENTOVÝ PROJEKT</span>
+            <h3>STARCREW KIDS</h3>
+            <p>Spev, tanec, vystupovanie a reálne eventy v jednom silnom detskom tíme.</p>
+            <strong>Objaviť Starcrew Kids <b aria-hidden="true">→</b></strong>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="projects-v2-final">
+      <span>MAJSTRI ZÁBAVY</span>
+      <h2>Projekt začína dobrým nápadom.</h2>
+      <p>Máš priestor, školu, komunitu alebo myšlienku, ktorú môžeme rozhýbať spolu?</p>
+      <a href="kontakt.html" class="projects-v2-btn projects-v2-btn--dark">Spojiť sa s nami</a>
     </section>
   </main>
 

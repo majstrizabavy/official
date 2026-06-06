@@ -46,7 +46,7 @@
         <div class="tournament-card__label">Rozpis zápasov</div>
         <h2>Výsledky</h2>
         <div class="tournament-table-wrap">
-          <table class="tournament-schedule-table">
+          <table class="tournament-schedule-table" data-schedule-source>
             <thead>
               <tr>
                 <th>Čas</th>
@@ -104,7 +104,27 @@
         </div>
       </article>
     </section>
-  </main><footer class="mz-footer" role="contentinfo" aria-label="Majstri zábavy - pätička">
+  </main>
+
+  <button type="button" class="schedule-display-trigger" data-schedule-display-open>
+    <span aria-hidden="true">⛶</span>
+    Zobraziť na celú obrazovku
+  </button>
+
+  <div class="schedule-display" data-schedule-display aria-hidden="true">
+    <div class="schedule-display__topbar">
+      <div>
+        <span>Zvolenská školská florbalová liga</span>
+        <strong>Rozpis zápasov a výsledky</strong>
+      </div>
+      <button type="button" class="schedule-display__close" data-schedule-display-close aria-label="Zavrieť celoobrazovkový náhľad">
+        Zavrieť ×
+      </button>
+    </div>
+    <div class="schedule-display__content" data-schedule-display-content></div>
+  </div>
+
+  <footer class="mz-footer" role="contentinfo" aria-label="Majstri zábavy - pätička">
     <div class="mz-footer__badge"><span aria-hidden="true"></span> 365 dní zábavy</div>
 
     <div class="mz-footer__brand" aria-label="Majstri zábavy">
@@ -161,5 +181,8 @@
       <a href="../../kontakt.html">Ochrana osobných údajov</a>
       <a href="../../kontakt.html">Cookies</a>
     </div>
-  </footer><script src="../../js/main.js?v=20260601-native-cursor"></script></body></html>
+  </footer>
+  <script src="../../js/main.js?v=20260601-native-cursor"></script>
+  <script src="../../js/tournament-display.js?v=20260606-display-1"></script>
+</body></html>
 
