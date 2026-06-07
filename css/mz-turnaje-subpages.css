@@ -55,6 +55,13 @@
   box-shadow: 0 14px 30px rgba(33, 43, 10, 0.1);
 }
 
+.project-back-link:hover,
+.project-back-link:focus-visible {
+  background: #fff;
+  color: var(--turnaje-ink);
+  box-shadow: 0 16px 34px rgba(33, 43, 10, 0.16);
+}
+
 .tournament-kicker,
 .tournament-tabs a,
 .tournament-card__label {
