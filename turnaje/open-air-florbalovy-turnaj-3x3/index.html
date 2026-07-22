@@ -43,31 +43,32 @@
     <section class="turnaje-hero" aria-labelledby="turnaje-title">
       <div class="turnaje-hero__copy">
         <p class="turnaje-kicker">1. august 2026 · Zvolen · florbal 3x3</p>
-        <h1 id="turnaje-title"><span>Open Air</span><span><em>Florbalový turnaj 3x3</em></span></h1>
-        <p class="turnaje-hero__lead">Svižný florbalový turnaj 3x3 vo Zvolene. Krátke zápasy, minimum prestojov a športový areál k dispozícii počas turnaja.</p>
+        <h1 id="turnaje-title"><span>Open Air</span><span>Florbalový</span><span><em>turnaj 3x3</em></span></h1>
+        <p class="turnaje-hero__lead">Svižný florbalový turnaj 3x3 vo Zvolene. Zápasy, dobrá atmosféra a športový areál k dispozícii počas celého turnaja.</p>
         <div class="turnaje-hero__actions">
-          <a href="#registracia" class="turnaje-btn turnaje-btn--primary">Prihlásiť tím</a>
-          <a href="#info" class="turnaje-btn turnaje-btn--ghost">Detaily turnaja</a>
+          <a href="#timy" class="turnaje-btn turnaje-btn--primary">Prihlásiť tím</a>
+          <a href="#galeria" class="turnaje-btn turnaje-btn--ghost">Pozri si, kde sa hrá</a>
         </div>
         <div class="turnaje-hero__hook">
           <span>Aktuálny turnaj</span>
           <strong>Open Air Florbalový turnaj 3x3</strong>
-          <p>Florbal 3x3 · Zvolen · 1. august 2026<br>max. 8 tímov · 40 € / tím · 2×10 min · športový areál</p>
+          <p>Florbal 3x3 · Zvolen · 1. august 2026<br>max. 8 tímov · 40 € / tím · 1x15 min · športový areál</p>
         </div>
       </div>
 
-      <div class="turnaje-hero__photo" aria-label="MZ TURNAJE hlavný vizuál">
-        <img src="../../assets/images/projekty/3x3turnaj.png" alt="Florbalový 3x3 turnaj Majstrov zábavy">
-      </div>
+      <button class="turnaje-hero__photo turnaje-hero__photo--poster" type="button" aria-label="Otvoriť úvodný plagát na celú obrazovku" data-poster-open>
+        <img src="../../assets/images/open-air-florbalovy-turnaj-3x3/uvodny%20plagat.png" alt="Open Air Florbalový turnaj 3x3 úvodný plagát">
+      </button>
 
       <div class="turnaje-facts" aria-label="Základné informácie o turnaji">
-        <article><span>Turnaj</span><strong>3x3</strong><small>rýchly florbalový formát</small></article>
+        <article><span>Turnaj</span><strong>3x3</strong><small>hrací čas 1x15 min</small></article>
         <article><span>Kde</span><strong>Zvolen</strong><small>ZŠ P. Jilemnického 1035/2</small></article>
-        <article><span>Kategórie</span><strong>Deti + Open</strong><small>detské aj hobby tímy</small></article>
-        <article><span>Termín</span><strong>1. august 2026</strong><small>od 9:00</small></article>
+        <article><span>Kapacita</span><strong>Max. 8 tímov</strong><small>limitovaný počet miest</small></article>
+        <article><span>Termín</span><strong>1.8.2026</strong><small>začíname o 8:00</small></article>
       </div>
     </section>
 
+    <div class="turnaje-tabs-prompt">Klikni na sekciu a zisti viac o turnaji</div>
     <nav class="turnaje-tabs" aria-label="Navigácia MZ TURNAJE">
       <a href="registracia.html">Registrácia</a>
       <a href="pravidla.html">Pravidlá</a>
@@ -79,12 +80,11 @@
     <section class="turnaje-wow" id="info">
       <div class="turnaje-wow__statement">
         <span>O turnaji</span>
-        <h2>Turnaje, ktoré majú jasné pravidlá aj atmosféru.</h2>
-        <p>MZ TURNAJE je priestor pre športové podujatia Majstrov zábavy. Prvý pripravovaný turnaj je Open Air Florbalový turnaj 3x3 vo Zvolene: rýchly florbalový formát, detská aj open kategória a eventová atmosféra Majstrov zábavy.</p>
+        <h2>Rýchly florbal, dobrá partia a poriadna turnajová atmosféra.</h2>
       </div>
       <div class="turnaje-wow__cards">
         <article><strong>3x3</strong><span>Kompaktný formát, krátke zápasy a veľa energie.</span></article>
-        <article><strong>1. august</strong><span>Sobota od 9:00 na ZŠ P. Jilemnického.</span></article>
+        <article><strong>1. august</strong><span>Sobota od 8:00 na ZŠ P. Jilemnického.</span></article>
         <article><strong>MZ vibe</strong><span>Moderovanie, atmosféra a prehľadný priebeh eventu.</span></article>
       </div>
     </section>
@@ -113,25 +113,24 @@
       </div>
     </section>
 
-    <section class="turnaje-section turnaje-section--register" id="registracia">
-      <div class="turnaje-section__head">
-        <span>Registrácia</span>
-        <h2>Vyberte kategóriu a pripravte tím.</h2>
-        <p>Registrácia bude pripravená pre detskú aj open kategóriu. Presné formuláre doplníme pri spustení turnaja.</p>
+    <section class="turnaje-section turnaje-section--gallery" id="galeria">
+      <div class="turnaje-section__head turnaje-section__head--compact">
+        <span>Takto to bude vyzerať</span>
+        <h2>Ihrisko a priestory pripravené na turnaj.</h2>
       </div>
-      <div class="turnaje-category-grid">
-        <article>
-          <span>Detská kategória</span>
-          <strong>Registrovať detský tím</strong>
-          <p>Pre detské a mládežnícke tímy vo formáte 3x3.</p>
-          <a href="../../kontakt.html" class="turnaje-btn turnaje-btn--dark">Mám záujem</a>
-        </article>
-        <article>
-          <span>Open kategória</span>
-          <strong>Registrovať open tím</strong>
-          <p>Pre dospelé, hobby a open tímy vo formáte 3x3.</p>
-          <a href="../../kontakt.html" class="turnaje-btn turnaje-btn--dark">Mám záujem</a>
-        </article>
+      <div class="turnaje-gallery" aria-label="Fotogaléria ihriska a športového areálu">
+        <button class="turnaje-gallery__item" type="button" data-gallery-open data-gallery-index="0" aria-label="Otvoriť fotku ihriska 1">
+          <img src="../../assets/images/open-air-florbalovy-turnaj-3x3/ihrisko1.jpg" alt="Florbalové ihrisko v areáli turnaja" loading="lazy">
+        </button>
+        <button class="turnaje-gallery__item" type="button" data-gallery-open data-gallery-index="1" aria-label="Otvoriť fotku ihriska 2">
+          <img src="../../assets/images/open-air-florbalovy-turnaj-3x3/ihrisko2.jpg" alt="Športový areál pripravený na turnaj" loading="lazy">
+        </button>
+        <button class="turnaje-gallery__item" type="button" data-gallery-open data-gallery-index="2" aria-label="Otvoriť fotku ihriska 3">
+          <img src="../../assets/images/open-air-florbalovy-turnaj-3x3/ihrisko3.jpg" alt="Pohľad na ihrisko a okolie areálu" loading="lazy">
+        </button>
+        <button class="turnaje-gallery__item" type="button" data-gallery-open data-gallery-index="3" aria-label="Otvoriť fotku ihriska 4">
+          <img src="../../assets/images/open-air-florbalovy-turnaj-3x3/ihrisko4.jpeg" alt="Zázemie športového areálu" loading="lazy">
+        </button>
       </div>
     </section>
 
@@ -140,52 +139,38 @@
         <div class="turnaje-fee-card__price">
           <span>Štartovné</span>
           <strong>40 € / tím</strong>
-          <p>Odporúčaný počet hráčov v tíme je 6 hráčov. Finálna suma na hráča závisí od počtu hráčov v tíme.</p>
+          <p>Hrá sa 3×3 na 1×15 minút. Je len na vás, koľko hráčov si do tímu vezmete a ako si rozložíte striedanie.</p>
         </div>
         <div class="turnaje-fee-card__includes">
           <span>V cene je zahrnuté</span>
           <ul>
-            <li>účasť v turnaji</li>
-            <li>rozhodcovia</li>
-            <li>multifunkčné ihrisko na rozcvičenie</li>
-            <li>2× pingpongové stoly pre relax</li>
-            <li>organizácia turnaja</li>
-            <li>vecné ceny alebo diplomy</li>
-            <li>pitná voda</li>
-            <li>DJ počas celého turnaja</li>
+            <li>Rozhodcovia</li>
+            <li>Organizácia</li>
+            <li>Športový areál</li>
+            <li>Pingpong</li>
+            <li>Pitná voda</li>
+            <li>Ceny a diplomy</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="turnaje-section turnaje-section--rules" id="pravidla">
-      <div class="turnaje-section__head">
-        <span>Pravidlá</span>
-        <h2>Jednoduchý systém, rýchle zápasy.</h2>
-      </div>
-      <div class="turnaje-rule-grid">
-        <article><strong>01</strong><span>Formát 3x3.</span></article>
-        <article><strong>02</strong><span>Krátke zápasy a jasný turnajový systém.</span></article>
-        <article><strong>03</strong><span>Detailné pravidlá doplníme pred spustením registrácie.</span></article>
-      </div>
-    </section>
-
-    <section class="turnaje-schedule" id="harmonogram">
+    <section class="turnaje-schedule turnaje-schedule--open-air" id="harmonogram">
       <div class="turnaje-section__head">
         <span>Harmonogram</span>
-        <h2>Jeden turnajový deň, jasný prehľad.</h2>
-        <p>Turnaj plánujeme na 1. august 2026 od 9:00. Detailný rozpis zápasov doplníme pred turnajom.</p>
+        <h2>Príď si užiť sobotu spolu s nami.</h2>
+        <p>Začíname už o 8:00 aby sme si čo najviac zahrali.</p>
       </div>
       <div class="turnaje-schedule__grid">
         <article>
-          <span>9:00</span>
+          <span>8:00</span>
           <strong>Štart turnaja</strong>
           <p>Príchod tímov, úvodné info a začiatok programu.</p>
         </article>
         <article class="is-featured">
           <span>Počas dňa</span>
           <strong>Zápasy a výsledky</strong>
-          <p>Harmonogram, tímy a štatistiky budú mať vlastné podstránky.</p>
+          <p>Zápasy pôjdu priebežne podľa rozpisu, výsledky budeme dopĺňať počas turnaja.</p>
         </article>
       </div>
     </section>
@@ -193,24 +178,44 @@
     <section class="turnaje-section turnaje-section--teams" id="timy">
       <div class="turnaje-section__head turnaje-section__head--compact">
         <span>Tímy</span>
-        <h2>Zoznam tímov bude jasne viditeľný.</h2>
+        <h2>Prihlásené tímy</h2>
       </div>
-      <div class="turnaje-team-board">
-        <article>
-          <span>Detské tímy</span>
-          <strong>Čakáme na registrácie.</strong>
-          <p>Po spustení turnaja tu môže byť zoznam prihlásených tímov.</p>
+      <div class="turnaje-team-grid" aria-label="Prihlásené tímy a voľné miesta">
+        <article class="turnaje-team-slot turnaje-team-slot--registered">
+          <span>01</span>
+          <img src="../../assets/images/open-air-florbalovy-turnaj-3x3/tim1.png" alt="Registrovaný tím 1" loading="lazy">
+          <strong>Registrovaný tím</strong>
         </article>
-        <article>
-          <span>Open tímy</span>
-          <strong>Prihlášky pripravujeme.</strong>
-          <p>Prehľad pomôže hráčom aj fanúšikom sledovať obsadenie turnaja.</p>
+        <article class="turnaje-team-slot turnaje-team-slot--registered">
+          <span>02</span>
+          <img src="../../assets/images/open-air-florbalovy-turnaj-3x3/tim2.png" alt="Registrovaný tím 2" loading="lazy">
+          <strong>Registrovaný tím</strong>
         </article>
-        <article>
-          <span>Organizátor</span>
-          <strong>Majstri zábavy.</strong>
-          <p>Turnajový priebeh, atmosféra a komunikácia pod jednou značkou.</p>
+        <article class="turnaje-team-slot turnaje-team-slot--registered">
+          <span>03</span>
+          <img src="../../assets/images/open-air-florbalovy-turnaj-3x3/tim3.jpg" alt="Registrovaný tím 3" loading="lazy">
+          <strong>Registrovaný tím</strong>
         </article>
+        <button class="turnaje-team-slot turnaje-team-slot--empty" type="button" data-registration-modal-open>
+          <span>04</span>
+          <strong>Prihlás svoj tím</strong>
+        </button>
+        <button class="turnaje-team-slot turnaje-team-slot--empty" type="button" data-registration-modal-open>
+          <span>05</span>
+          <strong>Prihlás svoj tím</strong>
+        </button>
+        <button class="turnaje-team-slot turnaje-team-slot--empty" type="button" data-registration-modal-open>
+          <span>06</span>
+          <strong>Prihlás svoj tím</strong>
+        </button>
+        <button class="turnaje-team-slot turnaje-team-slot--empty" type="button" data-registration-modal-open>
+          <span>07</span>
+          <strong>Prihlás svoj tím</strong>
+        </button>
+        <button class="turnaje-team-slot turnaje-team-slot--empty" type="button" data-registration-modal-open>
+          <span>08</span>
+          <strong>Prihlás svoj tím</strong>
+        </button>
       </div>
     </section>
 
@@ -222,19 +227,19 @@
       <div class="turnaje-detail-list">
         <details open>
           <summary>Čo je Open Air Florbalový turnaj 3x3?</summary>
-          <p>Dvojdňový florbalový event vo Zvolene, ktorý spája športový turnaj, prehľadnú organizáciu a energiu Majstrov zábavy.</p>
+          <p>Florbalový turnaj 3x3 organizujú dlhoroční florbaloví hráči: Peter Jach - florbalová špička na Slovensku, Christián Vaľko alias Christian Alex a Peter Holka z FBC Kings.</p>
         </details>
         <details>
           <summary>Kedy bude spustená registrácia?</summary>
-          <p>Registrácia bude doplnená pred spustením turnaja. Zatiaľ je stránka pripravená ako hlavný turnajový prehľad.</p>
+          <p>Registrácia je spustená do 31.7.2026.</p>
         </details>
         <details>
-          <summary>Aké kategórie plánujeme?</summary>
-          <p>Pripravujeme detskú kategóriu a open kategóriu. Presné vekové a organizačné detaily doplníme neskôr.</p>
+          <summary>Koľko hráčov treba registrovať v jednom tíme?</summary>
+          <p>Je na vás, koľko hráčov budete registrovať. Hrá sa 1x15 minút a formát je 3x3. Odporúčame minimálne jedného hráča na striedanie, ale je to úplne len na vás.</p>
         </details>
         <details>
-          <summary>Budú na stránke aj výsledky?</summary>
-          <p>Áno, počítame s priestorom pre tímy, harmonogram, výsledky, tabuľky, štatistiky a FAQ.</p>
+          <summary>Čo sa dá robiť medzi zápasmi, keď budú prestoje?</summary>
+          <p>Pripravili sme pre vás celý športový areál. Tešiť sa môžete na hlavné florbalové ihrisko, originálny florbalový vonkajší povrch, 2x ping-pongové stoly, jedno multifunkčné ihrisko na rozcvičenie, Zvolenskú Európu SC vzdialenú 5 minút pešo a skvelú náladu.</p>
         </details>
       </div>
     </section>
@@ -242,10 +247,54 @@
     <section class="turnaje-final-cta">
       <span>MZ TURNAJE</span>
       <h2>Pripravte tím na turnaj.</h2>
-      <p>Florbalový turnaj 3x3 vo Zvolene. Pre deti, open tímy a všetkých, ktorí chcú zažiť súťažný MZ vibe.</p>
-      <a href="../../kontakt.html" class="turnaje-btn turnaje-btn--primary">Kontaktovať organizátora</a>
+      <p>Florbalový turnaj 3x3 vo Zvolene. Pre tímy, ktoré chcú zažiť súťažnú atmosféru a MZ vibe.</p>
+      <a href="#registracia-kontakt" class="turnaje-btn turnaje-btn--primary" data-registration-modal-open>Kontaktovať organizátora</a>
     </section>
   </main>
+
+  <div class="turnaje-modal" id="registracia-kontakt" aria-hidden="true">
+    <div class="turnaje-modal__overlay" data-registration-modal-close></div>
+    <section class="turnaje-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="registracia-kontakt-title" tabindex="-1">
+      <button class="turnaje-modal__close" type="button" aria-label="Zatvoriť" data-registration-modal-close>&times;</button>
+      <span>Prihlásenie tímu</span>
+      <h2 id="registracia-kontakt-title">Pre registráciu tímu napíšte organizátorovi.</h2>
+      <div class="turnaje-modal__links">
+        <a href="mailto:hbt.kings@gmail.com">hbt.kings@gmail.com</a>
+        <a href="https://www.instagram.com/peter_holka_/" target="_blank" rel="noopener noreferrer">@peter_holka_</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="turnaje-poster-modal" id="uvodny-plagat" aria-hidden="true">
+    <div class="turnaje-poster-modal__overlay" data-poster-close></div>
+    <section class="turnaje-poster-modal__dialog" role="dialog" aria-modal="true" aria-label="Úvodný plagát turnaja" tabindex="-1">
+      <button class="turnaje-poster-modal__close" type="button" aria-label="Zatvoriť plagát" data-poster-close>&times;</button>
+      <img src="../../assets/images/open-air-florbalovy-turnaj-3x3/uvodny%20plagat.png" alt="Open Air Florbalový turnaj 3x3 úvodný plagát">
+    </section>
+  </div>
+
+  <div class="turnaje-lightbox" id="turnaje-galeria" aria-hidden="true">
+    <div class="turnaje-lightbox__overlay" data-gallery-close></div>
+    <section class="turnaje-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Fotogaléria areálu" tabindex="-1">
+      <button class="turnaje-lightbox__close" type="button" aria-label="Zatvoriť galériu" data-gallery-close>&times;</button>
+      <button class="turnaje-lightbox__nav turnaje-lightbox__nav--prev" type="button" aria-label="Predchádzajúca fotka" data-gallery-prev>&lsaquo;</button>
+      <div class="turnaje-lightbox__track" data-gallery-track>
+        <figure class="turnaje-lightbox__slide">
+          <img src="../../assets/images/open-air-florbalovy-turnaj-3x3/ihrisko1.jpg" alt="Florbalové ihrisko v areáli turnaja">
+        </figure>
+        <figure class="turnaje-lightbox__slide">
+          <img src="../../assets/images/open-air-florbalovy-turnaj-3x3/ihrisko2.jpg" alt="Športový areál pripravený na turnaj">
+        </figure>
+        <figure class="turnaje-lightbox__slide">
+          <img src="../../assets/images/open-air-florbalovy-turnaj-3x3/ihrisko3.jpg" alt="Pohľad na ihrisko a okolie areálu">
+        </figure>
+        <figure class="turnaje-lightbox__slide">
+          <img src="../../assets/images/open-air-florbalovy-turnaj-3x3/ihrisko4.jpeg" alt="Zázemie športového areálu">
+        </figure>
+      </div>
+      <button class="turnaje-lightbox__nav turnaje-lightbox__nav--next" type="button" aria-label="Ďalšia fotka" data-gallery-next>&rsaquo;</button>
+    </section>
+  </div>
 
   <footer class="mz-footer" role="contentinfo" aria-label="Majstri zábavy - pätička">
     <div class="mz-footer__badge"><span aria-hidden="true"></span> 365 dní zábavy</div>
@@ -306,7 +355,149 @@
     </div>
   </footer>
 
+  <button class="turnaje-scroll-top" type="button" aria-label="Späť na začiatok stránky" data-scroll-top>
+    <span aria-hidden="true">↑</span>
+  </button>
+
   <script src="../../js/main.js?v=20260601-native-cursor"></script>
+  <script>
+    (() => {
+      const button = document.querySelector('[data-scroll-top]');
+      if (!button) return;
+
+      const toggleButton = () => {
+        button.classList.toggle('is-visible', window.scrollY > 520);
+      };
+
+      button.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      toggleButton();
+      window.addEventListener('scroll', toggleButton, { passive: true });
+    })();
+  </script>
+  <script>
+    (() => {
+      const modal = document.getElementById('uvodny-plagat');
+      const dialog = modal?.querySelector('.turnaje-poster-modal__dialog');
+      const openButton = document.querySelector('[data-poster-open]');
+      const closeButtons = modal?.querySelectorAll('[data-poster-close]') || [];
+      let lastFocusedElement = null;
+
+      const closePoster = () => {
+        if (!modal) return;
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('turnaje-modal-open');
+        lastFocusedElement?.focus();
+      };
+
+      const openPoster = () => {
+        if (!modal || !dialog) return;
+        lastFocusedElement = document.activeElement;
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('turnaje-modal-open');
+        dialog.focus();
+      };
+
+      openButton?.addEventListener('click', openPoster);
+      closeButtons.forEach((button) => button.addEventListener('click', closePoster));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal?.classList.contains('is-open')) {
+          closePoster();
+        }
+      });
+    })();
+  </script>
+  <script>
+    (() => {
+      const modal = document.getElementById('registracia-kontakt');
+      const dialog = modal?.querySelector('.turnaje-modal__dialog');
+      const openButtons = document.querySelectorAll('[data-registration-modal-open]');
+      const closeButtons = modal?.querySelectorAll('[data-registration-modal-close]') || [];
+      let lastFocusedElement = null;
+
+      const closeModal = () => {
+        if (!modal) return;
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('turnaje-modal-open');
+        lastFocusedElement?.focus();
+      };
+
+      const openModal = (event) => {
+        event.preventDefault();
+        if (!modal || !dialog) return;
+        lastFocusedElement = document.activeElement;
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('turnaje-modal-open');
+        dialog.focus();
+      };
+
+      openButtons.forEach((button) => button.addEventListener('click', openModal));
+      closeButtons.forEach((button) => button.addEventListener('click', closeModal));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal?.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+    })();
+  </script>
+  <script>
+    (() => {
+      const lightbox = document.getElementById('turnaje-galeria');
+      const dialog = lightbox?.querySelector('.turnaje-lightbox__dialog');
+      const track = lightbox?.querySelector('[data-gallery-track]');
+      const openButtons = document.querySelectorAll('[data-gallery-open]');
+      const closeButtons = lightbox?.querySelectorAll('[data-gallery-close]') || [];
+      const prevButton = lightbox?.querySelector('[data-gallery-prev]');
+      const nextButton = lightbox?.querySelector('[data-gallery-next]');
+      let lastFocusedElement = null;
+
+      const scrollToSlide = (index) => {
+        const slide = track?.children[index];
+        slide?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      };
+
+      const activeIndex = () => {
+        if (!track) return 0;
+        return Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+      };
+
+      const openGallery = (event) => {
+        event.preventDefault();
+        if (!lightbox || !dialog) return;
+        lastFocusedElement = document.activeElement;
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('turnaje-modal-open');
+        dialog.focus();
+        requestAnimationFrame(() => scrollToSlide(Number(event.currentTarget.dataset.galleryIndex) || 0));
+      };
+
+      const closeGallery = () => {
+        if (!lightbox) return;
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('turnaje-modal-open');
+        lastFocusedElement?.focus();
+      };
+
+      openButtons.forEach((button) => button.addEventListener('click', openGallery));
+      closeButtons.forEach((button) => button.addEventListener('click', closeGallery));
+      prevButton?.addEventListener('click', () => scrollToSlide(Math.max(0, activeIndex() - 1)));
+      nextButton?.addEventListener('click', () => scrollToSlide(Math.min((track?.children.length || 1) - 1, activeIndex() + 1)));
+      document.addEventListener('keydown', (event) => {
+        if (!lightbox?.classList.contains('is-open')) return;
+        if (event.key === 'Escape') closeGallery();
+        if (event.key === 'ArrowLeft') scrollToSlide(Math.max(0, activeIndex() - 1));
+        if (event.key === 'ArrowRight') scrollToSlide(Math.min((track?.children.length || 1) - 1, activeIndex() + 1));
+      });
+    })();
+  </script>
 </body>
 </html>
 

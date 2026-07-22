@@ -13,7 +13,7 @@
         <a href="index.html" class="project-back-link">&larr; Späť na Open Air Florbalový turnaj 3x3</a>
       </header>
 
-      <nav class="tournament-tabs" aria-label="Turnajová navigácia">
+      <div class="tournament-tabs-prompt">Klikni na sekciu a zisti viac o turnaji</div><nav class="tournament-tabs" aria-label="Turnajová navigácia">
         <a href="info.html">Info</a>
         <a href="registracia.html">Registrácia</a>
         <a href="pravidla.html">Pravidlá</a>
@@ -24,26 +24,36 @@
 
       <div class="tournament-grid">
         <article class="tournament-card">
-          <div class="tournament-card__label">Kapacita turnaja</div>
-          <h2>Max. 8 tímov</h2>
-          <p>Zoznam prihlásených tímov a presný rozpis zápasov doplníme po uzavretí registrácie.</p>
+          <div class="tournament-card__label">Skupina A</div>
+          <h2>4 tímy</h2>
+          <ul>
+            <li>Tím A1</li>
+            <li>Tím A2</li>
+            <li>Tím A3</li>
+            <li>Tím A4</li>
+          </ul>
         </article>
 
         <article class="tournament-card">
-          <div class="tournament-card__label">Systém turnaja</div>
-          <h2>Podľa počtu tímov</h2>
-          <p>Turnajový systém nastavíme podľa finálneho počtu prihlásených tímov tak, aby mal každý tím férový počet zápasov.</p>
-          <p>Hrací čas jedného zápasu je <strong>2×10 minút</strong>.</p>
+          <div class="tournament-card__label">Skupina B</div>
+          <h2>4 tímy</h2>
+          <ul>
+            <li>Tím B1</li>
+            <li>Tím B2</li>
+            <li>Tím B3</li>
+            <li>Tím B4</li>
+          </ul>
         </article>
       </div>
 
       <article class="tournament-card tournament-card--wide">
         <div class="tournament-card__label">Rozpis zápasov</div>
-        <h2>Výsledky</h2>
+        <h2>Skupinová fáza</h2>
         <div class="tournament-table-wrap">
           <table class="tournament-schedule-table">
             <thead>
               <tr>
+                <th>Skupina</th>
                 <th>Zápas</th>
                 <th>Tím 1</th>
                 <th>Skóre</th>
@@ -52,7 +62,157 @@
             </thead>
             <tbody>
               <tr>
-                <td colspan="4">Rozpis zápasov doplníme po uzavretí registrácie.</td>
+                <td>A</td>
+                <td>1</td>
+                <td>Tím A1</td>
+                <td class="score-cell"></td>
+                <td>Tím A2</td>
+              </tr>
+              <tr>
+                <td>B</td>
+                <td>2</td>
+                <td>Tím B1</td>
+                <td class="score-cell"></td>
+                <td>Tím B2</td>
+              </tr>
+              <tr>
+                <td>A</td>
+                <td>3</td>
+                <td>Tím A3</td>
+                <td class="score-cell"></td>
+                <td>Tím A4</td>
+              </tr>
+              <tr>
+                <td>B</td>
+                <td>4</td>
+                <td>Tím B3</td>
+                <td class="score-cell"></td>
+                <td>Tím B4</td>
+              </tr>
+              <tr>
+                <td>A</td>
+                <td>5</td>
+                <td>Tím A1</td>
+                <td class="score-cell"></td>
+                <td>Tím A3</td>
+              </tr>
+              <tr>
+                <td>B</td>
+                <td>6</td>
+                <td>Tím B1</td>
+                <td class="score-cell"></td>
+                <td>Tím B3</td>
+              </tr>
+              <tr>
+                <td>A</td>
+                <td>7</td>
+                <td>Tím A2</td>
+                <td class="score-cell"></td>
+                <td>Tím A4</td>
+              </tr>
+              <tr>
+                <td>B</td>
+                <td>8</td>
+                <td>Tím B2</td>
+                <td class="score-cell"></td>
+                <td>Tím B4</td>
+              </tr>
+              <tr>
+                <td>A</td>
+                <td>9</td>
+                <td>Tím A1</td>
+                <td class="score-cell"></td>
+                <td>Tím A4</td>
+              </tr>
+              <tr>
+                <td>B</td>
+                <td>10</td>
+                <td>Tím B1</td>
+                <td class="score-cell"></td>
+                <td>Tím B4</td>
+              </tr>
+              <tr>
+                <td>A</td>
+                <td>11</td>
+                <td>Tím A2</td>
+                <td class="score-cell"></td>
+                <td>Tím A3</td>
+              </tr>
+              <tr>
+                <td>B</td>
+                <td>12</td>
+                <td>Tím B2</td>
+                <td class="score-cell"></td>
+                <td>Tím B3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="tournament-card tournament-card--wide">
+        <div class="tournament-card__label">Playoff</div>
+        <h2>Vyraďovacia fáza</h2>
+        <div class="tournament-table-wrap">
+          <table class="tournament-schedule-table">
+            <thead>
+              <tr>
+                <th>Fáza</th>
+                <th>Zápas</th>
+                <th>Tím 1</th>
+                <th>Skóre</th>
+                <th>Tím 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Štvrťfinále</td>
+                <td>QF1</td>
+                <td>1A</td>
+                <td class="score-cell"></td>
+                <td>4B</td>
+              </tr>
+              <tr>
+                <td>Štvrťfinále</td>
+                <td>QF2</td>
+                <td>2A</td>
+                <td class="score-cell"></td>
+                <td>3B</td>
+              </tr>
+              <tr>
+                <td>Štvrťfinále</td>
+                <td>QF3</td>
+                <td>3A</td>
+                <td class="score-cell"></td>
+                <td>2B</td>
+              </tr>
+              <tr>
+                <td>Štvrťfinále</td>
+                <td>QF4</td>
+                <td>4A</td>
+                <td class="score-cell"></td>
+                <td>1B</td>
+              </tr>
+              <tr>
+                <td>Semifinále</td>
+                <td>SF1</td>
+                <td>Víťaz QF1</td>
+                <td class="score-cell"></td>
+                <td>Víťaz QF2</td>
+              </tr>
+              <tr>
+                <td>Semifinále</td>
+                <td>SF2</td>
+                <td>Víťaz QF3</td>
+                <td class="score-cell"></td>
+                <td>Víťaz QF4</td>
+              </tr>
+              <tr>
+                <td>Finále</td>
+                <td>F</td>
+                <td>Víťaz SF1</td>
+                <td class="score-cell"></td>
+                <td>Víťaz SF2</td>
               </tr>
             </tbody>
           </table>
