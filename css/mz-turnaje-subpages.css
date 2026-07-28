@@ -779,6 +779,139 @@ body.schedule-display-open {
 }
 
 @media (max-width: 640px) {
+  .tournament-table-wrap {
+    overflow-x: hidden;
+  }
+
+  .tournament-schedule-table {
+    min-width: 0;
+    table-layout: fixed;
+  }
+
+  .tournament-schedule-table th,
+  .tournament-schedule-table td {
+    padding: 9px 5px;
+    font-size: 11px;
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .tournament-schedule-table th {
+    font-size: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  .tournament-schedule-table th:first-child,
+  .tournament-schedule-table td:first-child {
+    width: 11%;
+  }
+
+  .tournament-schedule-table th:nth-child(2),
+  .tournament-schedule-table td:nth-child(2),
+  .tournament-schedule-table th:nth-child(4),
+  .tournament-schedule-table td:nth-child(4) {
+    width: 36.5%;
+  }
+
+  .tournament-schedule-table th:nth-child(3),
+  .tournament-schedule-table td:nth-child(3),
+  .score-cell {
+    width: 16%;
+  }
+
+  .score-cell {
+    font-size: 14px;
+  }
+
+  .tournament-schedule-table--playoff th:first-child,
+  .tournament-schedule-table--playoff td:first-child {
+    width: 18%;
+  }
+
+  .tournament-schedule-table--playoff th:nth-child(2),
+  .tournament-schedule-table--playoff td:nth-child(2) {
+    width: 10%;
+  }
+
+  .tournament-schedule-table--playoff th:nth-child(3),
+  .tournament-schedule-table--playoff td:nth-child(3),
+  .tournament-schedule-table--playoff th:nth-child(5),
+  .tournament-schedule-table--playoff td:nth-child(5) {
+    width: 29%;
+  }
+
+  .tournament-schedule-table--playoff th:nth-child(4),
+  .tournament-schedule-table--playoff td:nth-child(4),
+  .tournament-schedule-table--playoff .score-cell {
+    width: 14%;
+  }
+
+  .tournament-stats-table th,
+  .tournament-stats-table td {
+    padding: 8px 3px;
+    font-size: 10px;
+    line-height: 1.1;
+  }
+
+  .tournament-stats-table th {
+    font-size: 7px;
+    letter-spacing: 0.02em;
+  }
+
+  .tournament-stats-table th:first-child,
+  .tournament-stats-table td:first-child {
+    width: 8%;
+  }
+
+  .tournament-stats-table--players th:nth-child(2),
+  .tournament-stats-table--players td:nth-child(2) {
+    width: 24%;
+  }
+
+  .tournament-stats-table--players th:nth-child(3),
+  .tournament-stats-table--players td:nth-child(3) {
+    width: 20%;
+  }
+
+  .tournament-stats-table--players th:nth-child(4),
+  .tournament-stats-table--players td:nth-child(4),
+  .tournament-stats-table--players th:nth-child(6),
+  .tournament-stats-table--players td:nth-child(6) {
+    width: 14%;
+  }
+
+  .tournament-stats-table--players th:nth-child(5),
+  .tournament-stats-table--players td:nth-child(5) {
+    width: 20%;
+  }
+
+  .tournament-stats-table--teams th:nth-child(2),
+  .tournament-stats-table--teams td:nth-child(2) {
+    width: 22%;
+  }
+
+  .tournament-stats-table--teams th:nth-child(3),
+  .tournament-stats-table--teams td:nth-child(3),
+  .tournament-stats-table--teams th:nth-child(4),
+  .tournament-stats-table--teams td:nth-child(4),
+  .tournament-stats-table--teams th:nth-child(5),
+  .tournament-stats-table--teams td:nth-child(5),
+  .tournament-stats-table--teams th:nth-child(6),
+  .tournament-stats-table--teams td:nth-child(6) {
+    width: 10%;
+  }
+
+  .tournament-stats-table--teams th:nth-child(7),
+  .tournament-stats-table--teams td:nth-child(7) {
+    width: 16%;
+  }
+
+  .tournament-stats-table--teams th:nth-child(8),
+  .tournament-stats-table--teams td:nth-child(8) {
+    width: 14%;
+  }
+
   .schedule-display {
     gap: 12px;
     padding: 14px;
