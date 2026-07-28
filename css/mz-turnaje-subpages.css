@@ -333,13 +333,31 @@ details.turnaje-team-slot[open] {
   inset: 0;
   padding: clamp(10px, 1.2vw, 14px);
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-rows: 28px minmax(0, 1fr) minmax(30px, auto);
   align-items: center;
   gap: 8px;
   list-style: none;
   backface-visibility: hidden;
   transform: rotateY(0deg);
   transition: transform 0.32s ease;
+}
+
+.turnaje-team-slot__summary span {
+  align-self: start;
+  justify-self: start;
+}
+
+.turnaje-team-slot__summary img {
+  width: 100%;
+  height: 100%;
+  max-height: clamp(76px, 62%, 112px);
+  align-self: center;
+  justify-self: center;
+  object-fit: contain;
+}
+
+.turnaje-team-slot__summary strong {
+  align-self: end;
 }
 
 .turnaje-team-slot__summary::-webkit-details-marker {
@@ -389,6 +407,7 @@ details.turnaje-team-slot[open] .turnaje-team-slot__players {
 
 .turnaje-team-slot__players ul {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 4px;
   padding: 0;
   list-style: none;
@@ -401,6 +420,14 @@ details.turnaje-team-slot[open] .turnaje-team-slot__players {
   font-weight: 850;
   line-height: 1.2;
   text-align: center;
+}
+
+.turnaje-team-slot__players li {
+  padding-left: 0;
+}
+
+.turnaje-team-slot__players li::before {
+  content: none;
 }
 
 .turnaje-team-slot--empty {
@@ -826,7 +853,7 @@ body.schedule-display-open {
 
 @media (max-width: 1200px) {
   .turnaje-team-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
 
@@ -1075,11 +1102,21 @@ body.schedule-display-open {
 
   .turnaje-team-slot__summary,
   .turnaje-team-slot__players {
-    padding: 12px;
+    padding: 9px;
+  }
+
+  .turnaje-team-slot__summary {
+    grid-template-rows: 30px minmax(62px, 1fr) minmax(30px, auto);
+    gap: 5px;
+  }
+
+  .turnaje-team-slot__summary img {
+    max-height: 68px;
   }
 
   .turnaje-team-slot strong {
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.06;
   }
 
   .turnaje-team-slot__players h3 {
