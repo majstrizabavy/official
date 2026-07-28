@@ -1771,7 +1771,9 @@ button.turnaje-hero__photo {
     overflow-y: hidden;
     justify-content: flex-start;
     border-radius: 24px;
+    overscroll-behavior-x: contain;
     scroll-snap-type: x proximity;
+    touch-action: pan-x;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
