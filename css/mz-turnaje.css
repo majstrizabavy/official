@@ -498,8 +498,13 @@ button.turnaje-hero__photo {
 }
 
 .turnaje-tabs-prompt {
-  width: min(1160px, calc(100% - 36px));
-  margin: 18px auto 10px;
+  width: fit-content;
+  max-width: calc(100% - 36px);
+  margin: 18px auto 12px;
+  padding: 8px 14px;
+  border: 2px solid rgba(16, 23, 7, 0.14);
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--turnaje-lime), var(--turnaje-yellow));
   color: var(--turnaje-ink);
   font-family: var(--font-ui);
   font-size: 13px;
@@ -507,6 +512,7 @@ button.turnaje-hero__photo {
   letter-spacing: 0.08em;
   text-align: center;
   text-transform: uppercase;
+  box-shadow: 0 12px 28px rgba(33, 43, 10, 0.16);
 }
 
 .turnaje-tabs {
@@ -520,11 +526,16 @@ button.turnaje-hero__photo {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 10px;
-  border: 2px solid rgba(16, 23, 7, 0.22);
+  padding: 12px;
+  border: 4px solid var(--turnaje-lime);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 20px 46px rgba(33, 43, 10, 0.15);
+  background:
+    linear-gradient(135deg, rgba(233, 255, 72, 0.2), rgba(255, 255, 255, 0.9)),
+    rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 0 0 1px rgba(16, 23, 7, 0.1),
+    0 20px 46px rgba(33, 43, 10, 0.18),
+    0 0 28px rgba(199, 255, 46, 0.28);
   backdrop-filter: blur(14px);
 }
 
@@ -538,10 +549,10 @@ button.turnaje-hero__photo {
   align-items: center;
   justify-content: center;
   padding: 0 14px;
-  border: 1px solid rgba(16, 23, 7, 0.12);
+  border: 1px solid rgba(16, 23, 7, 0.16);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.66);
-  color: rgba(16, 23, 7, 0.78);
+  background: rgba(255, 255, 255, 0.78);
+  color: rgba(16, 23, 7, 0.86);
   cursor: pointer;
   font-size: 10px;
   font-weight: 950;
@@ -552,7 +563,7 @@ button.turnaje-hero__photo {
 }
 
 .turnaje-tabs a:hover {
-  border-color: rgba(16, 23, 7, 0.32);
+  border-color: rgba(16, 23, 7, 0.42);
   background: var(--turnaje-lime);
   color: var(--turnaje-ink);
   transform: translateY(-1px);
@@ -1363,8 +1374,8 @@ button.turnaje-hero__photo {
 
 .turnaje-team-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .turnaje-team-slot {
@@ -1374,12 +1385,12 @@ button.turnaje-hero__photo {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
   align-items: center;
-  gap: 10px;
-  padding: clamp(14px, 2vw, 20px);
+  gap: 8px;
+  padding: clamp(10px, 1.2vw, 14px);
   border: 2px solid rgba(16, 23, 7, 0.1);
-  border-radius: 24px;
+  border-radius: 18px;
   background: #fff;
-  box-shadow: 0 18px 36px rgba(33, 43, 10, 0.12);
+  box-shadow: 0 14px 28px rgba(33, 43, 10, 0.1);
   color: var(--turnaje-ink);
   text-align: left;
   overflow: hidden;
@@ -1407,9 +1418,10 @@ button.turnaje-hero__photo {
 .turnaje-team-slot strong {
   display: block;
   color: inherit;
-  font-size: clamp(15px, 1.5vw, 18px);
+  font-size: clamp(13px, 1.05vw, 16px);
   font-weight: 950;
   line-height: 1.14;
+  text-align: center;
 }
 
 .turnaje-team-slot--registered {
@@ -1543,6 +1555,12 @@ button.turnaje-hero__photo {
 
 .turnaje-final-cta .turnaje-btn {
   margin-top: 24px;
+}
+
+@media (max-width: 1200px) {
+  .turnaje-team-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 980px) {
@@ -1756,6 +1774,12 @@ button.turnaje-hero__photo {
     scroll-snap-type: x proximity;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+  }
+
+  .turnaje-tabs-prompt {
+    padding: 7px 12px;
+    font-size: 11px;
+    line-height: 1.25;
   }
 
   .turnaje-tabs::after {
