@@ -754,10 +754,7 @@ body.schedule-display-open {
 
 @media (max-width: 640px) {
   .schedule-display-trigger {
-    right: 14px;
-    bottom: 14px;
-    padding: 12px 14px;
-    font-size: 12px;
+    display: none;
   }
 
   .schedule-display {
