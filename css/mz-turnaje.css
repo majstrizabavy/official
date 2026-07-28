@@ -1428,6 +1428,96 @@ button.turnaje-hero__photo {
   background: linear-gradient(135deg, #fff, #f5ffe2);
 }
 
+details.turnaje-team-slot {
+  display: block;
+  cursor: pointer;
+  padding: 0;
+  perspective: 900px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+details.turnaje-team-slot[open] {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-color: rgba(22, 134, 58, 0.36);
+  box-shadow: 0 20px 44px rgba(33, 43, 10, 0.16);
+}
+
+.turnaje-team-slot__summary {
+  position: absolute;
+  inset: 0;
+  padding: clamp(10px, 1.2vw, 14px);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  backface-visibility: hidden;
+  transform: rotateY(0deg);
+  transition: transform 0.32s ease;
+}
+
+.turnaje-team-slot__summary::-webkit-details-marker {
+  display: none;
+}
+
+details.turnaje-team-slot[open] .turnaje-team-slot__summary {
+  transform: rotateY(180deg);
+}
+
+details.turnaje-team-slot[open] img {
+  max-height: none;
+}
+
+.turnaje-team-slot__players {
+  position: absolute;
+  inset: 0;
+  min-width: 0;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f5ffe2, #ffffff);
+  backface-visibility: hidden;
+  transform: rotateY(-180deg);
+  transition: transform 0.32s ease;
+}
+
+details.turnaje-team-slot[open] .turnaje-team-slot__players {
+  transform: rotateY(0deg);
+}
+
+.turnaje-team-slot__players h3,
+.turnaje-team-slot__players p,
+.turnaje-team-slot__players ul {
+  margin: 0;
+}
+
+.turnaje-team-slot__players h3 {
+  color: #16863a;
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.turnaje-team-slot__players ul {
+  display: grid;
+  gap: 4px;
+  padding: 0;
+  list-style: none;
+}
+
+.turnaje-team-slot__players li,
+.turnaje-team-slot__players p {
+  color: rgba(16, 23, 7, 0.78);
+  font-size: clamp(10px, 0.86vw, 12px);
+  font-weight: 850;
+  line-height: 1.2;
+  text-align: center;
+}
+
 .turnaje-team-slot--empty {
   cursor: pointer;
   border-style: dashed;
@@ -1703,11 +1793,26 @@ button.turnaje-hero__photo {
 
   .turnaje-team-slot {
     border-radius: 18px;
+    padding: 0;
+  }
+
+  .turnaje-team-slot__summary,
+  .turnaje-team-slot__players {
     padding: 12px;
   }
 
   .turnaje-team-slot strong {
     font-size: 14px;
+  }
+
+  .turnaje-team-slot__players h3 {
+    font-size: 9px;
+  }
+
+  .turnaje-team-slot__players li,
+  .turnaje-team-slot__players p {
+    font-size: 10px;
+    line-height: 1.12;
   }
 
   .turnaje-lightbox {
