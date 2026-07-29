@@ -2262,18 +2262,37 @@ body.projects-v2 #projekty {
   }
 
   .projects-v2-hero__visual {
-    min-height: 350px;
+    display: grid;
+    gap: 10px;
+    min-height: 0;
   }
 
   .projects-v2-hero-tile {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    min-height: 118px;
+    height: auto;
     border-width: 5px;
     border-radius: 20px;
+    transform: none;
+    z-index: auto;
+  }
+
+  .projects-v2-hero-tile:hover {
+    transform: translateY(-2px);
+  }
+
+  .projects-v2-hero-tile img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
   }
 
   .projects-v2-hero-tile span {
     left: 12px;
     bottom: 10px;
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .projects-v2-facts {
