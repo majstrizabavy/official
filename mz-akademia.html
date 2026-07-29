@@ -9,8 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=20260601-native-cursor">
   <link rel="stylesheet" href="css/projekty.css?v=20260414-polish-1">
+  <link rel="stylesheet" href="css/mz-akademia.css?v=20260729-akademia-refresh-1">
 </head>
-<body class="project-page project-page--akademia">
+<body class="project-page project-page--akademia akademia-page-body">
 
   <nav id="navbar">
     <a href="index.html" class="nav-logo" data-nav="home"><span class="nav-logo__mark" aria-hidden="true">MZ</span><span class="nav-logo__wordmark"><span class="nav-logo__main">MAJSTRI</span> <span class="nav-logo__accent">ZÁBAVY</span></span></a>
@@ -36,139 +37,147 @@
     <a href="navrhni-si-akciu.html" class="mobile-nav-cta" data-nav="navrhni-akciu" data-mobile-close>Navrhni si akciu</a>
   </div>
 
-  <main class="page-shell">
-    <a href="projekty.html" class="project-back-link">&larr; Spat na Projekty MZ</a>
+  <main class="akademia-page" id="akademia">
+    <a href="projekty.html" class="akademia-back-link">&larr; Späť na Projekty MZ</a>
 
-    <!-- HERO SEKCIA -->
-    <section class="project-detail-hero">
-      <div class="project-detail-hero__grid">
-        <div class="project-detail-hero__copy">
-          <div class="project-detail-kicker">Vzdelavaci MZ projekt</div>
-          <h1 class="project-detail-title">MZ AKADEMIA</h1>
-          <p class="project-detail-headline">Skolenia animatorov a ludi, ktori chcu tvorit zabavu.</p>
-          <p class="project-detail-copy">MZ AKADEMIA je priestor pre rozvoj ludi, ktori sa chcu ucit, ako tvorit zazitok, viest skupinu a pracovat so zabavou profesionalne aj srdcom. Projekt je pripraveny ako dlhodobo rastuci vzdelavaci format.</p>
-          <div class="project-detail-actions">
-            <a href="kontakt.html" class="btn-primary">Zistit viac</a>
-            <a href="navrhni-si-akciu.html" class="btn-ghost">Navrhnut spolupracu</a>
-          </div>
+    <section class="akademia-hero" aria-labelledby="akademia-title">
+      <div class="akademia-hero__copy">
+        <p class="akademia-kicker">MZ Akadémia · brigády, školenia, prax</p>
+        <h1 id="akademia-title"><span>Staň sa</span><span><em>animátorom.</em></span></h1>
+        <p class="akademia-hero__lead">Zarábaj, zabávaj sa a získaj skúsenosti, ktoré sa ti zídu v živote.</p>
+        <div class="akademia-hero__actions">
+          <a href="mailto:info@majstrizabavy.sk?subject=MZ%20Akademia%20-%20chcem%20ist%20na%20skolenie" class="akademia-btn akademia-btn--primary">Chcem ísť na školenie</a>
+          <a href="#terminy" class="akademia-btn akademia-btn--ghost">Pozrieť termíny</a>
         </div>
-        <div class="project-detail-visual project-detail-visual--photo">
-          <img src="assets/images/projekty/mzakademia.png" alt="MZ Akademia hlavny vizual" class="project-detail-visual__image">
-          <div class="project-detail-visual__copy">
-            <div class="project-detail-visual__label">Know-how. Ludia. Rast.</div>
-            <p class="project-detail-visual__meta">Hlavny promo vizual projektu MZ AKADEMIA.</p>
-          </div>
+        <div class="akademia-hero__note">
+          <strong>Pre študentov, rodičov aj nových ľudí.</strong>
+          <span>Najprv ťa zaškolíme, potom ťa zoberieme do reálnej akcie.</span>
         </div>
+      </div>
+
+      <div class="akademia-hero__visual" aria-label="MZ Akadémia hlavný vizuál">
+        <img src="assets/images/projekty/mzakademia.png" alt="MZ Akadémia Majstrov zábavy">
+        <div class="akademia-hero__badge">
+          <span>Začni bezpečne</span>
+          <strong>Školenie + prax</strong>
+        </div>
+      </div>
+
+      <div class="akademia-quick-cards" aria-label="Rýchly prehľad MZ Akadémie">
+        <article><span>Pre koho</span><strong>Noví animátori</strong><small>študenti, brigádnici, pomocníci</small></article>
+        <article><span>Čo získaš</span><strong>Prax v tíme</strong><small>reálne akcie, skúsený supervízor</small></article>
+        <article><span>Rodičia</span><strong>Jasné pravidlá</strong><small>súhlas rodiča a férový prístup</small></article>
+        <article><span>Ďalší krok</span><strong>Prvé školenie</strong><small>termín doplníme podľa záujmu</small></article>
       </div>
     </section>
 
-    <div class="project-sections">
-      <!-- O PROJEKTE -->
-      <section class="project-section">
-        <div class="project-section__eyebrow">O projekte</div>
-        <h2 class="project-section__title">Co je MZ AKADEMIA</h2>
-        <p class="project-section__copy">MZ AKADEMIA je projekt, ktory ma prepajat prakticke skusenosti, vedenie ludi a tvorbu zazitku do jedneho uceleneho vzdelavacieho formatu. Je to miesto, kde sa ma profesionalita stretavat s realnou eventovou praxou.</p>
-      </section>
+    <nav class="akademia-tabs" aria-label="Navigácia MZ Akadémie">
+      <a href="#o-christianovi">Garant</a>
+      <a href="#preco-mz">Prečo MZ</a>
+      <a href="#postup">Ako to funguje</a>
+      <a href="#terminy">Termíny</a>
+      <a href="#rodicia">Pre rodičov</a>
+    </nav>
 
-      <!-- PRE KOHO JE PROJEKT -->
-      <section class="project-section">
-        <div class="project-section__eyebrow">Pre koho je projekt</div>
-        <h2 class="project-section__title">Komu je urceny</h2>
-        <div class="project-section__grid">
-          <article class="project-info-card">
-            <div class="project-info-card__label">Animatori</div>
-            <h3 class="project-info-card__title">Pre ludi, co chcu rast v praxi</h3>
-            <p class="project-info-card__copy">Projekt je urceny tym, ktori sa chcu naucit tvorit zabavu profesionalne a sebavedomo.</p>
-          </article>
-          <article class="project-info-card">
-            <div class="project-info-card__label">Eventovi ludia</div>
-            <h3 class="project-info-card__title">Pre tych, co chcu vediet viac</h3>
-            <p class="project-info-card__copy">Obsah sa da smerovat na vedenie programu, pracu s ludmi a eventovu prax.</p>
-          </article>
-          <article class="project-info-card">
-            <div class="project-info-card__label">Znacky a partneri</div>
-            <h3 class="project-info-card__title">Pre buduce vzdelavacie prepojenia</h3>
-            <p class="project-info-card__copy">Priestor na certifikacne, partnerske alebo interne firemne formaty.</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- CO PROJEKT PONUKA -->
-      <section class="project-section">
-        <div class="project-section__eyebrow">Co projekt ponuka</div>
-        <h2 class="project-section__title">Obsah, benefity a format</h2>
-        <div class="project-feature-list">
-          <article class="project-feature">
-            <div class="project-feature__index">01</div>
-            <h3 class="project-feature__title">Prakticke skolenia</h3>
-            <p class="project-feature__copy">Obsah pripravovany tak, aby sa dal vyuzit v realnej praxi a nie len v teorii.</p>
-          </article>
-          <article class="project-feature">
-            <div class="project-feature__index">02</div>
-            <h3 class="project-feature__title">Vedenie ludi</h3>
-            <p class="project-feature__copy">Dolezity bude aj rozvoj komunikacie, prirodzeneho vedenia a eventoveho mindsetu.</p>
-          </article>
-          <article class="project-feature">
-            <div class="project-feature__index">03</div>
-            <h3 class="project-feature__title">Rastuci format</h3>
-            <p class="project-feature__copy">Priestor na buduce workshopy, seria modulov, certifikacie aj dalsie obsahove vetvy.</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- GALERIA / VIZUAL -->
-      <section class="project-section">
-        <div class="project-section__eyebrow">Galeria a vizual</div>
-        <h2 class="project-section__title">Priestor na vizualy zo skoleni a promo materialy</h2>
-        <div class="project-visual-grid">
-          <article class="project-visual-card project-visual-card--wide">
-            <div class="project-visual-card__label">Hlavny vizual</div>
-            <h3 class="project-visual-card__title">Skolenie, workshop alebo teaser</h3>
-            <p class="project-visual-card__copy">Miesto pre buduce video, foto z treningov alebo hlavny komunikacny vizual.</p>
-          </article>
-          <article class="project-visual-card">
-            <div class="project-visual-card__label">Obsah</div>
-            <h3 class="project-visual-card__title">Moduly a temy</h3>
-            <p class="project-visual-card__copy">Priestor na ukazky tem, materialov a obsahu projektu.</p>
-          </article>
-          <article class="project-visual-card">
-            <div class="project-visual-card__label">Ludia</div>
-            <h3 class="project-visual-card__title">Tim a ucastnici</h3>
-            <p class="project-visual-card__copy">Vizualy, ktore ukazu energiu skoleni a ludi, ktori za projektom stoja.</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- STAV PROJEKTU / DOSTUPNOST -->
-      <section class="project-section">
-        <div class="project-section__eyebrow">Stav a dostupnost</div>
-        <h2 class="project-section__title">Priestor na terminy a moduly</h2>
-        <div class="project-status-grid">
-          <article class="project-status-card">
-            <h3 class="project-status-card__title">Moduly</h3>
-            <p class="project-status-card__copy">Pripraveny priestor na buduce vypisanie skoleni, modulov a rozsahu obsahu.</p>
-          </article>
-          <article class="project-status-card">
-            <h3 class="project-status-card__title">Terminy</h3>
-            <p class="project-status-card__copy">Sekcia pripravena na datumy, kapacity a registracne info.</p>
-          </article>
-          <article class="project-status-card">
-            <h3 class="project-status-card__title">Dostupnost</h3>
-            <p class="project-status-card__copy">Priestor na buduce info o otvorenych kurzoch alebo internych skoleniach.</p>
-          </article>
-        </div>
-      </section>
-    </div>
-
-    <!-- CTA SEKCIA -->
-    <section class="project-cta-band">
-      <div class="project-cta-band__copy">
-        <h3>Chcete vediet viac o MZ AKADEMII?</h3>
-        <p>Ozvite sa nam a pripravime vam viac informacii o smere projektu, obsahu alebo moznostiach spoluprace.</p>
+    <section class="akademia-section akademia-founder" id="o-christianovi">
+      <div class="akademia-founder__photo">
+        <img src="assets/images/projekty/mzakademia.png" alt="Mgr. Christián Vaľko - zakladateľ Majstrov zábavy">
+        <span>Fotku doplníme</span>
       </div>
-      <div class="project-cta-band__actions">
-        <a href="kontakt.html" class="btn-primary">Kontaktovat nas</a>
-        <a href="projekty.html" class="btn-ghost">Spat na projekty</a>
+      <div class="akademia-founder__copy">
+        <p class="akademia-section__eyebrow">Garant Akadémie</p>
+        <h2>Mgr. Christián Vaľko</h2>
+        <p class="akademia-founder__role">Zakladateľ, Majstri zábavy</p>
+        <div class="akademia-wow-list">
+          <p><span>15+</span> rokov praxe v zábave a animácii</p>
+          <p><span>SK</span> skúsenosti zo Sicílie, Malorky aj lode MSC Lirica</p>
+          <p><span>Tím</span> šéfanimátor medzinárodných tímov v rezortoch</p>
+          <p><span>Mgr.</span> vyštudovaný pedagóg</p>
+          <p><span>2020</span> aktívne pôsobí ako učiteľ</p>
+          <p><span>2015</span> vlastná umelecká značka christianalex.sk</p>
+          <p><span>MZ</span> zakladateľ spoločnosti Majstri zábavy</p>
+        </div>
+        <blockquote>„Chcem, aby mladí ľudia zažili prácu, pri ktorej rastú, neboja sa ľudí a učia sa niesť zodpovednosť.“</blockquote>
+      </div>
+    </section>
+
+    <section class="akademia-section" id="preco-mz">
+      <div class="akademia-section__head">
+        <span>Majstri zábavy</span>
+        <h2>Prečo nám rodičia veria</h2>
+        <p>Nechceme nikoho hodiť do vody. Nových ľudí vedieme krok za krokom a na akciách nie sú sami.</p>
+      </div>
+      <div class="akademia-trust-grid">
+        <article><strong>Akadémia pred praxou</strong><p>Každý nový animátor najprv prejde základným školením.</p></article>
+        <article><strong>Supervízor na akcii</strong><p>Na začiatku je pri tíme skúsený dospelý človek.</p></article>
+        <article><strong>Ukážeme, čo a ako</strong><p>Prvú akciu berieme ako učenie v praxi, nie skúšku odvahy.</p></article>
+        <article><strong>Jasná komunikácia</strong><p>Rodič aj brigádnik vedia, kam idú, čo robia a koho kontaktovať.</p></article>
+        <article><strong>Súhlas rodiča</strong><p>Pri neplnoletých riešime súhlas a základné pravidlá vopred.</p></article>
+        <article><strong>Partia a rešpekt</strong><p>Chceme tím, kde sa ľudia cítia prijatí, ale vedia byť zodpovední.</p></article>
+      </div>
+    </section>
+
+    <section class="akademia-section akademia-steps" id="postup">
+      <div class="akademia-section__head akademia-section__head--compact">
+        <span>Ako to funguje</span>
+        <h2>Od prihlásenia po prvú brigádu.</h2>
+      </div>
+      <div class="akademia-step-grid">
+        <article><strong>01</strong><span>Prihlásiš sa.</span><p>Napíš nám cez email alebo sociálne siete.</p></article>
+        <article><strong>02</strong><span>Prídeš na školenie.</span><p>Prejdeme základy práce s deťmi a programom.</p></article>
+        <article><strong>03</strong><span>Zažiješ prax.</span><p>Zoberieme ťa na akciu a ukážeme ti systém.</p></article>
+        <article><strong>04</strong><span>Dostávaš ponuky.</span><p>Jednorazové aj pravidelné brigády podľa možností.</p></article>
+        <article><strong>05</strong><span>Sleduješ MZ.</span><p>Pridaj si nás na siete, aby ti neušli nové výzvy.</p></article>
+      </div>
+    </section>
+
+    <section class="akademia-section akademia-schedule" id="terminy">
+      <div class="akademia-section__head">
+        <span>Školenia a ponuky</span>
+        <h2>Čo je najbližšie</h2>
+        <p>Táto časť bude slúžiť ako rýchly panel. Keď vypíšeme termín, človek ho nájde hneď tu.</p>
+      </div>
+      <div class="akademia-schedule__grid">
+        <article class="is-featured">
+          <span>Najbližšie školenie</span>
+          <strong>Termín doplníme</strong>
+          <p>MZ Akadémia pre nových animátorov a brigádnikov.</p>
+          <a href="mailto:info@majstrizabavy.sk?subject=MZ%20Akademia%20-%20prosim%20poslite%20termin" class="akademia-mini-link">Chcem info o termíne</a>
+        </article>
+        <article>
+          <span>Prvá akcia</span>
+          <strong>Prídeš sa pozrieť</strong>
+          <p>Na začiatku ťa zoberieme priamo do tímu a ukážeme ti prax.</p>
+        </article>
+        <article>
+          <span>Aktuálne ponuky</span>
+          <strong>Sleduj sociálne siete</strong>
+          <p>Nové brigády budeme pridávať aj na Instagram a TikTok.</p>
+          <a href="https://www.instagram.com/majstrizabavy/" target="_blank" rel="noopener noreferrer" class="akademia-mini-link">Otvoriť Instagram</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="akademia-section akademia-parents" id="rodicia">
+      <div class="akademia-section__head akademia-section__head--compact">
+        <span>Pre rodičov</span>
+        <h2>Na tomto záleží najviac.</h2>
+      </div>
+      <div class="akademia-parent-grid">
+        <article><strong>Bezpečie</strong><p>Mladí ľudia nejdú na akciu bez vedenia a základného zaškolenia.</p></article>
+        <article><strong>Komunikácia</strong><p>Vopred povieme miesto, čas, náplň práce aj kontaktnú osobu.</p></article>
+        <article><strong>Zodpovednosť</strong><p>Učíme dochvíľnosť, komunikáciu, prácu v tíme a rešpekt k deťom.</p></article>
+        <article><strong>Skúsenosť</strong><p>Brigáda má byť viac než zárobok. Má mladému človeku niečo dať.</p></article>
+      </div>
+    </section>
+
+    <section class="akademia-final-cta">
+      <span>MZ AKADÉMIA</span>
+      <h2>Chceš sa pridať?</h2>
+      <p>Napíš nám krátko, kto si, koľko máš rokov a či chceš prísť na najbližšie školenie.</p>
+      <div class="akademia-final-cta__actions">
+        <a href="mailto:info@majstrizabavy.sk?subject=MZ%20Akademia%20-%20chcem%20sa%20pridat" class="akademia-btn akademia-btn--dark">Prihlásiť sa</a>
+        <a href="https://www.instagram.com/majstrizabavy/" target="_blank" rel="noopener noreferrer" class="akademia-btn akademia-btn--ghost">Napísať na Instagram</a>
       </div>
     </section>
   </main>
