@@ -1378,6 +1378,14 @@ button.turnaje-hero__photo {
   gap: 10px;
 }
 
+.turnaje-team-hint {
+  margin: 8px 0 0;
+  color: rgba(16, 23, 7, 0.7);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
 .turnaje-team-slot {
   position: relative;
   min-width: 0;
