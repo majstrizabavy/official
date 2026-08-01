@@ -720,7 +720,44 @@ details.turnaje-team-slot[open] .turnaje-team-slot__players {
   display: block;
   width: 34px;
   height: 34px;
+  margin: 0 auto;
   object-fit: contain;
+}
+
+.tournament-stats-table--players th:nth-child(2),
+.tournament-stats-table--players td:nth-child(2) {
+  text-align: center;
+}
+
+.tournament-stats-table--players th:nth-child(3),
+.tournament-stats-table--players td:nth-child(3) {
+  text-align: left;
+}
+
+.tournament-stats-notes {
+  max-width: none;
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.tournament-stats-notes p {
+  max-width: none;
+  margin: 0;
+  color: rgba(16, 23, 7, 0.68);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.tournament-awards-table th:first-child,
+.tournament-awards-table td:first-child,
+.tournament-awards-table th:nth-child(2),
+.tournament-awards-table td:nth-child(2),
+.tournament-awards-table th:nth-child(3),
+.tournament-awards-table td:nth-child(3) {
+  text-align: center;
 }
 
 .score-cell {
@@ -1068,6 +1105,60 @@ body.schedule-display-open {
     width: 24px;
     height: 24px;
     margin: 0 auto;
+  }
+
+  .tournament-stats-notes {
+    grid-template-columns: 1fr;
+  }
+
+  .tournament-awards-table {
+    display: block;
+  }
+
+  .tournament-awards-table thead {
+    display: none;
+  }
+
+  .tournament-awards-table tbody {
+    display: grid;
+    gap: 8px;
+  }
+
+  .tournament-awards-table tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 4px 8px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(16, 23, 7, 0.08);
+  }
+
+  .tournament-awards-table td {
+    display: block;
+    width: auto !important;
+    padding: 0;
+    border-bottom: 0;
+    text-align: left;
+    overflow-wrap: anywhere;
+  }
+
+  .tournament-awards-table td:first-child {
+    grid-column: 1 / -1;
+    color: #16863a;
+    font-family: var(--font-ui);
+    font-size: 8px;
+    font-weight: 950;
+    letter-spacing: 0.08em;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  .tournament-awards-table td:nth-child(2),
+  .tournament-awards-table td:nth-child(3) {
+    color: var(--turnaje-ink);
+    font-size: 11px;
+    font-weight: 900;
+    line-height: 1.2;
+    text-align: left;
   }
 
   .tournament-stats-table--teams th:nth-child(2),
