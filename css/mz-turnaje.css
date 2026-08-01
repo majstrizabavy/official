@@ -144,7 +144,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  align-items: flex-start;
   margin-top: 24px;
+}
+
+.turnaje-hero__result-actions {
+  display: grid;
+  gap: 10px;
 }
 
 .turnaje-btn {
@@ -1766,6 +1772,10 @@ details.turnaje-team-slot[open] .turnaje-team-slot__players {
   }
 
   .turnaje-hero__actions {
+    display: grid;
+  }
+
+  .turnaje-hero__result-actions {
     display: grid;
   }
 
